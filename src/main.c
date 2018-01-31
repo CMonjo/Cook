@@ -7,15 +7,25 @@
 
 #include "main.h"
 
-void printHello()
+void printRouge()
 {
-	printf("Hello\n");
+	printf("Rouge\n");
 }
 
-// int buttonIsClicked(sys_t *sys, sfVector2f clickPosition)
-// {
-// 	return (clickPosition.x < sfRectangleShape_getPosition(sys->button->rect[0]).x + sfRectangleShape_getSize(sys->button->rect[0]).x && clickPosition.x > sfRectangleShape_getPosition(sys->button->rect[0]).x && clickPosition.y < sfRectangleShape_getPosition(sys->button->rect[0]).y + sfRectangleShape_getSize(sys->button->rect[0]).y && clickPosition.y > sfRectangleShape_getPosition(sys->button->rect[0]).y);
-// }
+void printVert()
+{
+	printf("Vert\n");
+}
+
+void printBlanc()
+{
+	printf("Blanc\n");
+}
+
+int buttonIsClicked(sys_t *sys, int i, sfVector2f clickPosition)
+{
+	return (clickPosition.x < sfRectangleShape_getPosition(sys->button[i]->rect).x + sfRectangleShape_getSize(sys->button[i]->rect).x && clickPosition.x > sfRectangleShape_getPosition(sys->button[i]->rect).x && clickPosition.y < sfRectangleShape_getPosition(sys->button[i]->rect).y + sfRectangleShape_getSize(sys->button[i]->rect).y && clickPosition.y > sfRectangleShape_getPosition(sys->button[i]->rect).y);
+}
 
 void analyse_events(sys_t *sys)
 {
@@ -23,14 +33,16 @@ void analyse_events(sys_t *sys)
 		if (sys->event.type == sfEvtClosed) {
 			sfRenderWindow_close(sys->win);
 		}
-		// if (sys->event.type == sfEvtMouseButtonPressed) {
-		// 	if (buttonIsClicked(sys, (sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
-		// 		printHello();
-		// }
+		if (sys->event.type == sfEvtMouseButtonPressed) {
+			for (int i = 0; sys->button[i] != NULL; i++) {
+				if (buttonIsClicked(sys, i, (sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
+					sys->button[i]->callback();
+			}
+		}
 	}
 }
 
-button_t *buttonInitialise(sys_t *sys, sfVector2f position, sfVector2f size, sfColor color)
+button_t *buttonInitialise(sfVector2f position, sfVector2f size, sfColor color, void (*func)(void))
 {
 	button_t *new = malloc(sizeof(button_t));
 
@@ -40,12 +52,17 @@ button_t *buttonInitialise(sys_t *sys, sfVector2f position, sfVector2f size, sfC
 	sfRectangleShape_setPosition(new->rect, position);
 	sfRectangleShape_setSize(new->rect, size);
 	sfRectangleShape_setFillColor(new->rect, color);
+	new->callback = func;
 	return (new);
 }
 
 void addButton(sys_t *sys)
 {
-	sys->button[0]->rect = buttonInitialise(sys, (sfVector2f){100, 100}, (sfVector2f){100, 100}, sfRed);
+	sys->button[0] = buttonInitialise((sfVector2f){200, 100}, (sfVector2f){100, 100}, sfRed, printRouge);
+	sys->button[1] = buttonInitialise((sfVector2f){400, 100}, (sfVector2f){100, 100}, sfGreen, printVert);
+	sys->button[2] = buttonInitialise((sfVector2f){600, 100}, (sfVector2f){100, 100}, sfWhite, printBlanc);
+	sys->button[3] = NULL;
+
 }
 
 int main(void)
@@ -62,6 +79,8 @@ int main(void)
 		sfRenderWindow_clear(sys->win, sfBlack);
 		analyse_events(sys);
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[0]->rect, NULL);
+		sfRenderWindow_drawRectangleShape(sys->win, sys->button[1]->rect, NULL);
+		sfRenderWindow_drawRectangleShape(sys->win, sys->button[2]->rect, NULL);
 		sfRenderWindow_display(sys->win);
 	}
 	return (0);

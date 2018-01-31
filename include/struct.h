@@ -12,8 +12,14 @@
 
 typedef struct button_s {
 	sfRectangleShape *rect;
-	void(*callback)();
+	char *msg;
+	void(*callback)(void);
 } button_t;
+
+// typedef struct scene_s {
+// 	struct game_object_s *objs;
+// 	button_t *button[10];
+// } scene_t;
 
 typedef struct sys_s {
 	sfRenderWindow* win;

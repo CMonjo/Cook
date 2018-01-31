@@ -20,4 +20,5 @@
 	#include <stdio.h>
 	#include <time.h>
 	#include "struct.h"
+	#include "tools.h"
 #endif
