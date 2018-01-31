@@ -16,7 +16,6 @@ typedef struct button_s {
 
 typedef struct sys_s {
 	sfRenderWindow* win;
-	sfVector2f mouse;
 	sfEvent event;
 	sfClock *clock;
 	sfTime time;

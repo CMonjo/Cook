@@ -12,22 +12,19 @@ void printHello()
 	printf("Hello\n");
 }
 
-int buttonIsClicked(button_t button, sfVector2f clickPosition)
+int buttonIsClicked(button_t *button, sfVector2f clickPosition)
 {
-	return (clickPosition.x < sfRectangleShape_getPosition(button.rect).x + sfRectangleShape_getSize(button.rect).x && clickPosition.x > sfRectangleShape_getPosition(button.rect).x && clickPosition.y < sfRectangleShape_getPosition(button.rect).y + sfRectangleShape_getSize(button.rect).y && clickPosition.y > sfRectangleShape_getPosition(button.rect).y);
+	return (clickPosition.x < sfRectangleShape_getPosition(button->rect).x + sfRectangleShape_getSize(button->rect).x && clickPosition.x > sfRectangleShape_getPosition(button->rect).x && clickPosition.y < sfRectangleShape_getPosition(button->rect).y + sfRectangleShape_getSize(button->rect).y && clickPosition.y > sfRectangleShape_getPosition(button->rect).y);
 }
 
-void analyse_events(sys_t *sys)
+void analyse_events(sys_t *sys, button_t *button)
 {
-	while (sfRenderWindow_pollEvent(sys->win,
-		&(sys->event))) {
+	while (sfRenderWindow_pollEvent(sys->win, &(sys->event))) {
 		if (sys->event.type == sfEvtClosed) {
 			sfRenderWindow_close(sys->win);
 		}
 		if (sys->event.type == sfEvtMouseButtonPressed) {
-			sys->mouse.x = sys->event.mouseButton.x;
-			sys->mouse.y = sys->event.mouseButton.y;
-			if (buttonIsClicked(button, sfVector2f(sys->mouse.x, sys->mouse.y)) == 1)
+			if (buttonIsClicked(button, (sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
 				printHello();
 		}
 	}
@@ -56,7 +53,7 @@ int main(void)
 		sfRenderWindow_clear(sys->win, sfBlack);
 
 
-		analyse_events(sys);
+		analyse_events(sys, button);
 		sfRenderWindow_drawRectangleShape(sys->win, button->rect, NULL);
 		sfRenderWindow_display(sys->win);
 	}
