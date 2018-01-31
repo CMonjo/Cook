@@ -20,6 +20,7 @@ typedef struct sys_s {
 	sfEvent event;
 	sfClock *clock;
 	sfTime time;
+	button_t *button[10];
 } sys_t;
 
 #endif
