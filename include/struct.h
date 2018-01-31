@@ -12,6 +12,7 @@
 
 typedef struct button_s {
 	sfRectangleShape *rect;
+	void(*callback)();
 } button_t;
 
 typedef struct sys_s {
