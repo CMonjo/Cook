@@ -1,0 +1,42 @@
+Finite runner created with CSFML.
+The goal of the game is the best score without dying.
+
+USAGE
+	./my_runner map.tt
+	You can choose the map in the folder 'map'.
+
+OPTIONS
+	-i launch the game in infinity mode.
+	-h print the usage and quit.
+
+USER INTERACTIONS
+	SPACE_KEY jump.
+	UP scrolling up into the menu.
+	DOWN scrolling down into the menu.
+	ENTER select option into the menu.
+
+MAP EDITOR
+	/!\ THE MAP MUST HAVE ONLY 10 LINES, IF THERE ARE FEWER OR MORE, THE PROGRAM WILL NOT RUN /!\
+	Map have only 10 lines, the ground must be defined on the last two lines by blocks : '1', '2', '3' or '0' (empty).
+	The obstacles must be placed on the third line only.
+	- 0 = empty case
+	- 1 = dirt
+	- 2 = grass
+	- 3 = water
+	- T = tree
+	- F = fir tree
+	- O = obstacles
+	- S = saw
+	- M = mace
+
+EXEMPLE :
+	00000000000000000000000
+	00000000000000000000000
+	00000000000000000000000
+	00000000000000000000000
+	00000000000000000000000
+	00000000000000000000000
+	00000000000000000000000
+	0M0000O0000T000S0000000
+	22222222220022222222222
+	11111111113311111111111

@@ -7,6 +7,9 @@
 
 #ifndef MAIN_H_
 	#define MAIN_H_
+
+	// INCLUDES
+
 	#include <stdlib.h>
 	#include <stdio.h>
 	#include <unistd.h>
@@ -21,4 +24,10 @@
 	#include <time.h>
 	#include "struct.h"
 	#include "tools.h"
+
+	// PROTOTYPES
+
+	// DEFINE
+
+	// STRUCT
 #endif

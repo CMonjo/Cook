@@ -78,9 +78,8 @@ int main(void)
 	while (sfRenderWindow_isOpen(sys->win)) {
 		sfRenderWindow_clear(sys->win, sfBlack);
 		analyse_events(sys);
-		sfRenderWindow_drawRectangleShape(sys->win, sys->button[0]->rect, NULL);
-		sfRenderWindow_drawRectangleShape(sys->win, sys->button[1]->rect, NULL);
-		sfRenderWindow_drawRectangleShape(sys->win, sys->button[2]->rect, NULL);
+		for (int i = 0; sys->button[i] != NULL; i++)
+			sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_display(sys->win);
 	}
 	return (0);
