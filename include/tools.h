@@ -17,5 +17,4 @@
 	int my_getnbr(char const *str);
 	int my_str_isnum(char const *str);
 	int my_put_nbr(int nb);
-	char *my_read(int fd);
 #endif

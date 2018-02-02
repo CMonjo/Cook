@@ -7,51 +7,6 @@
 
 #include "main.h"
 
-int print_h(char const *filepath)
-{
-	int fd = 0;
-	int rd = 0;
-	char *buffer;
-
-	fd = open(filepath, O_RDONLY);
-	buffer = malloc(sizeof(char *) * 1200 + 1);
-	rd = read(fd, buffer, 1200);
-	if (rd <= 0)
-		return (84);
-	write(1, buffer, rd);
-	free(buffer);
-	return (0);
-}
-
-void analyse_events(sys_t *sys)
-{
-	while (sfRenderWindow_pollEvent(sys->win, &(sys->event))) {
-		if (sys->event.type == sfEvtClosed) {
-			sfRenderWindow_close(sys->win);
-		}
-		if (sys->event.type == sfEvtMouseMoved) {
-			sys->obj[99]->pos.x = sys->event.mouseMove.x - 21;
-			sys->obj[99]->pos.y = sys->event.mouseMove.y - 21;
-			sfSprite_setPosition(sys->obj[99]->sprite, sys->obj[99]->pos);
-		}
-		display_actionbar(sys);
-	}
-}
-
-void init_window(sys_t *sys)
-{
-	sfVideoMode mode = {1920, 1080, 32};
-	sys->win = sfRenderWindow_create(mode, "Cook",
-	sfResize | sfClose, NULL);
-	sfRenderWindow_setFramerateLimit(sys->win, 60);
-	sys->clock = sfClock_create();
-	sys->status = 0;
-	init_objects(sys);
-	init_text_menu(sys);
-	init_button(sys);
-	sfRenderWindow_setMouseCursorVisible(sys->win, sfFalse);
-}
-
 void which_status_game_loop(sys_t *sys)
 {
 	// if (sys->status == 2)
