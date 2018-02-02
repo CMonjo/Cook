@@ -13,7 +13,12 @@ CFLAGT	=	-Wall -Wextra -W -I include/ -lcsfml-graphics -lcsfml-audio -lcsfml-win
 
 LIB	=	-L ./lib/tools/ -ltools
 
-SRC	=	src/main.c
+SRC	=	src/main.c		\
+		src/engine.c		\
+		src/close_game.c	\
+		src/recipes.c	\
+		src/objects_handling.c
+
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -7,24 +7,20 @@
 
 #include "main.h"
 
-void printRouge()
+int print_h(char const *filepath)
 {
-	printf("Rouge\n");
-}
+	int fd = 0;
+	int rd = 0;
+	char *buffer;
 
-void printVert()
-{
-	printf("Vert\n");
-}
-
-void printBlanc()
-{
-	printf("Blanc\n");
-}
-
-int buttonIsClicked(sys_t *sys, int i, sfVector2f clickPosition)
-{
-	return (clickPosition.x < sfRectangleShape_getPosition(sys->button[i]->rect).x + sfRectangleShape_getSize(sys->button[i]->rect).x && clickPosition.x > sfRectangleShape_getPosition(sys->button[i]->rect).x && clickPosition.y < sfRectangleShape_getPosition(sys->button[i]->rect).y + sfRectangleShape_getSize(sys->button[i]->rect).y && clickPosition.y > sfRectangleShape_getPosition(sys->button[i]->rect).y);
+	fd = open(filepath, O_RDONLY);
+	buffer = malloc(sizeof(char *) * 1200 + 1);
+	rd = read(fd, buffer, 1200);
+	if (rd <= 0)
+		return (84);
+	write(1, buffer, rd);
+	free(buffer);
+	return (0);
 }
 
 void analyse_events(sys_t *sys)
@@ -33,54 +29,80 @@ void analyse_events(sys_t *sys)
 		if (sys->event.type == sfEvtClosed) {
 			sfRenderWindow_close(sys->win);
 		}
-		if (sys->event.type == sfEvtMouseButtonPressed) {
-			for (int i = 0; sys->button[i] != NULL; i++) {
-				if (buttonIsClicked(sys, i, (sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
-					sys->button[i]->callback();
-			}
+		if (sys->event.type == sfEvtMouseMoved) {
+			sys->obj[99]->pos.x = sys->event.mouseMove.x - 21;
+			sys->obj[99]->pos.y = sys->event.mouseMove.y - 21;
+			sfSprite_setPosition(sys->obj[99]->sprite, sys->obj[99]->pos);
 		}
+		display_actionbar(sys);
 	}
 }
 
-button_t *buttonInitialise(sfVector2f position, sfVector2f size, sfColor color, void (*func)(void))
+void init_window(sys_t *sys)
 {
-	button_t *new = malloc(sizeof(button_t));
-
-	if (new == NULL)
-		return (NULL);
-	new->rect = sfRectangleShape_create();
-	sfRectangleShape_setPosition(new->rect, position);
-	sfRectangleShape_setSize(new->rect, size);
-	sfRectangleShape_setFillColor(new->rect, color);
-	new->callback = func;
-	return (new);
-}
-
-void addButton(sys_t *sys)
-{
-	sys->button[0] = buttonInitialise((sfVector2f){200, 100}, (sfVector2f){100, 100}, sfRed, printRouge);
-	sys->button[1] = buttonInitialise((sfVector2f){400, 100}, (sfVector2f){100, 100}, sfGreen, printVert);
-	sys->button[2] = buttonInitialise((sfVector2f){600, 100}, (sfVector2f){100, 100}, sfWhite, printBlanc);
-	sys->button[3] = NULL;
-
-}
-
-int main(void)
-{
-	sys_t *sys = malloc(sizeof(sys_t));
-
 	sfVideoMode mode = {1920, 1080, 32};
 	sys->win = sfRenderWindow_create(mode, "Cook",
 	sfResize | sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(sys->win, 60);
 	sys->clock = sfClock_create();
-	addButton(sys);
+	sys->status = 0;
+	init_objects(sys);
+	init_text_menu(sys);
+	init_button(sys);
+	sfRenderWindow_setMouseCursorVisible(sys->win, sfFalse);
+}
+
+void which_status_game_loop(sys_t *sys)
+{
+	// if (sys->status == 2)
+	// 	option_menu(sys);
+	// else {
+		render_objects(sys);
+		if (sys->seconds > 0.02) {
+			//display_money(sys);
+			sfClock_restart(sys->clock);
+		}
+		//which_mod(sys);
+	//}
+}
+
+void which_status(sys_t *sys)
+{
+	// if (sys->status == 0)
+	// 	main_menu(sys);
+	// else if (sys->status == 1)
+	// 	end_menu(sys);
+	// else
+		which_status_game_loop(sys);
+}
+
+void my_window(sys_t *sys)
+{
+	init_window(sys);
 	while (sfRenderWindow_isOpen(sys->win)) {
 		sfRenderWindow_clear(sys->win, sfBlack);
 		analyse_events(sys);
-		for (int i = 0; sys->button[i] != NULL; i++)
-			sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
-		sfRenderWindow_display(sys->win);
+		sys->time = sfClock_getElapsedTime(sys->clock);
+		sys->seconds = sys->time.microseconds / 1000000.0;
+		which_status(sys);
 	}
+	destroy_objects(sys);
+}
+
+int main(int ac, char **av)
+{
+	sys_t *sys = malloc(sizeof(sys_t));
+
+	if (av[1] != NULL && my_strlen(av[1]) == 2 && av[1][0]
+	== '-' && av[1][1] == 'h') {
+		print_h(".legend");
+		return (0);
+	}
+	else if (ac != 1) {
+		my_putstr("You must type './my_cook'\n");
+		my_putstr("For more information use -h\n");
+		return (84);
+	}
+	my_window(sys);
 	return (0);
 }

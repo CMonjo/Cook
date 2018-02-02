@@ -7,6 +7,8 @@
 
 #ifndef _TOOLS_H_
 	#define _TOOLS_H_
+	#include "main.h"
+
 	void my_putchar(char c);
 	int my_putstr(char const *str);
 	int my_strlen(char const *str);
