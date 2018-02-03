@@ -13,14 +13,14 @@ CFLAGT	=	-Wall -Wextra -W -I include/ -lcsfml-graphics -lcsfml-audio -lcsfml-win
 
 LIB	=	-L ./lib/tools/ -ltools
 
-SRC	=	src/main.c		\
+SRC	=	src/main.c			\
 		src/action_bar/recipes.c	\
-		src/tools/engine.c	\
-		src/tools/display.c	\
-		src/tools/init.c	\
+		src/tools/engine.c		\
+		src/tools/display.c		\
+		src/tools/init.c		\
 		src/tools/objects_handling.c	\
-		src/game_handling/close_game.c	\
-		src/game/event/event_handling.c
+		src/game/close_game.c		\
+		src/game/event_handling.c
 
 
 
