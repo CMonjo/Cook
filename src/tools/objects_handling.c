@@ -44,10 +44,41 @@ void init_text_menu(sys_t *sys)
 {
 	int i = 0;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 100; i++)
 		sys->txt[i] = NULL;
 	sys->txt[0] = set_text("assets/font/bold.ttf",
 	(sfVector2f){0, 0}, "Money", 50);
+	sys->txt[1] = set_text("assets/font/bold.ttf",
+	(sfVector2f){180, 0}, "0$", 50);
+
+	sys->txt[2] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1000, 350}, "Cook", 150);
+	sys->txt[3] = set_text("assets/font/bold.ttf",
+	(sfVector2f){300, 350}, "Play", 50);
+	sys->txt[4] = set_text("assets/font/bold.ttf",
+	(sfVector2f){300, 450}, "Infinite mode", 50);
+	sys->txt[5] = set_text("assets/font/bold.ttf",
+	(sfVector2f){300, 550}, "Option", 50);
+	sys->txt[6] = set_text("assets/font/bold.ttf",
+	(sfVector2f){300, 650}, "RageQuit", 50);
+	sys->txt[7] = set_text("assets/font/bold.ttf",
+	(sfVector2f){900, 350}, "Red", 100);
+	sys->txt[8] = set_text("assets/font/bold.ttf",
+	(sfVector2f){900, 450}, "Blue", 100);
+	sys->txt[9] = set_text("assets/font/bold.ttf",
+	(sfVector2f){900, 550}, "Back", 100);
+	sys->txt[10] = set_text("assets/font/bold.ttf",
+	(sfVector2f){500, 100}, "Choose your skin !", 100);
+	sys->txt[11] = set_text("assets/font/bold.ttf",
+	(sfVector2f){100, 900}, "Your score : ", 50);
+	sys->txt[12] = set_text("assets/font/bold.ttf",
+	(sfVector2f){650, 150}, "You win !", 120);
+	sys->txt[13] = set_text("assets/font/bold.ttf",
+	(sfVector2f){650, 150}, "You lose !", 120);
+	sys->txt[14] = set_text("assets/font/bold.ttf",
+	(sfVector2f){400, 600}, "RageQuit", 70);
+	sys->txt[15] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1200, 600}, "Restart", 70);
 }
 
 void render_objects(sys_t *sys)
