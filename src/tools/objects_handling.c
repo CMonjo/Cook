@@ -14,8 +14,8 @@ void init_objects(sys_t *sys)
 	for (i = 0; i < 100; i++)
 		sys->obj[i] = NULL;
 	sys->obj[0] = add_obj("assets/img/hud/background.png",
-	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
-	sys->obj[1] = add_obj("assets/img/hud/ss.png",
+	(sfVector2f){0, -70}, (sfIntRect){0, 0, 1920, 1080});
+	sys->obj[1] = add_obj("assets/img/hud/bar.png",
 	(sfVector2f){0, 1010}, (sfIntRect){0, 0, 1980, 105});
 	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
 	(sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
