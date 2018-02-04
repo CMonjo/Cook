@@ -76,6 +76,9 @@
 	} sys_t;
 
 	// PROTOTYPES
+	void disp_cook(sys_t *sys);
+	void verif_button(sys_t *sys);
+	void button_cook(sys_t *sys);
 	void disp_recipe(sys_t *sys);
 	wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect
 	rect);
@@ -90,7 +93,7 @@
 	void init_button(sys_t *sys);
 	obj_t *add_obj(const char *path_sprite, sfVector2f pos, sfIntRect rect);
 	txt_t *set_text(char *font, sfVector2f pos, char *text, int size);
-	button_t *add_buttom(const char *path_sprite, sfVector2f pos, sfVector2f size, sfIntRect square, void (*func)(void));
+	button_t *add_buttom(const char *path_sprite, sfVector2f pos, sfVector2f size, sfIntRect square, void (*func)());
 	void render_objects(sys_t *sys);
 	void which_status(sys_t *sys);
 	void which_status_game_loop(sys_t *sys);

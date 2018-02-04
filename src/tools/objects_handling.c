@@ -31,15 +31,40 @@ void init_button(sys_t *sys)
 	sys->button[0] = add_buttom("assets/img/action_bar/pause.png",
 	(sfVector2f){31, 120}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_menu);
-	sys->button[1] = add_buttom("assets/img/action_bar/cook.png",
+	sys->button[1] = add_buttom("assets/img/action_bar/list.png",
  	(sfVector2f){31, 400}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_recipe);
 	sys->button[2] = add_buttom("assets/img/action_bar/market.png",
 	(sfVector2f){31, 680}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_ingredient);
-	sys->button[3] = add_buttom("assets/img/action_bar/list.png",
+	sys->button[3] = add_buttom("assets/img/action_bar/cook.png",
 	(sfVector2f){31, 960}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_cook);
+	//button cook
+	sys->button[4] = add_buttom("assets/img/action_bar/food/watermelon.png",
+	(sfVector2f){31, 120}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_menu);
+	sys->button[5] = add_buttom("assets/img/action_bar/food/pineapple.png",
+	(sfVector2f){31, 240}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_recipe);
+	sys->button[6] = add_buttom("assets/img/action_bar/food/orange.png",
+	(sfVector2f){31, 360}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_ingredient);
+	sys->button[7] = add_buttom("assets/img/action_bar/food/coffee.png",
+	(sfVector2f){31, 480}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_cook);
+	sys->button[4] = add_buttom("assets/img/action_bar/food/cherry.png",
+	(sfVector2f){31, 600}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_menu);
+	sys->button[5] = add_buttom("assets/img/action_bar/food/beer.png",
+	(sfVector2f){31, 720}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_recipe);
+	sys->button[6] = add_buttom("assets/img/action_bar/food/banana.png",
+	(sfVector2f){31, 840}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_ingredient);
+	sys->button[7] = add_buttom("assets/img/action_bar/food/apple.png",
+	(sfVector2f){31, 960}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_cook);
 }
 
 void init_windowsup(sys_t *sys)
@@ -50,6 +75,8 @@ void init_windowsup(sys_t *sys)
 		sys->wsup[i] = NULL;
 	sys->wsup[0] = add_sup("assets/img/action_bar/recette/recette.png",
 	(sfVector2f){200, 0}, (sfIntRect){0, 0, 1555, 1080});
+	sys->wsup[3] = add_sup("assets/img/action_bar/food/newbar.png",
+	(sfVector2f){10, 0}, (sfIntRect){0, 0, 100, 1080});
 }
 
 void init_text_menu(sys_t *sys)
@@ -89,14 +116,12 @@ void render_objects(sys_t *sys)
 		sfRenderWindow_drawSprite(sys->win, sys->obj[i]->sprite, NULL);
 		sfSprite_setTextureRect(sys->obj[i]->sprite, sys->obj[i]->rect);
 	}
-	for (i = 0; sys->button[i] != NULL; i++) {
+	for (i = 0; i < 4; i++) {
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
 	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
-	if (sys->wsup[0]->key == 0)
-		disp_recipe(sys);
-
+	verif_button(sys);
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
 	sfRenderWindow_drawSprite(sys->win, sys->obj[99]->sprite, NULL);
