@@ -13,16 +13,15 @@ void init_objects(sys_t *sys)
 
 	for (i = 0; i < 100; i++)
 		sys->obj[i] = NULL;
-	sys->obj[0] = add_obj("assets/img/hud/menu_bg.jpg",
+	sys->obj[0] = add_obj("assets/img/hud/bg_menu.png",
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
-	sys->obj[1] = add_obj("assets/img/hud/background.png",
+	sys->obj[1] = add_obj("assets/img/hud/bg.png",
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
 	(sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
 }
 
-// 85 par 72
-
+// TOUS LES BOUTONS FONT 80*80px
 void init_button(sys_t *sys)
 {
 	int i = 0;
@@ -30,16 +29,16 @@ void init_button(sys_t *sys)
 	for (i = 0; i < 100; i++)
 		sys->button[i] = NULL;
 	sys->button[0] = add_buttom("assets/img/action_bar/pause.png",
-	(sfVector2f){400, 1000}, (sfVector2f){76, 76},
+	(sfVector2f){31, 120}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_menu);
 	sys->button[1] = add_buttom("assets/img/action_bar/cook.png",
- 	(sfVector2f){950, 1000}, (sfVector2f){76, 76},
+ 	(sfVector2f){31, 400}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_recipe);
 	sys->button[2] = add_buttom("assets/img/action_bar/market.png",
-	(sfVector2f){1450, 1000}, (sfVector2f){76, 76},
+	(sfVector2f){31, 680}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_ingredient);
 	sys->button[3] = add_buttom("assets/img/action_bar/list.png",
-	(sfVector2f){950, 1000}, (sfVector2f){76, 76},
+	(sfVector2f){31, 960}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_recipe);
 }
 
