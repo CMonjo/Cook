@@ -30,14 +30,17 @@ void init_button(sys_t *sys)
 	for (i = 0; i < 100; i++)
 		sys->button[i] = NULL;
 	sys->button[0] = add_buttom("assets/img/action_bar/pause.png",
-	(sfVector2f){400, 1000}, (sfVector2f){80, 90},
-	(sfIntRect){0, 0, 85, 100}, button_menu);
-	sys->button[1] = add_buttom("assets/img/action_bar/couvert.png",
- 	(sfVector2f){950, 1000}, (sfVector2f){78, 88},
-	(sfIntRect){0, 0, 85, 100}, button_recipe);
-	sys->button[2] = add_buttom("assets/img/action_bar/cocktail.png",
-	(sfVector2f){1450, 1000}, (sfVector2f){65, 60},
-	(sfIntRect){0, 0, 85, 100}, button_ingredient);
+	(sfVector2f){400, 1000}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_menu);
+	sys->button[1] = add_buttom("assets/img/action_bar/cook.png",
+ 	(sfVector2f){950, 1000}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_recipe);
+	sys->button[2] = add_buttom("assets/img/action_bar/market.png",
+	(sfVector2f){1450, 1000}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_ingredient);
+	sys->button[3] = add_buttom("assets/img/action_bar/list.png",
+	(sfVector2f){950, 1000}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, button_recipe);
 }
 
 void init_windowsup(sys_t *sys)
@@ -94,6 +97,7 @@ void render_objects(sys_t *sys)
 	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
 	if (sys->wsup[0]->key == 0)
 		disp_recipe(sys);
+
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
 	sfRenderWindow_drawSprite(sys->win, sys->obj[99]->sprite, NULL);
