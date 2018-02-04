@@ -76,6 +76,7 @@
 	} sys_t;
 
 	// PROTOTYPES
+	void disp_menu(sys_t *sys);
 	void disp_cook(sys_t *sys);
 	void verif_button(sys_t *sys);
 	void button_cook(sys_t *sys);

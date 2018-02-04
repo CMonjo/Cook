@@ -23,9 +23,14 @@ int print_h(char const *filepath)
 	return (0);
 }
 
-void disp_recipe(sys_t *sys)
+void disp_menu(sys_t *sys)
 {
 	sfRenderWindow_drawSprite(sys->win, sys->wsup[0]->sprite, NULL);
+}
+
+void disp_recipe(sys_t *sys)
+{
+	sfRenderWindow_drawSprite(sys->win, sys->wsup[2]->sprite, NULL);	
 }
 
 void disp_cook(sys_t *sys)
