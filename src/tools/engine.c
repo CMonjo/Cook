@@ -7,8 +7,7 @@
 
 #include "main.h"
 
-obj_t *add_obj(const char *path_sprite, sfVector2f pos,
-	sfIntRect rect)
+obj_t *add_obj(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 {
 	obj_t *new = malloc(sizeof(obj_t));
 	if (new == NULL)
@@ -17,6 +16,22 @@ obj_t *add_obj(const char *path_sprite, sfVector2f pos,
 	new->texture = sfTexture_createFromFile(path_sprite, NULL);
 	new->rect = rect;
 	new->pos = pos;
+	sfSprite_setTexture(new->sprite, new->texture, sfTrue);
+	sfSprite_setTextureRect(new->sprite, new->rect);
+	sfSprite_setPosition(new->sprite, new->pos);
+	return (new);
+}
+
+wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
+{
+	wsup_t *new = malloc(sizeof(wsup_t));
+	if (new == NULL)
+		return (NULL);
+	new->sprite = sfSprite_create();
+	new->texture = sfTexture_createFromFile(path_sprite, NULL);
+	new->rect = rect;
+	new->pos = pos;
+	new->key = 1;
 	sfSprite_setTexture(new->sprite, new->texture, sfTrue);
 	sfSprite_setTextureRect(new->sprite, new->rect);
 	sfSprite_setPosition(new->sprite, new->pos);

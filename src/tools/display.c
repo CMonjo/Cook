@@ -22,3 +22,8 @@ int print_h(char const *filepath)
 	free(buffer);
 	return (0);
 }
+
+void disp_recipe(sys_t *sys)
+{
+	sfRenderWindow_drawSprite(sys->win, sys->wsup[0]->sprite, NULL);
+}

@@ -40,6 +40,16 @@ void init_button(sys_t *sys)
 	(sfIntRect){0, 0, 85, 100}, button_ingredient);
 }
 
+void init_windowsup(sys_t *sys)
+{
+	int i = 0;
+
+	for (i = 0; i < 100; i++)
+		sys->wsup[i] = NULL;
+	sys->wsup[0] = add_sup("assets/img/action_bar/recette/recette.png",
+	(sfVector2f){200, 0}, (sfIntRect){0, 0, 1555, 1080});
+}
+
 void init_text_menu(sys_t *sys)
 {
 	int i = 0;
@@ -82,7 +92,8 @@ void render_objects(sys_t *sys)
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
 	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
-
+	if (sys->wsup[0]->key == 0)
+		disp_recipe(sys);
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
 	sfRenderWindow_drawSprite(sys->win, sys->obj[99]->sprite, NULL);

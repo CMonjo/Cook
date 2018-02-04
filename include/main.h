@@ -40,7 +40,7 @@
 		sfRectangleShape *rect;
 		sfIntRect square;
 		char *msg;
-		void(*callback)(void);
+		void(*callback)();
 		sfSprite *sprite;
 		sfTexture *texture;
 		sfVector2f pos;
@@ -51,6 +51,14 @@
 		sfText *text;
 		sfVector2f pos;
 	} txt_t;
+
+	typedef struct wsup_s {
+		sfSprite *sprite;
+		sfTexture *texture;
+		sfVector2f pos;
+		sfIntRect rect;
+		int key;
+	} wsup_t;
 
 	typedef struct sys_s {
 		sfRenderWindow* win;
@@ -63,10 +71,15 @@
 		int select;
 		txt_t *txt[100];
 		obj_t *obj[100];
+		wsup_t *wsup[100];
 		button_t *button[100];
 	} sys_t;
 
 	// PROTOTYPES
+	void disp_recipe(sys_t *sys);
+	wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect
+	rect);
+	void init_windowsup(sys_t *sys);
 	int main(int ac, char **av);
 	void init_window(sys_t *sys);
 	void analyse_events(sys_t *sys);

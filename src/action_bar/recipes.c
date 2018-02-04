@@ -7,19 +7,25 @@
 
 #include "main.h"
 
-void button_menu()
+void button_menu(sys_t *sys)
 {
+	sys->win = sys->win;
 	printf("menu\n");
 }
 
-void button_recipe()
+void button_recipe(sys_t *sys)
 {
+	sys->win = sys->win;
 	printf("recipe\n");
 }
 
-void button_ingredient()
+void button_ingredient(sys_t *sys)
 {
-	printf("ingredient\n");
+	if (sys->wsup[0]->key == 0) {
+		sys->wsup[0]->key = 1;
+	} else if (sys->wsup[0]->key == 1) {
+		sys->wsup[0]->key = 0;
+	}
 }
 
 int button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
@@ -39,7 +45,7 @@ void display_actionbar(sys_t *sys)
 		for (int i = 0; sys->button[i] != NULL; i++) {
 			if (button_is_clicked(sys, i,
 			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
-				sys->button[i]->callback();
+				sys->button[i]->callback(sys);
 		}
 	}
 }
