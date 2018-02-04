@@ -15,10 +15,8 @@ void init_objects(sys_t *sys)
 		sys->obj[i] = NULL;
 	sys->obj[0] = add_obj("assets/img/hud/menu_bg.jpg",
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
-	sys->obj[1] = add_obj("assets/img/hud/background.png",
-	(sfVector2f){0, -70}, (sfIntRect){0, 0, 1920, 1080});
-	sys->obj[2] = add_obj("assets/img/hud/bar.png",
-	(sfVector2f){0, 1000}, (sfIntRect){0, 0, 1980, 105});
+	sys->obj[1] = add_obj("assets/img/hud/background.jpg",
+	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
 	(sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
 }
@@ -75,9 +73,6 @@ void render_objects(sys_t *sys)
 
 	sfRenderWindow_drawSprite(sys->win, sys->obj[0]->sprite, NULL);
 	sfSprite_setTextureRect(sys->obj[0]->sprite, sys->obj[0]->rect);
-	for (i = 0; sys->txt[i] != NULL; i++) {
-		sfRenderWindow_drawText(sys->win, sys->txt[i]->text, NULL);
-	}
 	for (i = 1; sys->obj[i] != NULL; i++) {
 		sfRenderWindow_drawSprite(sys->win, sys->obj[i]->sprite, NULL);
 		sfSprite_setTextureRect(sys->obj[i]->sprite, sys->obj[i]->rect);
@@ -86,6 +81,7 @@ void render_objects(sys_t *sys)
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
+	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
 
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
