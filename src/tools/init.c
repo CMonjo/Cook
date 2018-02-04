@@ -15,6 +15,7 @@ void init_window(sys_t *sys)
 	sfRenderWindow_setFramerateLimit(sys->win, 60);
 	sys->clock = sfClock_create();
 	sys->status = 0;
+	sys->select = 1;
 	init_objects(sys);
 	init_text_menu(sys);
 	init_button(sys);

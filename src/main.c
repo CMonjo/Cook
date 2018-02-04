@@ -7,27 +7,31 @@
 
 #include "main.h"
 
+//SYS->STATUS == 0 -> Menu d'accueil
+//SYS->STATUS == 1 -> Menu Pause
+//SYS->STATUS == 2 -> Menu end
+//SYS->STATUS != 1, 2 et 3 -> Game loop
+
 void which_status_game_loop(sys_t *sys)
 {
 	// if (sys->status == 2)
-	// 	option_menu(sys);
+	// 	pause_menu(sys);
 	// else {
 		render_objects(sys);
 		if (sys->seconds > 0.02) {
 			//display_money(sys);
 			sfClock_restart(sys->clock);
 		}
-		//which_mod(sys);
 	//}
 }
 
 void which_status(sys_t *sys)
 {
-	// if (sys->status == 0)
-	// 	main_menu(sys);
+	if (sys->status == 0)
+		main_menu(sys);
 	// else if (sys->status == 1)
-	// 	end_menu(sys);
-	// else
+	// 	pause_menu(sys);
+	else
 		which_status_game_loop(sys);
 }
 

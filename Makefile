@@ -20,6 +20,8 @@ SRC	=	src/main.c			\
 		src/tools/init.c		\
 		src/tools/objects_handling.c	\
 		src/game/close_game.c		\
+		src/menu/display_menu.c		\
+		src/menu/main_menu.c		\
 		src/game/event_handling.c
 
 

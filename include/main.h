@@ -60,6 +60,7 @@
 		float seconds;
 		sfMusic *music;
 		int status;
+		int select;
 		txt_t *txt[100];
 		obj_t *obj[100];
 		button_t *button[100];
@@ -89,4 +90,15 @@
 	void button_ingredient();
 	void display_actionbar(sys_t *sys);
 	int buttonIsClicked(sys_t *sys, int i, sfVector2f clickPosition);
+	void main_menu(sys_t *sys);
+	void choose_option_main_menu(sys_t *sys);
+	void choose_player_main_menu(sys_t *sys);
+	void choose_game_main_menu(sys_t *sys);
+	void display_text_main_menu(sys_t *sys);
+	void render_main_menu(sys_t *sys);
+	void choose_option_main_menu(sys_t *sys);
+	void choose_game_main_menu(sys_t *sys);
+	void display_text_main_menu(sys_t *sys);
+	void select_main_menu(sys_t *sys);
+	void move_select_menu(sys_t *sys, int max, int min);
 #endif

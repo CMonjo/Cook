@@ -13,9 +13,11 @@ void init_objects(sys_t *sys)
 
 	for (i = 0; i < 100; i++)
 		sys->obj[i] = NULL;
-	sys->obj[0] = add_obj("assets/img/hud/background.png",
+	sys->obj[0] = add_obj("assets/img/hud/menu_bg.jpg",
+	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
+	sys->obj[1] = add_obj("assets/img/hud/background.png",
 	(sfVector2f){0, -70}, (sfIntRect){0, 0, 1920, 1080});
-	sys->obj[1] = add_obj("assets/img/hud/bar.png",
+	sys->obj[2] = add_obj("assets/img/hud/bar.png",
 	(sfVector2f){0, 1000}, (sfIntRect){0, 0, 1980, 105});
 	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
 	(sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
@@ -46,29 +48,15 @@ void init_text_menu(sys_t *sys)
 
 	for (i = 0; i < 100; i++)
 		sys->txt[i] = NULL;
-	// sys->txt[0] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){0, 0}, "Money", 50);
-	// sys->txt[1] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){180, 0}, "0$", 50);
-        //
-	// sys->txt[2] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){1000, 350}, "Cook", 150);
-	// sys->txt[3] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){300, 350}, "Play", 50);
-	// sys->txt[4] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){300, 450}, "Infinite mode", 50);
-	// sys->txt[5] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){300, 550}, "Option", 50);
-	// sys->txt[6] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){300, 650}, "RageQuit", 50);
-	// sys->txt[7] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){900, 350}, "Red", 100);
-	// sys->txt[8] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){900, 450}, "Blue", 100);
-	// sys->txt[9] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){900, 550}, "Back", 100);
-	// sys->txt[10] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){500, 100}, "Choose your skin !", 100);
+	sys->txt[0] = set_text("assets/font/bold.ttf",
+	(sfVector2f){10, 0}, "0$", 50);
+	sys->txt[1] = set_text("assets/font/bold.ttf",
+	(sfVector2f){710, 250}, "My Cook ! ", 100);
+	sys->txt[2] = set_text("assets/font/bold.ttf",
+	(sfVector2f){500, 550}, "Play", 50);
+	sys->txt[3] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1220, 550}, "Quit", 50);
+
 	// sys->txt[11] = set_text("assets/font/bold.ttf",
 	// (sfVector2f){100, 900}, "Your score : ", 50);
 	// sys->txt[12] = set_text("assets/font/bold.ttf",
