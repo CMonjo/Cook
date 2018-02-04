@@ -22,7 +22,7 @@ void button_ingredient()
 	printf("ingredient\n");
 }
 
-int buttonIsClicked(sys_t *sys, int i, sfVector2f clickPosition)
+int button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
 {
 	return (clickPosition.x <
 	sfRectangleShape_getPosition(sys->button[i]->rect).x +
@@ -37,7 +37,7 @@ void display_actionbar(sys_t *sys)
 {
 	if (sys->event.type == sfEvtMouseButtonPressed) {
 		for (int i = 0; sys->button[i] != NULL; i++) {
-			if (buttonIsClicked(sys, i,
+			if (button_is_clicked(sys, i,
 			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
 				sys->button[i]->callback();
 		}
