@@ -18,6 +18,22 @@ int button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
 	sfRectangleShape_getPosition(sys->button[i]->rect).y);
 }
 
+int new_button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
+{
+	return (clickPosition.x <
+	sfRectangleShape_getPosition(sys->nb[i]->rect).x +
+	sfRectangleShape_getSize(sys->nb[i]->rect).x && clickPosition.x >
+	sfRectangleShape_getPosition(sys->nb[i]->rect).x && clickPosition.y
+	< sfRectangleShape_getPosition(sys->nb[i]->rect).y +
+	sfRectangleShape_getSize(sys->nb[i]->rect).y && clickPosition.y >
+	sfRectangleShape_getPosition(sys->nb[i]->rect).y);
+}
+
+void adding_recipe(sys_t *sys)
+{
+	printf("%s\n", "toucher !");
+}
+
 void display_actionbar(sys_t *sys)
 {
 	if (sys->event.type == sfEvtMouseButtonPressed) {

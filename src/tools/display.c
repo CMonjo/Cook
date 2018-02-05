@@ -41,4 +41,13 @@ void disp_cook(sys_t *sys)
 		sfRenderWindow_drawSprite(sys->win, sys->nb[i]->sprite, NULL);
 	}
 	sfRenderWindow_drawSprite(sys->win, sys->button[3]->sprite, NULL);
+	if (sys->event.type == sfEvtMouseButtonPressed) {
+
+		for (int i = 0; sys->nb[i] != NULL; i++) {
+	
+			if (new_button_is_clicked(sys, i,
+			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
+				sys->nb[i]->callback(sys);
+		}
+	}
 }

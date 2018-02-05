@@ -87,6 +87,8 @@
 	} sys_t;
 
 	// PROTOTYPES
+	void adding_recipe(sys_t *sys);
+	int new_button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition);
 	void init_nbbuttom(sys_t *sys);
 	newbar_t *add_new_buttom(const char *path_sprite, sfVector2f pos,
 	sfVector2f size, sfIntRect square, void (*func)());
