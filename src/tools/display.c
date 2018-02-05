@@ -30,15 +30,15 @@ void disp_menu(sys_t *sys)
 
 void disp_recipe(sys_t *sys)
 {
-	sfRenderWindow_drawSprite(sys->win, sys->wsup[2]->sprite, NULL);	
+	sfRenderWindow_drawSprite(sys->win, sys->wsup[2]->sprite, NULL);
 }
 
 void disp_cook(sys_t *sys)
 {
 	sfRenderWindow_drawSprite(sys->win, sys->wsup[3]->sprite, NULL);
-	for (int i = 4; sys->button[i] != NULL; i++) {
-		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
-		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
+	for (int i = 0; sys->nb[i] != NULL; i++) {
+		sfRenderWindow_drawRectangleShape(sys->win, sys->nb[i]->rect, NULL);
+		sfRenderWindow_drawSprite(sys->win, sys->nb[i]->sprite, NULL);
 	}
 	sfRenderWindow_drawSprite(sys->win, sys->button[3]->sprite, NULL);
 }

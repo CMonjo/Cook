@@ -22,6 +22,27 @@ obj_t *add_obj(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 	return (new);
 }
 
+newbar_t *add_new_buttom(const char *path_sprite, sfVector2f pos,
+sfVector2f size, sfIntRect square, void (*func)(void))
+{
+	newbar_t *new = malloc(sizeof(sys_t));
+	if (new == NULL)
+		return (NULL);
+	new->sprite = sfSprite_create();
+	new->texture = sfTexture_createFromFile(path_sprite, NULL);
+	new->square = square;
+	new->pos = pos;
+	new->rect = sfRectangleShape_create();
+	sfRectangleShape_setPosition(new->rect, pos);
+	sfRectangleShape_setSize(new->rect, size);
+	sfRectangleShape_setFillColor(new->rect, sfRed);
+	sfSprite_setTexture(new->sprite, new->texture, sfTrue);
+	sfSprite_setTextureRect(new->sprite, new->square);
+	sfSprite_setPosition(new->sprite, new->pos);
+	new->callback = func;
+	return (new);
+}
+
 wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 {
 	wsup_t *new = malloc(sizeof(wsup_t));

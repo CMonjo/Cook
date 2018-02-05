@@ -40,31 +40,7 @@ void init_button(sys_t *sys)
 	sys->button[3] = add_buttom("assets/img/action_bar/cook.png",
 	(sfVector2f){31, 960}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, button_cook);
-	//button cook
-	sys->button[4] = add_buttom("assets/img/action_bar/food/watermelon.png",
-	(sfVector2f){31, 0}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_menu);
-	sys->button[5] = add_buttom("assets/img/action_bar/food/pineapple.png",
-	(sfVector2f){31, 120}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_recipe);
-	sys->button[6] = add_buttom("assets/img/action_bar/food/orange.png",
-	(sfVector2f){31, 240}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_ingredient);
-	sys->button[7] = add_buttom("assets/img/action_bar/food/coffee.png",
-	(sfVector2f){31, 360}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_cook);
-	sys->button[8] = add_buttom("assets/img/action_bar/food/cherry.png",
-	(sfVector2f){31, 480}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_menu);
-	sys->button[9] = add_buttom("assets/img/action_bar/food/beer.png",
-	(sfVector2f){31, 600}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_recipe);
-	sys->button[10] = add_buttom("assets/img/action_bar/food/banana.png",
-	(sfVector2f){31, 720}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_ingredient);
-	sys->button[11] = add_buttom("assets/img/action_bar/food/apple.png",
-	(sfVector2f){31, 840}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, button_cook);
+	init_nbbuttom(sys);
 }
 
 void init_windowsup(sys_t *sys)

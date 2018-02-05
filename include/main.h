@@ -36,6 +36,16 @@
 		sfIntRect rect;
 	} obj_t;
 
+	typedef struct newbar_s {
+		sfRectangleShape *rect;
+		sfIntRect square;
+		char *msg;
+		void(*callback)();
+		sfSprite *sprite;
+		sfTexture *texture;
+		sfVector2f pos;
+	} newbar_t;
+
 	typedef struct button_s {
 		sfRectangleShape *rect;
 		sfIntRect square;
@@ -73,9 +83,13 @@
 		obj_t *obj[100];
 		wsup_t *wsup[100];
 		button_t *button[100];
+		newbar_t *nb[100];
 	} sys_t;
 
 	// PROTOTYPES
+	void init_nbbuttom(sys_t *sys);
+	newbar_t *add_new_buttom(const char *path_sprite, sfVector2f pos,
+	sfVector2f size, sfIntRect square, void (*func)());
 	void disp_menu(sys_t *sys);
 	void disp_cook(sys_t *sys);
 	void verif_button(sys_t *sys);
