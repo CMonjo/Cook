@@ -70,6 +70,11 @@
 		int key;
 	} wsup_t;
 
+	typedef struct inventory_s {
+		int stock;
+		char *ingredient;
+	} inventory_t;
+
 	typedef struct sys_s {
 		sfRenderWindow* win;
 		sfEvent event;
@@ -77,9 +82,11 @@
 		sfTime time;
 		float seconds;
 		sfMusic *music;
+		int error_message;
 		int status;
 		int select;
 		int mixor;
+		inventory_t inventory[10];
 		txt_t *txt[100];
 		obj_t *obj[100];
 		wsup_t *wsup[100];
@@ -88,8 +95,9 @@
 	} sys_t;
 
 	// PROTOTYPES
+	void error_message(sys_t *sys);
 	int my_clock(sys_t *sys);
-	void adding_recipe(sys_t *sys);
+	void adding_recipe(sys_t *sys, int i);
 	int new_button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition);
 	void init_nbbuttom(sys_t *sys);
 	newbar_t *add_new_buttom(const char *path_sprite, sfVector2f pos,

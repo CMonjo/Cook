@@ -29,10 +29,16 @@ int new_button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
 	sfRectangleShape_getPosition(sys->nb[i]->rect).y);
 }
 
-void adding_recipe(sys_t *sys)
+void adding_recipe(sys_t *sys, int i)
 {
-	sys->mixor += sys->mixor == 60 ? 40 : 30;
-	printf("%d\n", sys->mixor);
+	if (sys->inventory[i].stock > 0) {
+		printf("%s\n", "du coup ca marche");
+		sys->mixor += sys->mixor == 60 ? 40 : 30;
+		sys->inventory[i].stock--;
+		printf("inventory = %s && stock = %d\n", sys->inventory[i].ingredient, sys->inventory[i].stock);
+	}
+	else
+		sys->error_message = 1;
 	sys->mixor >= 100 ? sys->mixor = 0 : 0;
 }
 

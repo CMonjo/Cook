@@ -74,16 +74,18 @@ void init_text_menu(sys_t *sys)
 	sys->txt[3] = set_text("assets/font/bold.ttf",
 	(sfVector2f){1220, 550}, "Quit", 50);
 
-	// sys->txt[11] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){100, 900}, "Your score : ", 50);
-	// sys->txt[12] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){650, 150}, "You win !", 120);
-	// sys->txt[13] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){650, 150}, "You lose !", 120);
-	// sys->txt[14] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){400, 600}, "RageQuit", 70);
-	// sys->txt[15] = set_text("assets/font/bold.ttf",
-	// (sfVector2f){1200, 600}, "Restart", 70);
+	sys->txt[11] = set_text("assets/font/bold.ttf",
+	(sfVector2f){100, 900}, "Your score : ", 50);
+	sys->txt[12] = set_text("assets/font/bold.ttf",
+	(sfVector2f){650, 150}, "You win !", 120);
+	sys->txt[13] = set_text("assets/font/bold.ttf",
+	(sfVector2f){650, 150}, "You lose !", 120);
+	sys->txt[14] = set_text("assets/font/bold.ttf",
+	(sfVector2f){400, 600}, "RageQuit", 70);
+	sys->txt[15] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1200, 600}, "Restart", 70);
+	sys->txt[16] = set_text("assets/font/bold.ttf",
+	(sfVector2f){200, 400}, "Not enough ingredient in stock", 70);
 }
 
 void render_objects(sys_t *sys)
@@ -100,8 +102,8 @@ void render_objects(sys_t *sys)
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
-	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
 	verif_button(sys);
+	error_message(sys);
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
 	sfRenderWindow_drawSprite(sys->win, sys->obj[99]->sprite, NULL);

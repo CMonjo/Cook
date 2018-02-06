@@ -24,7 +24,8 @@ SRC	=	src/main.c			\
 		src/menu/main_menu.c		\
 		src/game/event_handling.c	\
 		src/action_bar/button_function.c \
-		src/tools/objects_handling2.c
+		src/tools/objects_handling2.c	\
+		src/error_handling/error_message.c
 
 
 

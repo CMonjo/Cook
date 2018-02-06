@@ -14,7 +14,6 @@ void verif_button(sys_t *sys)
 	// else if (sys->wsup[1]->key == 0) // 1 = pause
 	else if (sys->wsup[0]->key == 0) // 0 = market
 	{
-		printf("%s\n", "au market");
 		disp_menu(sys);
 	} else if (sys->wsup[2]->key == 0)
 		disp_recipe(sys);

@@ -38,8 +38,9 @@ void which_status(sys_t *sys)
 		main_menu(sys);
 	// else if (sys->status == 1)
 	// 	pause_menu(sys);
-	else
+	else {
 		which_status_game_loop(sys);
+	}
 }
 
 void my_window(sys_t *sys)

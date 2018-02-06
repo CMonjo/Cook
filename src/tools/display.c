@@ -45,7 +45,7 @@ void disp_cook(sys_t *sys)
 		for (int i = 0; sys->nb[i] != NULL; i++) {
 			if (new_button_is_clicked(sys, i,
 			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
-				sys->nb[i]->callback(sys);
+				sys->nb[i]->callback(sys, i);
 		}
 	}
 }
