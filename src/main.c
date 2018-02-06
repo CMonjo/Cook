@@ -12,16 +12,23 @@
 //SYS->STATUS == 2 -> Menu end
 //SYS->STATUS != 1, 2 et 3 -> Game loop
 
+int my_clock(sys_t *sys)
+{
+	if (sys->seconds > 0.2) {
+		//display_money(sys);
+		sfClock_restart(sys->clock);
+		return (1);
+	}
+	return (0);
+}
+
 void which_status_game_loop(sys_t *sys)
 {
 	// if (sys->status == 2)
 	// 	pause_menu(sys);
 	// else {
 		render_objects(sys);
-		if (sys->seconds > 0.02) {
-			//display_money(sys);
-			sfClock_restart(sys->clock);
-		}
+		//my_clock(sys);
 	//}
 }
 

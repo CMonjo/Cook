@@ -88,6 +88,7 @@
 	} sys_t;
 
 	// PROTOTYPES
+	int my_clock(sys_t *sys);
 	void adding_recipe(sys_t *sys);
 	int new_button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition);
 	void init_nbbuttom(sys_t *sys);

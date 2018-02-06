@@ -10,9 +10,7 @@
 void verif_button(sys_t *sys)
 {
 	if (sys->wsup[3]->key == 0) // 3 = cook
-	{
 		disp_cook(sys);
-	}
 	// else if (sys->wsup[1]->key == 0) // 1 = pause
 	else if (sys->wsup[0]->key == 0) // 0 = market
 	{
