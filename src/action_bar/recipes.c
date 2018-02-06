@@ -31,7 +31,9 @@ int new_button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
 
 void adding_recipe(sys_t *sys)
 {
-	printf("%s\n", "toucher !");
+	sys->mixor += sys->mixor == 60 ? 40 : 30;
+	printf("%d\n", sys->mixor);
+	sys->mixor >= 100 ? sys->mixor = 0 : 0;
 }
 
 void display_actionbar(sys_t *sys)

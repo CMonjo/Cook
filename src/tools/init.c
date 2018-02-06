@@ -16,6 +16,7 @@ void init_window(sys_t *sys)
 	sys->clock = sfClock_create();
 	sys->status = 0;
 	sys->select = 1;
+	sys->mixor = 0;
 	init_objects(sys);
 	init_text_menu(sys);
 	init_button(sys);

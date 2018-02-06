@@ -79,6 +79,7 @@
 		sfMusic *music;
 		int status;
 		int select;
+		int mixor;
 		txt_t *txt[100];
 		obj_t *obj[100];
 		wsup_t *wsup[100];
