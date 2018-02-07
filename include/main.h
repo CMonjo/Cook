@@ -143,7 +143,7 @@
 	void which_status(sys_t *sys);
 	void which_status_game_loop(sys_t *sys);
 	void display_money(sys_t *sys);
-	void init_money(sys_t *sys, long nbr);
+	char *init_money(long nbr, char *str);
 	void free_options(sys_t *sys);
 	void destroy_objects(sys_t *sys);
 	void button_menu();

@@ -7,7 +7,7 @@
 
 #include "main.h"
 
-void init_money(sys_t *sys, long nbr)
+char *init_money(long nbr, char *str)
 {
 	long tmp = nbr;
 	long end_str = 0;
@@ -16,16 +16,17 @@ void init_money(sys_t *sys, long nbr)
 		tmp = tmp / 10;
 		end_str++;
 	}
-	sys->money[end_str] = '\0';
+	str[end_str] = '\0';
 	while (end_str--) {
-		sys->money[end_str] = nbr % 10 + 48;
+		str[end_str] = nbr % 10 + 48;
 		nbr = nbr / 10;
 	}
+	return (str);
 }
 
 void display_money(sys_t *sys)
 {
-	init_money(sys, sys->int_money);
+	sys->money = init_money(sys->int_money, sys->money);
 	sys->txt[0] = set_text("assets/font/bold.ttf",
 	(sfVector2f){180, 0}, sys->money, 50);
 }

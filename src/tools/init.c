@@ -43,7 +43,7 @@ void init_window(sys_t *sys)
 	sys->select = 1;
 	sys->blender = 0;
 	sys->money = malloc(sizeof(char) * 10);
-	sys->int_money = 500;
+	sys->int_money = 50;
 	sys->error_message = 0;
 	init_inventory(sys);
 	init_objects(sys);

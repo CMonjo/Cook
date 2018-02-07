@@ -52,7 +52,7 @@ void (*func)())
 	new->rect = sfRectangleShape_create();
 	sfRectangleShape_setPosition(new->rect, pos);
 	sfRectangleShape_setSize(new->rect, size);
-	sfRectangleShape_setFillColor(new->rect, sfRed);
+	sfRectangleShape_setFillColor(new->rect, (sfColor){255, 0, 0, 0});
 	new->callback = func;
 	return (new);
 }
@@ -62,20 +62,20 @@ void init_button_shop(sys_t *sys)
 
 	for (i = 0; i < 10; i++)
 		sys->bshop[i] = NULL;
-	sys->bshop[0] = newbutton_shop((sfVector2f){754, 128},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
-	sys->bshop[1] = newbutton_shop((sfVector2f){753, 326},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
-	sys->bshop[2] = newbutton_shop((sfVector2f){755, 505},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
-	sys->bshop[3] = newbutton_shop((sfVector2f){755, 691},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
-	sys->bshop[4] = newbutton_shop((sfVector2f){1480, 129},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
-	sys->bshop[5] = newbutton_shop((sfVector2f){1476, 305},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
-	sys->bshop[6] = newbutton_shop((sfVector2f){1480, 528},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
-	sys->bshop[7] = newbutton_shop((sfVector2f){1478, 714},
-	(sfVector2f){76, 76}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[0] = newbutton_shop((sfVector2f){784, 296},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[1] = newbutton_shop((sfVector2f){783, 445},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[2] = newbutton_shop((sfVector2f){783, 585},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[3] = newbutton_shop((sfVector2f){783, 725},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[4] = newbutton_shop((sfVector2f){1299, 293},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[5] = newbutton_shop((sfVector2f){1299, 430},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[6] = newbutton_shop((sfVector2f){1299, 600},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
+	sys->bshop[7] = newbutton_shop((sfVector2f){1299, 745},
+	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
 }

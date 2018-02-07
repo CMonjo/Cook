@@ -55,7 +55,7 @@ void init_windowsup(sys_t *sys)
 	for (i = 0; i < 100; i++)
 		sys->wsup[i] = NULL;
 	sys->wsup[0] = add_sup("assets/img/action_bar/marketplace.png",
-	(sfVector2f){200, 0}, (sfIntRect){0, 0, 1096, 780});
+	(sfVector2f){400, 200}, (sfIntRect){0, 0, 1096, 780});
 
 	//WSUP DE 1 == MENU PAUSE
 	sys->wsup[1] = add_sup("assets/img/action_bar/recipes.png",
