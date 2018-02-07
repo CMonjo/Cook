@@ -27,7 +27,7 @@ void move_player(sys_t *sys, int i, int max_value)
 //FUNCTION UTILE POUR LES BOUTONS
 int my_clock(sys_t *sys)
 {
-	if (sys->seconds > 0.2) {
+	if (sys->seconds > 0.4) {
 		sfClock_restart(sys->clock);
 		return (1);
 	}
