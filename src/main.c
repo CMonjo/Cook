@@ -20,7 +20,6 @@ void verif_bubble(sys_t *sys)
 	if (sys->player.pass != 0) {
 		srand(time(NULL));
 		i = (rand() % (10 - 3 + 1)) + 3;
-		printf("i %d\n", i);
 		sfRenderWindow_drawSprite(sys->win, sys->obj[i]->sprite, NULL);
 		sfSprite_setTextureRect(sys->obj[i]->sprite, sys->obj[i]->rect);
 	}

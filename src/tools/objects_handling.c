@@ -86,7 +86,6 @@ void init_text_menu(sys_t *sys)
 	(sfVector2f){500, 550}, "Play", 50);
 	sys->txt[3] = set_text("assets/font/bold.ttf",
 	(sfVector2f){1220, 550}, "Quit", 50);
-
 	sys->txt[11] = set_text("assets/font/bold.ttf",
 	(sfVector2f){100, 900}, "Your score : ", 50);
 	sys->txt[12] = set_text("assets/font/bold.ttf",
