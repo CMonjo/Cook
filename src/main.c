@@ -23,9 +23,7 @@ void move_player(sys_t *sys, int i, int max_value)
 		if (sys->obj[i]->pos.y <= -150)
 			sys->obj[i]->pos.y = 1150;
 		sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
-	} else
-		printf("ll\n");
-
+	}
 }
 
 //FUNCTION UTILE POUR LES BOUTONS
