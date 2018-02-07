@@ -45,6 +45,7 @@ void init_window(sys_t *sys)
 	sys->money = malloc(sizeof(char) * 10);
 	sys->int_money = 50;
 	sys->error_message = 0;
+	sys->player.pass = 0;
 	init_inventory(sys);
 	init_objects(sys);
 	init_text_menu(sys);

@@ -19,7 +19,15 @@ void init_objects(sys_t *sys)
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[2] = add_obj("assets/img/hud/coin.png",
 	(sfVector2f){115, 5}, (sfIntRect){0, 0, 50, 50});
-	sys->obj[3] = add_obj("assets/img/player/P1.png",
+	sys->obj[3] = add_obj("assets/img/bubble/apple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[4] = add_obj("assets/img/bubble/bananas.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[5] = add_obj("assets/img/bubble/beer.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[6] = add_obj("assets/img/bubble/cherry.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[7] = add_obj("assets/img/bubble/coffee.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[8] = add_obj("assets/img/bubble/orange.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[9] = add_obj("assets/img/bubble/pineapple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[10] = add_obj("assets/img/bubble/watermelon.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
+	sys->obj[11] = add_obj("assets/img/player/P1.png",
 	(sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
 	sys->obj[98] = add_obj("assets/img/hud/door.png",
 	(sfVector2f){953, 1058}, (sfIntRect){0, 0, 205, 23});
@@ -99,16 +107,19 @@ void render_objects(sys_t *sys)
 
 	sfRenderWindow_drawSprite(sys->win, sys->obj[0]->sprite, NULL);
 	sfSprite_setTextureRect(sys->obj[0]->sprite, sys->obj[0]->rect);
-	for (i = 1; sys->obj[i] != NULL; i++) {
+	for (i = 1; i != 3; i++) {
 		sfRenderWindow_drawSprite(sys->win, sys->obj[i]->sprite, NULL);
 		sfSprite_setTextureRect(sys->obj[i]->sprite, sys->obj[i]->rect);
 	}
+	sfRenderWindow_drawSprite(sys->win, sys->obj[11]->sprite, NULL);
+	sfSprite_setTextureRect(sys->obj[11]->sprite, sys->obj[11]->rect);
 	for (i = 0; i < 4; i++) {
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
 	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
 	verif_button(sys);
+	verif_bubble(sys);
 	error_message(sys);
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS

@@ -12,6 +12,20 @@
 //SYS->STATUS == 2 -> Menu end
 //SYS->STATUS != 1, 2 et 3 -> Game loop
 
+void verif_bubble(sys_t *sys)
+{
+	int i = 0;
+	//LES BULLES VONT DE OBJ 3 à OBJ 10
+
+	if (sys->player.pass != 0) {
+		srand(time(NULL));
+		i = (rand() % (10 - 3 + 1)) + 3;
+		printf("i %d\n", i);
+		sfRenderWindow_drawSprite(sys->win, sys->obj[i]->sprite, NULL);
+		sfSprite_setTextureRect(sys->obj[i]->sprite, sys->obj[i]->rect);
+	}
+}
+
 void move_player(sys_t *sys, int i, int max_value)
 {
 	if (sys->obj[i]->pos.y >= 200) {
@@ -24,8 +38,7 @@ void move_player(sys_t *sys, int i, int max_value)
 			sys->obj[i]->pos.y = 1150;
 		sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
 	} else
-		printf("ll\n");
-
+		sys->player.pass = 1;
 }
 
 //FUNCTION UTILE POUR LES BOUTONS
@@ -45,7 +58,7 @@ void which_status_game_loop(sys_t *sys)
 	// else {
 		render_objects(sys);
 		if (sys->seconds_player > 0.01) {
-			move_player(sys, 3, 544);
+			move_player(sys, 11, 544);
 			sfClock_restart(sys->clock_player);
 		}
 	//}

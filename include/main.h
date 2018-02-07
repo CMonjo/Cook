@@ -23,6 +23,7 @@
 	#include <sys/types.h>
 	#include <sys/stat.h>
 	#include <fcntl.h>
+	#include <time.h>
 	#include "tools.h"
 
 	// DEFINE
@@ -84,6 +85,10 @@
 		sfVector2f pos;
 	} bshop_t;
 
+	typedef struct player_s {
+		int pass;
+	} player_t;
+
 	typedef struct sys_s {
 		sfRenderWindow* win;
 		sfEvent event;
@@ -100,6 +105,7 @@
 		int status;
 		int select;
 		int blender;
+		player_t player;
 		inventory_t inventory[10];
 		txt_t *txt[100];
 		obj_t *obj[100];
@@ -157,4 +163,5 @@
 	void display_text_main_menu(sys_t *sys);
 	void move_select_menu(sys_t *sys, int max, int min);
 	void choose_game_main_menu(sys_t *sys);
+	void verif_bubble(sys_t *sys);
 #endif
