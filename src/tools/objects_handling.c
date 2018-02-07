@@ -17,9 +17,11 @@ void init_objects(sys_t *sys)
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[1] = add_obj("assets/img/hud/bg.png",
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
+	sys->obj[3] = add_obj("assets/img/hud/coin.png",
+	(sfVector2f){115, 5}, (sfIntRect){0, 0, 50, 50});
 	sys->obj[2] = add_obj("assets/img/player/P1.png",
 	(sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
-	sys->obj[3] = add_obj("assets/img/hud/door.png",
+	sys->obj[98] = add_obj("assets/img/hud/door.png",
 	(sfVector2f){953, 1058}, (sfIntRect){0, 0, 205, 23});
 	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
 	(sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
@@ -70,8 +72,6 @@ void init_text_menu(sys_t *sys)
 
 	for (i = 0; i < 100; i++)
 		sys->txt[i] = NULL;
-	sys->txt[0] = set_text("assets/font/bold.ttf",
-	(sfVector2f){10, 0}, "0$", 50);
 	sys->txt[1] = set_text("assets/font/bold.ttf",
 	(sfVector2f){710, 250}, "My Cook ! ", 100);
 	sys->txt[2] = set_text("assets/font/bold.ttf",
@@ -107,11 +107,13 @@ void render_objects(sys_t *sys)
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
-	sfRenderWindow_drawText(sys->win, sys->txt[10]->text, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
 	verif_button(sys);
 	error_message(sys);
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
+	sfRenderWindow_drawSprite(sys->win, sys->obj[98]->sprite, NULL);
+	sfSprite_setTextureRect(sys->obj[98]->sprite, sys->obj[98]->rect);
 	sfRenderWindow_drawSprite(sys->win, sys->obj[99]->sprite, NULL);
 	sfSprite_setTextureRect(sys->obj[99]->sprite, sys->obj[99]->rect);
 	sfRenderWindow_display(sys->win);

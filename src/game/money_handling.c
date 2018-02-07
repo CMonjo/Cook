@@ -26,6 +26,6 @@ void init_money(sys_t *sys, long nbr)
 void display_money(sys_t *sys)
 {
 	init_money(sys, sys->int_money);
-	sys->txt[10] = set_text("assets/font/bold.ttf",
+	sys->txt[0] = set_text("assets/font/bold.ttf",
 	(sfVector2f){180, 0}, sys->money, 50);
 }
