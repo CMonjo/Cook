@@ -17,11 +17,14 @@ void init_objects(sys_t *sys)
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[1] = add_obj("assets/img/hud/bg.png",
 	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
+	sys->obj[2] = add_obj("assets/img/player/P1.png",
+	(sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
+	sys->obj[3] = add_obj("assets/img/hud/door.png",
+	(sfVector2f){960, 1050}, (sfIntRect){0, 0, 205, 23});
 	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
 	(sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
 }
 
-// TOUS LES BOUTONS FONT 80*80px
 void init_button(sys_t *sys)
 {
 	int i = 0;

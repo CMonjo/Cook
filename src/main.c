@@ -12,10 +12,23 @@
 //SYS->STATUS == 2 -> Menu end
 //SYS->STATUS != 1, 2 et 3 -> Game loop
 
+void move_player(sys_t *sys, int i, int max_value)
+{
+	if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
+		sys->obj[i]->rect.top = sys->obj[i]->rect.height;
+	else
+		sys->obj[i]->rect.top += sys->obj[i]->rect.height;
+	sys->obj[i]->pos.y += -7;
+	if (sys->obj[i]->pos.y <= -150)
+		sys->obj[i]->pos.y = 1150;
+	sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
+}
+
 int my_clock(sys_t *sys)
 {
-	if (sys->seconds > 0.2) {
+	if (sys->seconds > 0.01) {
 		//display_money(sys);
+		move_player(sys, 2, 544);
 		sfClock_restart(sys->clock);
 		return (1);
 	}
@@ -28,7 +41,7 @@ void which_status_game_loop(sys_t *sys)
 	// 	pause_menu(sys);
 	// else {
 		render_objects(sys);
-		//my_clock(sys);
+		my_clock(sys);
 	//}
 }
 
