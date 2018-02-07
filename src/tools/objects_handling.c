@@ -27,8 +27,11 @@ void init_objects(sys_t *sys)
 	sys->obj[8] = add_obj("assets/img/bubble/orange.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
 	sys->obj[9] = add_obj("assets/img/bubble/pineapple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
 	sys->obj[10] = add_obj("assets/img/bubble/watermelon.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 255, 143});
-	sys->obj[11] = add_obj("assets/img/player/P1.png",
-	(sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
+
+	sys->obj[11] = add_obj("assets/img/player/P1.png", (sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
+	sys->obj[12] = add_obj("assets/img/player/P1.png", (sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
+	sys->obj[13] = add_obj("assets/img/player/P1.png", (sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
+
 	sys->obj[98] = add_obj("assets/img/hud/door.png",
 	(sfVector2f){953, 1058}, (sfIntRect){0, 0, 205, 23});
 	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
