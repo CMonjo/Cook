@@ -117,6 +117,7 @@
 	} sys_t;
 
 	// PROTOTYPES
+	void disp_text_menu(sys_t *sys);
 	void verif_shop(sys_t *sys);
 	void increment_stock(sys_t *sys, int i);
 	void init_button_shop(sys_t *sys);

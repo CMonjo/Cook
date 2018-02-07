@@ -27,16 +27,10 @@ void disp_text_menu(sys_t *sys)
 {
 	sys->txt[24] = set_text("assets/font/bold.ttf",
 	(sfVector2f){1390, 740}, sys->inventory[7].cstock, 50);
-	sfText_setColor(sys->txt[17]->text, sfBlack);
-	sfText_setColor(sys->txt[18]->text, sfBlack);
-	sfText_setColor(sys->txt[19]->text, sfBlack);
-	sfText_setColor(sys->txt[20]->text, sfBlack);
-	sfText_setColor(sys->txt[21]->text, sfBlack);
-	sfText_setColor(sys->txt[22]->text, sfBlack);
-	sfText_setColor(sys->txt[23]->text, sfBlack);
-	sfText_setColor(sys->txt[24]->text, sfBlack);
-	for (int i = 17; i != 25; i++)
+	for (int i = 17; i != 25; i++) {
+		sfText_setColor(sys->txt[i]->text, sfBlack);
 		sfRenderWindow_drawText(sys->win, sys->txt[i]->text, NULL);
+	}
 }
 
 void disp_menu(sys_t *sys)
