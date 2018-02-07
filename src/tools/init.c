@@ -40,6 +40,7 @@ void init_window(sys_t *sys)
 	sys->clock = sfClock_create();
 	sys->clock_player = sfClock_create();
 	sys->status = 0;
+	sys->blen_step = 14;
 	sys->select = 1;
 	sys->blender = 0;
 	sys->money = malloc(sizeof(char) * 10);

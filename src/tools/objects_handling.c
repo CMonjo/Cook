@@ -31,6 +31,10 @@ void init_objects(sys_t *sys)
 	sys->obj[11] = add_obj("assets/img/player/P1.png", (sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
 	sys->obj[12] = add_obj("assets/img/player/P1.png", (sfVector2f){1100, 1000}, (sfIntRect){0, 0, 80, 136});
 	sys->obj[13] = add_obj("assets/img/player/P1.png", (sfVector2f){1200, 1000}, (sfIntRect){0, 0, 80, 136});
+	sys->obj[14] = add_obj("assets/img/blender/blender_bg.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
+	sys->obj[15] = add_obj("assets/img/blender/blender_step1.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
+	sys->obj[16] = add_obj("assets/img/blender/blender_step2.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
+	sys->obj[17] = add_obj("assets/img/blender/blender_step3.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
 
 	sys->obj[98] = add_obj("assets/img/hud/door.png",
 	(sfVector2f){953, 1058}, (sfIntRect){0, 0, 205, 23});
@@ -101,6 +105,8 @@ void init_text_menu(sys_t *sys)
 	(sfVector2f){1200, 600}, "Restart", 70);
 	sys->txt[16] = set_text("assets/font/bold.ttf",
 	(sfVector2f){200, 400}, "Not enough ingredient in stock", 70);
+	sys->txt[17] = set_text("assets/font/bold.ttf",
+	(sfVector2f){200, 400}, "Cocktail's ready !", 70);
 }
 
 void render_objects(sys_t *sys)

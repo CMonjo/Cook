@@ -100,6 +100,7 @@
 		sfTime time_player;
 		float seconds_player;
 		int int_money;
+		int blen_step;
 		char *money;
 		sfMusic *music;
 		int error_message;
@@ -117,6 +118,7 @@
 	} sys_t;
 
 	// PROTOTYPES
+	void blender_verif(sys_t *sys);
 	void disp_text_menu(sys_t *sys);
 	void verif_shop(sys_t *sys);
 	void increment_stock(sys_t *sys, int i);

@@ -32,10 +32,9 @@ int new_button_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
 void adding_recipe(sys_t *sys, int i)
 {
 	if (sys->inventory[i].stock > 0) {
-		printf("%s\n", "du coup ca marche");
 		sys->blender += sys->blender == 60 ? 40 : 30;
 		sys->inventory[i].stock--;
-		printf("inventory = %s && stock = %d\n", sys->inventory[i].ingredient, sys->inventory[i].stock);
+		sys->blen_step++;
 	}
 	else
 		sys->error_message = 1;

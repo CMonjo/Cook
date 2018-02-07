@@ -72,8 +72,11 @@ void disp_cook(sys_t *sys)
 	if (sys->event.type == sfEvtMouseButtonPressed && my_clock(sys) == 1) {
 		for (int i = 0; sys->nb[i] != NULL; i++) {
 			if (new_button_is_clicked(sys, i,
-			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
+			(sfVector2f){sys->event.mouseButton.x,
+			sys->event.mouseButton.y}) == 1) {
 				sys->nb[i]->callback(sys, i);
+			}
 		}
 	}
+	blender_verif(sys);
 }
