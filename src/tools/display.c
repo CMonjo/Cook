@@ -26,6 +26,7 @@ int print_h(char const *filepath)
 void disp_menu(sys_t *sys)
 {
 	sfRenderWindow_drawSprite(sys->win, sys->wsup[0]->sprite, NULL);
+	verif_shop(sys);
 }
 
 void disp_recipe(sys_t *sys)

@@ -21,7 +21,14 @@ void init_inventory(sys_t *sys)
 	sys->inventory[5].ingredient = "watermelon";
 	sys->inventory[6].ingredient = "banana";
 	sys->inventory[7].ingredient = "apple";
-
+	sys->inventory[0].price = 5;
+	sys->inventory[1].price = 3;
+	sys->inventory[2].price = 1;
+	sys->inventory[3].price = 2;
+	sys->inventory[4].price = 1;
+	sys->inventory[5].price = 2;
+	sys->inventory[6].price = 1;
+	sys->inventory[7].price = 1;
 }
 
 void init_window(sys_t *sys)

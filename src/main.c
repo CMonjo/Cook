@@ -47,6 +47,7 @@ void my_window(sys_t *sys)
 {
 	init_window(sys);
 	init_windowsup(sys);
+	init_button_shop(sys);
 	while (sfRenderWindow_isOpen(sys->win)) {
 		sfRenderWindow_clear(sys->win, sfBlack);
 		analyse_events(sys);

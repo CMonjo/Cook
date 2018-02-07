@@ -73,7 +73,16 @@
 	typedef struct inventory_s {
 		int stock;
 		char *ingredient;
+		int price;
 	} inventory_t;
+
+	typedef struct bshop_s {
+		sfRectangleShape *rect;
+		sfIntRect square;
+		char *name;
+		void(*callback)();
+		sfVector2f pos;
+	} bshop_t;
 
 	typedef struct sys_s {
 		sfRenderWindow* win;
@@ -92,9 +101,13 @@
 		wsup_t *wsup[100];
 		button_t *button[100];
 		newbar_t *nb[100];
+		bshop_t *bshop[10];
 	} sys_t;
 
 	// PROTOTYPES
+	void verif_shop(sys_t *sys);
+	void increment_stock(sys_t *sys, int i);
+	void init_button_shop(sys_t *sys);
 	void error_message(sys_t *sys);
 	int my_clock(sys_t *sys);
 	void adding_recipe(sys_t *sys, int i);
