@@ -107,6 +107,7 @@ void render_objects(sys_t *sys)
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
+	sfRenderWindow_drawText(sys->win, sys->txt[10]->text, NULL);
 	verif_button(sys);
 	error_message(sys);
 	// PRINT DE LA MOUSE

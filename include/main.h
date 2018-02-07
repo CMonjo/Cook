@@ -89,12 +89,14 @@
 		sfEvent event;
 		sfClock *clock;
 		sfTime time;
+		int int_money;
+		char *money;
 		float seconds;
 		sfMusic *music;
 		int error_message;
 		int status;
 		int select;
-		int mixor;
+		int blender;
 		inventory_t inventory[10];
 		txt_t *txt[100];
 		obj_t *obj[100];

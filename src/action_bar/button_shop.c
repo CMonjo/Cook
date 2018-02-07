@@ -21,9 +21,11 @@ int button_shop_is_clicked(sys_t *sys, int i, sfVector2f clickPosition)
 
 void increment_stock(sys_t *sys, int i)
 {
-	printf("vous avez cliquer sur %d et et le stock est egal à %s\n", i, sys->inventory[i].stock++);
-	// if (sys->monney >= sys->inventory[i]->price)
-	// 	sys->inventory[i].stock++;
+	printf("vous avez cliquer sur %d et et le stock est egal à %d\n", i, sys->inventory[i].stock);
+	if (sys->int_money >= sys->inventory[i].price) {
+		sys->int_money -= sys->inventory[i].price;
+		sys->inventory[i].stock++;
+	}
 	sys->win = sys->win;
 }
 

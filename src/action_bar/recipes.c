@@ -33,13 +33,13 @@ void adding_recipe(sys_t *sys, int i)
 {
 	if (sys->inventory[i].stock > 0) {
 		printf("%s\n", "du coup ca marche");
-		sys->mixor += sys->mixor == 60 ? 40 : 30;
+		sys->blender += sys->blender == 60 ? 40 : 30;
 		sys->inventory[i].stock--;
 		printf("inventory = %s && stock = %d\n", sys->inventory[i].ingredient, sys->inventory[i].stock);
 	}
 	else
 		sys->error_message = 1;
-	sys->mixor >= 100 ? sys->mixor = 0 : 0;
+	sys->blender >= 100 ? sys->blender = 0 : 0;
 }
 
 void display_actionbar(sys_t *sys)

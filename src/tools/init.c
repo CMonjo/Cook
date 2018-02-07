@@ -40,7 +40,9 @@ void init_window(sys_t *sys)
 	sys->clock = sfClock_create();
 	sys->status = 0;
 	sys->select = 1;
-	sys->mixor = 0;
+	sys->blender = 0;
+	sys->money = malloc(sizeof(char) * 10);
+	sys->int_money = 500;
 	sys->error_message = 0;
 	init_inventory(sys);
 	init_objects(sys);

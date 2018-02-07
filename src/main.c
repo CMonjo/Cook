@@ -67,6 +67,7 @@ void my_window(sys_t *sys)
 		sys->time = sfClock_getElapsedTime(sys->clock);
 		sys->seconds = sys->time.microseconds / 1000000.0;
 		which_status(sys);
+		display_money(sys);
 	}
 	destroy_objects(sys);
 }
