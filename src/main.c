@@ -24,11 +24,10 @@ void move_player(sys_t *sys, int i, int max_value)
 	sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
 }
 
+//FUNCTION UTILE POUR LES BOUTONS
 int my_clock(sys_t *sys)
 {
-	if (sys->seconds > 0.01) {
-		//display_money(sys);
-		move_player(sys, 2, 544);
+	if (sys->seconds > 0.2) {
 		sfClock_restart(sys->clock);
 		return (1);
 	}
@@ -41,7 +40,10 @@ void which_status_game_loop(sys_t *sys)
 	// 	pause_menu(sys);
 	// else {
 		render_objects(sys);
-		my_clock(sys);
+		if (sys->seconds_player > 0.1) {
+			move_player(sys, 2, 544);
+			sfClock_restart(sys->clock_player);
+		}
 	//}
 }
 
@@ -51,9 +53,8 @@ void which_status(sys_t *sys)
 		main_menu(sys);
 	// else if (sys->status == 1)
 	// 	pause_menu(sys);
-	else {
+	else
 		which_status_game_loop(sys);
-	}
 }
 
 void my_window(sys_t *sys)
@@ -66,6 +67,8 @@ void my_window(sys_t *sys)
 		analyse_events(sys);
 		sys->time = sfClock_getElapsedTime(sys->clock);
 		sys->seconds = sys->time.microseconds / 1000000.0;
+		sys->time_player = sfClock_getElapsedTime(sys->clock_player);
+		sys->seconds_player = sys->time_player.microseconds / 1000000.0;
 		which_status(sys);
 		display_money(sys);
 	}

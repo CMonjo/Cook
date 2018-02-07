@@ -38,6 +38,7 @@ void init_window(sys_t *sys)
 	sfResize | sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(sys->win, 60);
 	sys->clock = sfClock_create();
+	sys->clock_player = sfClock_create();
 	sys->status = 0;
 	sys->select = 1;
 	sys->blender = 0;

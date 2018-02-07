@@ -89,9 +89,12 @@
 		sfEvent event;
 		sfClock *clock;
 		sfTime time;
+		float seconds;
+		sfClock *clock_player;
+		sfTime time_player;
+		float seconds_player;
 		int int_money;
 		char *money;
-		float seconds;
 		sfMusic *music;
 		int error_message;
 		int status;
