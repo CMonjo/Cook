@@ -57,7 +57,7 @@ void init_windowsup(sys_t *sys)
 	(sfVector2f){200, 0}, (sfIntRect){0, 0, 1555, 1080});
 	sys->wsup[2] = add_sup("assets/img/action_bar/recipes.png",
 	(sfVector2f){400, 200}, (sfIntRect){0, 0, 1096, 780});
-	sys->wsup[3] = add_sup("assets/img/action_bar/food/newbar.png",
+	sys->wsup[3] = add_sup("assets/img/food/newbar.png",
 	(sfVector2f){10, 0}, (sfIntRect){0, 0, 100, 1080});
 }
 
