@@ -75,6 +75,7 @@
 		int stock;
 		char *ingredient;
 		int price;
+		char *cstock;
 	} inventory_t;
 
 	typedef struct bshop_s {
@@ -149,7 +150,7 @@
 	void which_status(sys_t *sys);
 	void which_status_game_loop(sys_t *sys);
 	void display_money(sys_t *sys);
-	char *init_money(long nbr, char *str);
+	char *init_money(int nbr);
 	void free_options(sys_t *sys);
 	void destroy_objects(sys_t *sys);
 	void button_menu();
