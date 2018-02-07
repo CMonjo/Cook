@@ -10,7 +10,7 @@
 //SYS->STATUS == 0 -> Menu d'accueil
 //SYS->STATUS == 1 -> Menu Pause
 //SYS->STATUS == 2 -> Menu end
-//SYS->STATUS != 1, 2 et 3 -> Game loop
+//SYS->STATUS != 1, 2 et 0 -> Game loop
 
 void verif_bubble(sys_t *sys)
 {
@@ -40,26 +40,15 @@ void move_player(sys_t *sys, int i, int max_value)
 		sys->player.pass = 1;
 }
 
-//FUNCTION UTILE POUR LES BOUTONS
-int my_clock(sys_t *sys)
-{
-	if (sys->seconds > 0.4) {
-		sfClock_restart(sys->clock);
-		return (1);
-	}
-	return (0);
-}
-
 void which_status_game_loop(sys_t *sys)
 {
 	// if (sys->status == 2)
-	// 	pause_menu(sys);
+	// 	end_menu(sys);
 	// else {
+		display_money(sys);
 		render_objects(sys);
 		if (sys->seconds_player > 0.01) {
 			move_player(sys, 11, 544);
-			move_player(sys, 12, 544);
-			move_player(sys, 13, 544);
 			sfClock_restart(sys->clock_player);
 		}
 	//}
@@ -69,8 +58,8 @@ void which_status(sys_t *sys)
 {
 	if (sys->status == 0)
 		main_menu(sys);
-	// else if (sys->status == 1)
-	// 	pause_menu(sys);
+	else if (sys->status == 1)
+		pause_menu(sys);
 	else
 		which_status_game_loop(sys);
 }
@@ -88,7 +77,6 @@ void my_window(sys_t *sys)
 		sys->time_player = sfClock_getElapsedTime(sys->clock_player);
 		sys->seconds_player = sys->time_player.microseconds / 1000000.0;
 		which_status(sys);
-		display_money(sys);
 	}
 	destroy_objects(sys);
 }

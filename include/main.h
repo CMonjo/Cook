@@ -166,4 +166,10 @@
 	void move_select_menu(sys_t *sys, int max, int min);
 	void choose_game_main_menu(sys_t *sys);
 	void verif_bubble(sys_t *sys);
+	void pause_menu(sys_t *sys);
+	void select_pause_menu(sys_t *sys);
+	void choose_game_pause_menu(sys_t *sys);
+	void display_text_pause_menu(sys_t *sys);
+	void render_pause_menu(sys_t *sys);
+
 #endif

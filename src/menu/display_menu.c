@@ -25,6 +25,16 @@ void main_menu(sys_t *sys)
 	}
 }
 
+void pause_menu(sys_t *sys)
+{
+	render_pause_menu(sys);
+	if (sys->seconds > 0.1) {
+		select_pause_menu(sys);
+		choose_game_pause_menu(sys);
+		display_text_pause_menu(sys);
+	}
+}
+
 // void end_menu(sys_t *sys)
 // {
 // 	render_end(sys);

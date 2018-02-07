@@ -7,11 +7,21 @@
 
 #include "main.h"
 
+int my_clock(sys_t *sys)
+{
+	if (sys->seconds > 0.4) {
+		sfClock_restart(sys->clock);
+		return (1);
+	}
+	return (0);
+}
+
 void verif_button(sys_t *sys)
 {
 	if (sys->wsup[3]->key == 0) // 3 = cook
 		disp_cook(sys);
-	// else if (sys->wsup[1]->key == 0) // 1 = pause
+	else if (sys->wsup[1]->key == 0) // 1 = pause
+		sys->status = 1;
 	else if (sys->wsup[0]->key == 0) // 0 = market
 		disp_menu(sys);
 	else if (sys->wsup[2]->key == 0)
