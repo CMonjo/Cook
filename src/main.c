@@ -14,14 +14,18 @@
 
 void move_player(sys_t *sys, int i, int max_value)
 {
-	if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
-		sys->obj[i]->rect.top = sys->obj[i]->rect.height;
-	else
-		sys->obj[i]->rect.top += sys->obj[i]->rect.height;
-	sys->obj[i]->pos.y += -7;
-	if (sys->obj[i]->pos.y <= -150)
-		sys->obj[i]->pos.y = 1150;
-	sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
+	if (sys->obj[i]->pos.y >= 200) {
+		if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
+			sys->obj[i]->rect.top = sys->obj[i]->rect.height;
+		else
+			sys->obj[i]->rect.top += sys->obj[i]->rect.height;
+		sys->obj[i]->pos.y += -7;
+		if (sys->obj[i]->pos.y <= -150)
+			sys->obj[i]->pos.y = 1150;
+		sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
+	} else
+		printf("ll\n");
+
 }
 
 //FUNCTION UTILE POUR LES BOUTONS
@@ -40,8 +44,8 @@ void which_status_game_loop(sys_t *sys)
 	// 	pause_menu(sys);
 	// else {
 		render_objects(sys);
-		if (sys->seconds_player > 0.1) {
-			move_player(sys, 2, 544);
+		if (sys->seconds_player > 0.01) {
+			move_player(sys, 3, 544);
 			sfClock_restart(sys->clock_player);
 		}
 	//}
