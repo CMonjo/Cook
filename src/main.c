@@ -58,6 +58,8 @@ void which_status_game_loop(sys_t *sys)
 		render_objects(sys);
 		if (sys->seconds_player > 0.01) {
 			move_player(sys, 11, 544);
+			move_player(sys, 12, 544);
+			move_player(sys, 13, 544);
 			sfClock_restart(sys->clock_player);
 		}
 	//}
