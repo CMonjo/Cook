@@ -20,4 +20,5 @@ void blender_verif(sys_t *sys)
 		sfText_setColor(sys->txt[17]->text, sfBlue);
 		sfRenderWindow_drawText(sys->win, sys->txt[17]->text, NULL);
 	}
+	close_other_window(sys, 3);
 }

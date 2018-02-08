@@ -118,6 +118,7 @@
 	} sys_t;
 
 	// PROTOTYPES
+	void close_other_window(sys_t *sys, int wind_open);
 	void blender_verif(sys_t *sys);
 	void disp_text_menu(sys_t *sys);
 	void verif_shop(sys_t *sys);
