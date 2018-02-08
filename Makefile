@@ -29,6 +29,7 @@ SRC	=	src/main.c			\
 		src/error_handling/error_handling.c \
 		src/action_bar/button_shop.c	\
 		src/game/money_handling.c	\
+		src/game/player.c	\
 		src/game/blender_and_cocktail.c
 
 

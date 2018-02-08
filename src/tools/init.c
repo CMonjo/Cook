@@ -58,6 +58,12 @@ void init_window(sys_t *sys)
 	srand(time(NULL));
 	sys->status = 0;
 	sys->blen_step = 14;
+	sys->player.one = 0;
+	sys->player.two = 0;
+	sys->player.three = 0;
+	sys->player.p1 = 0;
+	sys->player.p2 = 0;
+	sys->player.p3 = 0;
 	sys->select = 1;
 	sys->blender = 0;
 	sys->money = malloc(sizeof(char) * 10);

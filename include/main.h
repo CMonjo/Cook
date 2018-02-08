@@ -118,6 +118,7 @@
 		int status;
 		int select;
 		int blender;
+		int wave;
 		player_t player;
 		inventory_t inventory[10];
 		txt_t *txt[100];
@@ -190,5 +191,8 @@
 	void choose_game_pause_menu(sys_t *sys);
 	void display_text_pause_menu(sys_t *sys);
 	void render_pause_menu(sys_t *sys);
-
+	void verif_bubble(sys_t *sys);
+	void move_player(sys_t *sys, int i, int max_value);
+	void player_detection(sys_t *sys, int i);
+	int generate_random_cocktail();
 #endif
