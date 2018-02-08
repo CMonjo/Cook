@@ -12,16 +12,27 @@ void blender_verif(sys_t *sys, int i)
 	if (i == 0 || i == 1)
 		sys->blen_step = 17;
 	sys->cocktail[sys->blen_step].name = sys->inventory[i].ingredient;
-	printf("ingredient = %s\n", sys->cocktail[sys->blen_step].name);
+}
+
+int verif_cocktail(sys_t *sys)
+{
+	for (int i = 15; i != 18; i++) {
+		if (sys->cocktail[i].name == sys->inventory[0].ingredient ||
+		sys->cocktail[i].name == sys->inventory[1].ingredient)
+			return (0);
+	}
+	return (list_recipe(sys->cocktail[15].name, sys->cocktail[16].name,
+	sys->cocktail[17].name));
 }
 
 void cocktail_finished(sys_t *sys)
 {
-	if (sys->blen_step == 17) {
-		printf("vous avez utiliser : \n%s\n%s\n%s\n", sys->cocktail[15].name, sys->cocktail[16].name,
-		sys->cocktail[17].name);
+	if (sys->blen_step == 17 && verif_cocktail(sys) == 0) {
 		sfRenderWindow_drawSprite(sys->win, sys->obj[18]->sprite, NULL);
 	}
+	else if (sys->blen_step == 17 && verif_cocktail(sys) == 1)
+		sfRenderWindow_drawSprite(sys->win, sys->obj[19]->sprite, NULL);
+
 }
 
 void blender_disp(sys_t *sys)

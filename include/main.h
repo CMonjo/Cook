@@ -126,6 +126,7 @@
 
 	// PROTOTYPES
 
+	int list_recipe(char *i1, char *i2, char *i3);
 	void cocktail_finished(sys_t *sys);
 	void init_cocktail(sys_t *sys);
 	void blender_disp(sys_t *sys);

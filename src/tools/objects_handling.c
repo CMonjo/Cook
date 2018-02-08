@@ -34,6 +34,7 @@ void init_objects(sys_t *sys)
 	sys->obj[16] = add_obj("assets/img/blender/blender_step2.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[17] = add_obj("assets/img/blender/blender_step3.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[18] = add_obj("assets/img/blender/cocktailok.png", (sfVector2f){760, 200}, (sfIntRect){0, 0, 470, 220});
+	sys->obj[19] = add_obj("assets/img/blender/cocktailfailure.png", (sfVector2f){760, 200}, (sfIntRect){0, 0, 470, 220});
 
 	sys->obj[98] = add_obj("assets/img/hud/door.png",
 	(sfVector2f){953, 1058}, (sfIntRect){0, 0, 205, 23});
