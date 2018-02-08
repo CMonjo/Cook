@@ -39,6 +39,7 @@ void adding_recipe(sys_t *sys, int i)
 	else
 		sys->error_message = 1;
 	sys->blender >= 100 ? sys->blender = 0 : 0;
+	blender_verif(sys, i);
 }
 
 void display_actionbar(sys_t *sys)

@@ -7,6 +7,22 @@
 
 #include "main.h"
 
+void init_cocktail(sys_t *sys)
+{
+	for (int i = 0; i != 10; i++) {
+		sys->cocktail[i].stock = 0;
+		sys->cocktail[i].name = malloc(sizeof(char) * 20);
+	}
+	sys->cocktail[0].name = "Beer";
+	sys->cocktail[1].name = "Coffee";
+	sys->cocktail[2].name = "fuck on the beach";
+	sys->cocktail[3].name = "vodka apple";
+	sys->cocktail[4].name = "vodka orange";
+	sys->cocktail[5].name = "vodka lemon";
+	sys->cocktail[6].name = "vodka pineapple";
+	sys->cocktail[7].name = "vodka vodka";
+}
+
 void init_inventory(sys_t *sys)
 {
 	for(int i = 0; i != 8; i++) {

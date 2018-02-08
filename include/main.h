@@ -91,6 +91,11 @@
 		int pass;
 	} player_t;
 
+	typedef struct cocktail_s {
+		int stock;
+		char *name;
+		int ingredient;
+	} cocktail_t;
 	typedef struct sys_s {
 		sfRenderWindow* win;
 		sfEvent event;
@@ -116,11 +121,16 @@
 		button_t *button[100];
 		newbar_t *nb[100];
 		bshop_t *bshop[10];
+		cocktail_t cocktail[10];
 	} sys_t;
 
 	// PROTOTYPES
+
+	void cocktail_finished(sys_t *sys);
+	void init_cocktail(sys_t *sys);
+	void blender_disp(sys_t *sys);
 	void close_other_window(sys_t *sys, int wind_open);
-	void blender_verif(sys_t *sys);
+	void blender_verif(sys_t *sys, int i);
 	void disp_text_menu(sys_t *sys);
 	void verif_shop(sys_t *sys);
 	void increment_stock(sys_t *sys, int i);
