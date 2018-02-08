@@ -9,20 +9,15 @@
 
 void select_pause_menu(sys_t *sys)
 {
-	int tmp = 0;
-
 	if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
 		sys->select--;
-		tmp++;
 		//sfMusic_play(sys->music_menu);
 	}
 	if (sfKeyboard_isKeyPressed(sfKeyRight)) {
 		sys->select++;
-		tmp++;
 		//sfMusic_play(sys->music_menu);
 	}
-	if (tmp != 0)
-		move_select_menu(sys, 2, 1);
+	move_select_menu(sys, 3, 1);
 }
 
 void choose_game_pause_menu(sys_t *sys)
@@ -37,9 +32,9 @@ void choose_game_pause_menu(sys_t *sys)
 
 void display_text_pause_menu(sys_t *sys)
 {
-	int i = 1;
+	int i = 4;
 
-	for (i = 2; i != 4; i++) {
+	for (i = 4; i != 8; i++) {
 		sfText_setColor(sys->txt[i]->text, sfWhite);
 		sfText_setCharacterSize(sys->txt[i]->text, 60);
 	}
@@ -50,9 +45,10 @@ void display_text_pause_menu(sys_t *sys)
 
 void render_pause_menu(sys_t *sys)
 {
-	//sfRenderWindow_drawSprite(sys->win, sys->obj[0]->sprite, NULL);
-	sfRenderWindow_drawText(sys->win, sys->txt[1]->text, NULL);
-	sfRenderWindow_drawText(sys->win, sys->txt[2]->text, NULL);
-	sfRenderWindow_drawText(sys->win, sys->txt[3]->text, NULL);
+	sfRenderWindow_drawSprite(sys->win, sys->wsup[1]->sprite, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[4]->text, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[5]->text, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[6]->text, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[7]->text, NULL);
 	sfRenderWindow_display(sys->win);
 }

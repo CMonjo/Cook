@@ -38,11 +38,11 @@ void display_text_main_menu(sys_t *sys)
 	int i = 1;
 
 	for (i = 2; i != 4; i++) {
-		sfText_setColor(sys->txt[i]->text, sfWhite);
+		sfText_setColor(sys->txt[i]->text, sfBlack);
 		sfText_setCharacterSize(sys->txt[i]->text, 60);
 	}
-	sfText_setColor(sys->txt[sys->select + 1]->text, sfRed);
-	sfText_setCharacterSize(sys->txt[sys->select + 1]->text, 80);
+	sfText_setColor(sys->txt[sys->select + 1]->text, sfMagenta);
+	sfText_setCharacterSize(sys->txt[sys->select + 1]->text, 60);
 	sfClock_restart(sys->clock);
 }
 

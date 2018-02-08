@@ -39,9 +39,9 @@ void button_cook(sys_t *sys)
 
 void button_menu(sys_t *sys)
 {
-	if (sys->wsup[1]->key == 0) {
-		sys->wsup[1]->key = 1;
-	} else if (sys->wsup[1]->key == 1) {
+	// if (sys->wsup[1]->key == 0) {
+	// 	sys->wsup[1]->key = 1;
+	if (sys->wsup[1]->key == 1) {
 		sys->wsup[1]->key = 0;
 	}
 }

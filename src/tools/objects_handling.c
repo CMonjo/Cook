@@ -13,12 +13,9 @@ void init_objects(sys_t *sys)
 
 	for (i = 0; i < 100; i++)
 		sys->obj[i] = NULL;
-	sys->obj[0] = add_obj("assets/img/hud/bg_menu.png",
-	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
-	sys->obj[1] = add_obj("assets/img/hud/bg.png",
-	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
-	sys->obj[2] = add_obj("assets/img/hud/coin.png",
-	(sfVector2f){115, 5}, (sfIntRect){0, 0, 50, 50});
+	sys->obj[0] = add_obj("assets/img/hud/bg_menu.png", (sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
+	sys->obj[1] = add_obj("assets/img/hud/bg.png", (sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
+	sys->obj[2] = add_obj("assets/img/hud/coin.png", (sfVector2f){115, 5}, (sfIntRect){0, 0, 50, 50});
 	sys->obj[3] = add_obj("assets/img/bubble/apple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[4] = add_obj("assets/img/bubble/bananas.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[5] = add_obj("assets/img/bubble/beer.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
@@ -31,10 +28,11 @@ void init_objects(sys_t *sys)
 	sys->obj[11] = add_obj("assets/img/player/P1.png", (sfVector2f){1000, 1000}, (sfIntRect){0, 0, 80, 136});
 	sys->obj[12] = add_obj("assets/img/player/P1.png", (sfVector2f){1100, 1000}, (sfIntRect){0, 0, 80, 136});
 	sys->obj[13] = add_obj("assets/img/player/P1.png", (sfVector2f){1200, 1000}, (sfIntRect){0, 0, 80, 136});
-	sys->obj[14] = add_obj("assets/img/blender/blender_bg.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
-	sys->obj[15] = add_obj("assets/img/blender/blender_step1.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
-	sys->obj[16] = add_obj("assets/img/blender/blender_step2.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
-	sys->obj[17] = add_obj("assets/img/blender/blender_step3.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 740});
+
+	sys->obj[14] = add_obj("assets/img/blender/blender_bg.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
+	sys->obj[15] = add_obj("assets/img/blender/blender_step1.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
+	sys->obj[16] = add_obj("assets/img/blender/blender_step2.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
+	sys->obj[17] = add_obj("assets/img/blender/blender_step3.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 
 	sys->obj[98] = add_obj("assets/img/hud/door.png",
 	(sfVector2f){953, 1058}, (sfIntRect){0, 0, 205, 23});
@@ -71,10 +69,8 @@ void init_windowsup(sys_t *sys)
 		sys->wsup[i] = NULL;
 	sys->wsup[0] = add_sup("assets/img/action_bar/marketplace.png",
 	(sfVector2f){400, 200}, (sfIntRect){0, 0, 1096, 780});
-
-	//WSUP DE 1 == MENU PAUSE
-	sys->wsup[1] = add_sup("assets/img/action_bar/recipes.png",
-	(sfVector2f){200, 0}, (sfIntRect){0, 0, 1555, 1080});
+	sys->wsup[1] = add_sup("assets/img/action_bar/pause_menu.png",
+	(sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->wsup[2] = add_sup("assets/img/action_bar/recipes.png",
 	(sfVector2f){400, 200}, (sfIntRect){0, 0, 1096, 780});
 	sys->wsup[3] = add_sup("assets/img/food/newbar.png",
@@ -93,16 +89,23 @@ void init_text_menu(sys_t *sys)
 	(sfVector2f){500, 550}, "Play", 50);
 	sys->txt[3] = set_text("assets/font/bold.ttf",
 	(sfVector2f){1220, 550}, "Quit", 50);
+
+	sys->txt[4] = set_text("assets/font/bold.ttf",
+	(sfVector2f){790, 10}, "Pause !", 100);
+	sys->txt[5] = set_text("assets/font/bold.ttf",
+	(sfVector2f){150, 920}, "Continue", 50);
+	sys->txt[6] = set_text("assets/font/bold.ttf",
+	(sfVector2f){780, 920}, "Go to home", 50);
+	sys->txt[7] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1550, 920}, "RageQuit", 50);
+
+
 	sys->txt[11] = set_text("assets/font/bold.ttf",
 	(sfVector2f){100, 900}, "Your score : ", 50);
 	sys->txt[12] = set_text("assets/font/bold.ttf",
 	(sfVector2f){650, 150}, "You win !", 120);
 	sys->txt[13] = set_text("assets/font/bold.ttf",
 	(sfVector2f){650, 150}, "You lose !", 120);
-	sys->txt[14] = set_text("assets/font/bold.ttf",
-	(sfVector2f){400, 600}, "RageQuit", 70);
-	sys->txt[15] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1200, 600}, "Restart", 70);
 	sys->txt[16] = set_text("assets/font/bold.ttf",
 	(sfVector2f){200, 400}, "Not enough ingredient in stock", 70);
 	sys->txt[17] = set_text("assets/font/bold.ttf",
