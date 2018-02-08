@@ -53,6 +53,7 @@ wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 	new->rect = rect;
 	new->pos = pos;
 	new->key = 1;
+	new->imopen = 0;
 	sfSprite_setTexture(new->sprite, new->texture, sfTrue);
 	sfSprite_setTextureRect(new->sprite, new->rect);
 	sfSprite_setPosition(new->sprite, new->pos);

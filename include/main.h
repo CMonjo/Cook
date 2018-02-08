@@ -69,6 +69,7 @@
 		sfVector2f pos;
 		sfIntRect rect;
 		int key;
+		int imopen;
 	} wsup_t;
 
 	typedef struct inventory_s {
