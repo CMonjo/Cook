@@ -39,6 +39,7 @@ void init_window(sys_t *sys)
 	sfRenderWindow_setFramerateLimit(sys->win, 60);
 	sys->clock = sfClock_create();
 	sys->clock_player = sfClock_create();
+	srand(time(NULL));
 	sys->status = 0;
 	sys->blen_step = 14;
 	sys->select = 1;
@@ -46,7 +47,6 @@ void init_window(sys_t *sys)
 	sys->money = malloc(sizeof(char) * 10);
 	sys->int_money = 50;
 	sys->error_message = 0;
-	sys->player.pass = 0;
 	init_inventory(sys);
 	init_objects(sys);
 	init_text_menu(sys);

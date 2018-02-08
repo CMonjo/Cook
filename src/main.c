@@ -12,17 +12,54 @@
 //SYS->STATUS == 2 -> Menu end
 //SYS->STATUS != 1, 2 et 0 -> Game loop
 
+ int generate_random_cocktail()
+{
+	int val = 0;
+
+	val = (rand() % (10 - 3 + 1)) + 3;
+	return (val);
+}
+
 void verif_bubble(sys_t *sys)
 {
-	int i = 0;
-	//LES BULLES VONT DE OBJ 3 à OBJ 10
-
-	if (sys->player.pass != 0) {
-		srand(time(NULL));
-		i = (rand() % (10 - 3 + 1)) + 3;
-		sfRenderWindow_drawSprite(sys->win, sys->obj[i]->sprite, NULL);
-		sfSprite_setTextureRect(sys->obj[i]->sprite, sys->obj[i]->rect);
+	if (sys->player.one == 11) {
+		sys->obj[sys->player.p1]->pos.y = sys->obj[11]->pos.y - 150;
+		sys->obj[sys->player.p1]->pos.x = sys->obj[11]->pos.x;
+		sfSprite_setPosition(sys->obj[sys->player.p1]->sprite, sys->obj[sys->player.p1]->pos);
+		sfRenderWindow_drawSprite(sys->win, sys->obj[sys->player.p1]->sprite, NULL);
+		sfSprite_setTextureRect(sys->obj[sys->player.p1]->sprite, sys->obj[sys->player.p1]->rect);
 	}
+	if (sys->player.two == 12) {
+		sys->obj[sys->player.p2]->pos.y = sys->obj[12]->pos.y - 150;
+		sys->obj[sys->player.p2]->pos.x = sys->obj[12]->pos.x;
+		sfSprite_setPosition(sys->obj[sys->player.p2]->sprite, sys->obj[sys->player.p2]->pos);
+		sfRenderWindow_drawSprite(sys->win, sys->obj[sys->player.p2]->sprite, NULL);
+		sfSprite_setTextureRect(sys->obj[sys->player.p2]->sprite, sys->obj[sys->player.p2]->rect);
+	}
+	if (sys->player.three == 13) {
+		sys->obj[sys->player.p3]->pos.y = sys->obj[13]->pos.y - 150;
+		sys->obj[sys->player.p3]->pos.x = sys->obj[13]->pos.x;
+		sfSprite_setPosition(sys->obj[sys->player.p3]->sprite, sys->obj[sys->player.p3]->pos);
+		sfRenderWindow_drawSprite(sys->win, sys->obj[sys->player.p3]->sprite, NULL);
+		sfSprite_setTextureRect(sys->obj[sys->player.p3]->sprite, sys->obj[sys->player.p3]->rect);
+	}
+}
+
+void player_detection(sys_t *sys, int i)
+{
+	if (i == 11) {
+		sys->player.one = i;
+		sys->player.p1 = generate_random_cocktail();
+	}
+	if (i == 12) {
+		sys->player.two = i;
+		sys->player.p2 = generate_random_cocktail();
+	}
+	if (i == 13) {
+		sys->player.three = i;
+		sys->player.p3 = generate_random_cocktail();
+	}
+	printf("%d, %d, %d\n", sys->player.p1, sys->player.p2, sys->player.p3);
 }
 
 void move_player(sys_t *sys, int i, int max_value)
@@ -37,7 +74,7 @@ void move_player(sys_t *sys, int i, int max_value)
 			sys->obj[i]->pos.y = 1150;
 		sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
 	} else
-		sys->player.pass = 1;
+		player_detection(sys, i);
 }
 
 void which_status_game_loop(sys_t *sys)
@@ -49,6 +86,8 @@ void which_status_game_loop(sys_t *sys)
 		render_objects(sys);
 		if (sys->seconds_player > 0.01) {
 			move_player(sys, 11, 544);
+			move_player(sys, 12, 544);
+			move_player(sys, 13, 544);
 			sfClock_restart(sys->clock_player);
 		}
 	//}

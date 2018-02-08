@@ -88,7 +88,12 @@
 	} bshop_t;
 
 	typedef struct player_s {
-		int pass;
+		int one;
+		int two;
+		int three;
+		int p1;
+		int p2;
+		int p3;
 	} player_t;
 
 	typedef struct sys_s {
