@@ -78,5 +78,5 @@ void disp_cook(sys_t *sys)
 			}
 		}
 	}
-	blender_verif(sys);
+	blender_disp(sys);
 }
