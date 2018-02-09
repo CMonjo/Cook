@@ -19,10 +19,10 @@ void which_status_game_loop(sys_t *sys)
 	// else {
 		display_money(sys);
 		render_objects(sys);
-		if (sys->seconds_player > 0.01) {
-			move_player(sys, 11, 544);
-			move_player(sys, 12, 544);
-			move_player(sys, 13, 544);
+		if (sys->seconds_player > 0.04) {
+			move_player(sys, 11, 1045);
+			move_player(sys, 12, 1045);
+			move_player(sys, 13, 1045);
 			sfClock_restart(sys->clock_player);
 		}
 	//}
