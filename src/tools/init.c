@@ -55,6 +55,13 @@ void init_window(sys_t *sys)
 	sfRenderWindow_setFramerateLimit(sys->win, 60);
 	sys->clock = sfClock_create();
 	sys->clock_player = sfClock_create();
+
+
+	sys->m_game = sfMusic_createFromFile("assets/music/game.wav");
+	sys->m_menu = sfMusic_createFromFile("assets/music/select.wav");
+	sys->m_button = sfMusic_createFromFile("assets/music/game.wav");
+
+
 	srand(time(NULL));
 	sys->status = 0;
 	sys->blen_step = 14;

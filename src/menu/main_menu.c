@@ -14,12 +14,12 @@ void select_main_menu(sys_t *sys)
 	if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
 		sys->select--;
 		tmp++;
-		//sfMusic_play(sys->music_menu);
+		sfMusic_play(sys->m_menu);
 	}
 	if (sfKeyboard_isKeyPressed(sfKeyRight)) {
 		sys->select++;
 		tmp++;
-		//sfMusic_play(sys->music_menu);
+		sfMusic_play(sys->m_menu);
 	}
 	if (tmp != 0)
 		move_select_menu(sys, 2, 1);

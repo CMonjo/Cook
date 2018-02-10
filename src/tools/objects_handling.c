@@ -138,8 +138,8 @@ void render_objects(sys_t *sys)
 	error_message(sys);
 	// PRINT DE LA MOUSE
 	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
-	// sfRenderWindow_drawSprite(sys->win, sys->obj[98]->sprite, NULL);
-	// sfSprite_setTextureRect(sys->obj[98]->sprite, sys->obj[98]->rect);
+	sfRenderWindow_drawSprite(sys->win, sys->obj[98]->sprite, NULL);
+	sfSprite_setTextureRect(sys->obj[98]->sprite, sys->obj[98]->rect);
 	sfRenderWindow_drawSprite(sys->win, sys->obj[99]->sprite, NULL);
 	sfSprite_setTextureRect(sys->obj[99]->sprite, sys->obj[99]->rect);
 	sfRenderWindow_display(sys->win);

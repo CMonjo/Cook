@@ -11,11 +11,11 @@ void select_pause_menu(sys_t *sys)
 {
 	if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
 		sys->select--;
-		//sfMusic_play(sys->music_menu);
+		sfMusic_play(sys->m_menu);
 	}
 	if (sfKeyboard_isKeyPressed(sfKeyRight)) {
 		sys->select++;
-		//sfMusic_play(sys->music_menu);
+		sfMusic_play(sys->m_menu);
 	}
 	move_select_menu(sys, 3, 1);
 }

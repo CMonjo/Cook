@@ -12,6 +12,21 @@
 //SYS->STATUS == 2 -> Menu end
 //SYS->STATUS != 1, 2 et 0 -> Game loop
 
+int generate_time_player()
+{
+	int val = 0;
+
+	val = (rand() % (10 - 3 + 1)) + 3;
+	return (val);
+}
+
+void set_move_player(sys_t *sys)
+{
+	move_player(sys, 11, 1045);
+	move_player(sys, 12, 1045);
+	move_player(sys, 13, 1045);
+}
+
 void which_status_game_loop(sys_t *sys)
 {
 	// if (sys->status == 2)
@@ -19,10 +34,8 @@ void which_status_game_loop(sys_t *sys)
 	// else {
 		display_money(sys);
 		render_objects(sys);
-		if (sys->seconds_player > 0.04) {
-			move_player(sys, 11, 1045);
-			move_player(sys, 12, 1045);
-			move_player(sys, 13, 1045);
+		if (sys->seconds_player > 0.01) {
+			set_move_player(sys);
 			sfClock_restart(sys->clock_player);
 		}
 	//}
@@ -44,6 +57,8 @@ void my_window(sys_t *sys)
 	init_windowsup(sys);
 	init_button_shop(sys);
 	init_cocktail(sys);
+	sfMusic_play(sys->m_game);
+	sfMusic_setLoop(sys->m_game, sfTrue);
 	while (sfRenderWindow_isOpen(sys->win)) {
 		sfRenderWindow_clear(sys->win, sfBlack);
 		analyse_events(sys);

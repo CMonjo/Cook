@@ -40,21 +40,36 @@ void verif_bubble(sys_t *sys)
 	}
 }
 
+void remove_bubble(sys_t *sys, int i)
+{
+	if (i == 11) {
+		sys->player.one = 0;
+		sys->player.p1 = 0;
+	}
+	if (i == 12) {
+		sys->player.two = 0;
+		sys->player.p2 = 0;
+	}
+	if (i == 13) {
+		sys->player.three = 0;
+		sys->player.p3 = 0;
+	}
+}
+
 void move_back_player(sys_t *sys, int i, int max_value)
 {
-	int height = 131;
-
+	remove_bubble(sys, i);
 	sys->obj[i]->rect.left = 0;
-	if (sys->obj[i]->rect.top >= max_value - height)
-		sys->obj[i]->rect.top = height;
+	if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
+		sys->obj[i]->rect.top = sys->obj[i]->rect.height;
 	else
-		sys->obj[i]->rect.top += height;
+		sys->obj[i]->rect.top += sys->obj[i]->rect.height;
 	sys->obj[i]->pos.y += 7;
 	sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);}
 
 void move_player(sys_t *sys, int i, int max_value)
 {
-	if (sys->wave == 0)
+	if (sys->wave == 0) // OU COCKTAIL OK
 		move_back_player(sys, i, max_value);
 	else if (sys->obj[i]->pos.y >= 200 && sys->wave != 0) {
 		sys->obj[i]->rect.left = 73;

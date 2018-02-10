@@ -106,6 +106,9 @@
 		sfEvent event;
 		sfClock *clock;
 		sfTime time;
+		sfMusic *m_game;
+		sfMusic *m_menu;
+		sfMusic *m_button;
 		float seconds;
 		sfClock *clock_player;
 		sfTime time_player;
