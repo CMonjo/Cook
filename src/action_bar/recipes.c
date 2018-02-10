@@ -35,11 +35,12 @@ void adding_recipe(sys_t *sys, int i)
 		sys->blender += sys->blender == 60 ? 40 : 30;
 		sys->inventory[i].stock--;
 		sys->blen_step++;
+		sys->cocktail[sys->blen_step].name = sys->inventory[i].ingredient;
+		blender_verif(sys, i);
 	}
 	else
 		sys->error_message = 1;
 	sys->blender >= 100 ? sys->blender = 0 : 0;
-	blender_verif(sys, i);
 }
 
 void display_actionbar(sys_t *sys)

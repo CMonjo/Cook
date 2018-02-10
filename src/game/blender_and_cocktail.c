@@ -12,10 +12,9 @@ void blender_verif(sys_t *sys, int i)
 	if ((i == 0 || i == 1) && sys->blen_step == 15) {
 		sys->cocktail[15].name = "beeroucoffee";
 		sys->cocktail[16].name = "beeroucoffee";
+		sys->cocktail[17].name = sys->inventory[i].ingredient;
 		sys->blen_step = 17;
 	}
-	if (sys->inventory[i].stock > 0)
-		sys->cocktail[sys->blen_step].name = sys->inventory[i].ingredient;
 }
 
 int verif_cocktail(sys_t *sys)
