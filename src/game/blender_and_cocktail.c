@@ -9,18 +9,22 @@
 
 void blender_verif(sys_t *sys, int i)
 {
-	if (i == 0 || i == 1)
+	if ((i == 0 || i == 1) && sys->blen_step == 15) {
+		sys->cocktail[15].name = "beeroucoffee";
+		sys->cocktail[16].name = "beeroucoffee";
 		sys->blen_step = 17;
-	sys->cocktail[sys->blen_step].name = sys->inventory[i].ingredient;
+	}
+	if (sys->inventory[i].stock > 0)
+		sys->cocktail[sys->blen_step].name = sys->inventory[i].ingredient;
 }
 
 int verif_cocktail(sys_t *sys)
 {
-	for (int i = 15; i != 18; i++) {
-		if (sys->cocktail[i].name == sys->inventory[0].ingredient ||
-		sys->cocktail[i].name == sys->inventory[1].ingredient)
+	if ((sys->cocktail[17].name == sys->inventory[0].ingredient ||
+	sys->cocktail[17].name == sys->inventory[1].ingredient) &&
+	my_strcmp(sys->cocktail[15].name, "beeroucoffee") == 0 &&
+	my_strcmp(sys->cocktail[16].name, "beeroucoffee") == 0)
 			return (0);
-	}
 	return (list_recipe(sys->cocktail[15].name, sys->cocktail[16].name,
 	sys->cocktail[17].name));
 }
@@ -43,12 +47,6 @@ void blender_disp(sys_t *sys)
 		sfSprite_setTextureRect(sys->obj[sys->blen_step]->sprite,
 		sys->obj[sys->blen_step]->rect);
 		cocktail_finished(sys);
-	} else if (sys->blen_step >= 17) {
-		sys->blen_step = 14;
-		sfRenderWindow_drawSprite(sys->win,
-		sys->obj[sys->blen_step]->sprite, NULL);
-		sfSprite_setTextureRect(sys->obj[sys->blen_step]->sprite,
-		sys->obj[sys->blen_step]->rect);
 	}
 	close_other_window(sys, 3);
 }

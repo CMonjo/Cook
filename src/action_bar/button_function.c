@@ -11,6 +11,8 @@ int my_clock(sys_t *sys)
 {
 	if (sys->seconds > 0.4) {
 		sfClock_restart(sys->clock);
+		if (sys->blen_step >= 17)
+			sys->blen_step = 14;
 		return (1);
 	}
 	return (0);
