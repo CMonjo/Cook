@@ -21,6 +21,9 @@ void init_cocktail(sys_t *sys)
 	sys->cocktail[5].name = "a";
 	sys->cocktail[6].name = "a";
 	sys->cocktail[7].name = "a";
+	sys->cocktail[15].name = "noname";
+	sys->cocktail[16].name = "noname";
+	sys->cocktail[17].name = "noname";
 }
 
 void init_inventory(sys_t *sys)
