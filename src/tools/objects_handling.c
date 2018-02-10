@@ -109,7 +109,7 @@ void init_text_menu(sys_t *sys)
 	sys->txt[13] = set_text("assets/font/bold.ttf",
 	(sfVector2f){650, 150}, "You lose !", 120);
 	sys->txt[16] = set_text("assets/font/bold.ttf",
-	(sfVector2f){200, 400}, "Not enough ingredient in stock", 70);
+	(sfVector2f){450, 280}, "Not enough ingredient in stock", 70);
 	sys->txt[17] = set_text("assets/font/bold.ttf",
 	(sfVector2f){200, 400}, "Cocktail's ready !", 70);
 }

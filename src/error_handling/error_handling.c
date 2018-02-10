@@ -9,9 +9,9 @@
 
 void error_message(sys_t *sys)
 {
-	// if (sys->error_message == 1) {
-	// 	sfRenderWindow_drawText(sys->win, sys->txt[16]->text, NULL);
-	// }
+	if (sys->error_message == 1) {
+		sfRenderWindow_drawText(sys->win, sys->txt[16]->text, NULL);
+	}
 }
 
 void close_other_window2(sys_t *sys, int wind_open)

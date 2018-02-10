@@ -22,8 +22,9 @@ int verif_cocktail(sys_t *sys)
 	if ((sys->cocktail[17].name == sys->inventory[0].ingredient ||
 	sys->cocktail[17].name == sys->inventory[1].ingredient) &&
 	my_strcmp(sys->cocktail[15].name, "beeroucoffee") == 0 &&
-	my_strcmp(sys->cocktail[16].name, "beeroucoffee") == 0)
-			return (0);
+	my_strcmp(sys->cocktail[16].name, "beeroucoffee") == 0) {
+		return (0);
+	}
 	return (list_recipe(sys->cocktail[15].name, sys->cocktail[16].name,
 	sys->cocktail[17].name));
 }

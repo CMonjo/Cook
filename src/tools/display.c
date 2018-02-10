@@ -37,8 +37,9 @@ void disp_menu(sys_t *sys)
 {
 	sfRenderWindow_drawSprite(sys->win, sys->wsup[0]->sprite, NULL);
 	verif_shop(sys);
-	for (int i = 0; i != 8; i++)
+	for (int i = 0; i != 8; i++) {
 		sys->inventory[i].cstock = init_money(sys->inventory[i].stock);
+	}
 	sys->txt[17] = set_text("assets/font/bold.ttf",
 	(sfVector2f){890, 300}, sys->inventory[0].cstock, 50);
 	sys->txt[18] = set_text("assets/font/bold.ttf",

@@ -13,14 +13,14 @@ void init_cocktail(sys_t *sys)
 		sys->cocktail[i].stock = 0;
 		sys->cocktail[i].name = malloc(sizeof(char) * 20);
 	}
-	sys->cocktail[0].name = "a";
-	sys->cocktail[1].name = "a";
-	sys->cocktail[2].name = "a";
-	sys->cocktail[3].name = "a";
-	sys->cocktail[4].name = "a";
-	sys->cocktail[5].name = "a";
-	sys->cocktail[6].name = "a";
-	sys->cocktail[7].name = "a";
+	sys->cocktail[0].name = "beer";
+	sys->cocktail[1].name = "coffee";
+	sys->cocktail[2].name = "cherry";
+	sys->cocktail[3].name = "watermelon";
+	sys->cocktail[4].name = "bananas";
+	sys->cocktail[5].name = "pineapple";
+	sys->cocktail[6].name = "apple";
+	sys->cocktail[7].name = "orange";
 	sys->cocktail[15].name = "noname";
 	sys->cocktail[16].name = "noname";
 	sys->cocktail[17].name = "noname";
