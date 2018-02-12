@@ -22,6 +22,7 @@ int generate_time_player()
 
 void set_move_player(sys_t *sys)
 {
+	
 	move_player(sys, 11, 1045);
 	move_player(sys, 12, 1045);
 	move_player(sys, 13, 1045);

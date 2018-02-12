@@ -196,7 +196,7 @@
 	void display_text_pause_menu(sys_t *sys);
 	void render_pause_menu(sys_t *sys);
 	void verif_bubble(sys_t *sys);
-	void move_player(sys_t *sys, int i, int max_value);
+	void move_player();
 	void player_detection(sys_t *sys, int i);
 	int generate_random_cocktail();
 #endif
