@@ -19,8 +19,8 @@ void analyse_events(sys_t *sys)
 			sfRenderWindow_close(sys->win);
 		}
 		if (sys->event.type == sfEvtMouseMoved) {
-			sys->obj[99]->pos.x = sys->event.mouseMove.x - 21;
-			sys->obj[99]->pos.y = sys->event.mouseMove.y - 21;
+			sys->obj[99]->pos.x = sys->event.mouseMove.x - 12;
+			sys->obj[99]->pos.y = sys->event.mouseMove.y - 2;
 			sfSprite_setPosition(sys->obj[99]->sprite, sys->obj[99]->pos);
 		}
 		button_event(sys);
