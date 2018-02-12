@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** CSFML MyRunner
+** CSFML Mycook
 ** File description:
 ** Main file
 */

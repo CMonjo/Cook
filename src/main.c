@@ -22,10 +22,29 @@ int generate_time_player()
 
 void set_move_player(sys_t *sys)
 {
-	
-	move_player(sys, 11, 1045);
-	move_player(sys, 12, 1045);
-	move_player(sys, 13, 1045);
+	static int p1 = 1;
+	static int p2 = 0;
+	static int p3 = 0;
+
+	if (p1 != 1)
+		p1 = (rand() % (100 - 1 + 1)) + 1;
+	if (p2 != 1)
+		p2 = (rand() % (100 - 1 + 1)) + 1;
+	if (p3 != 1)
+		p3 = (rand() % (100 - 1 + 1)) + 1;
+
+	if (p1 == 1)
+		move_player(sys, 11, 1045);
+	if (p2 == 1)
+		move_player(sys, 12, 1045);
+	if (p3 == 1)
+		move_player(sys, 13, 1045);
+	// if (s1 == 1)
+	// 	p1 = 0;
+	// if (s2 == 1)
+	// 	p2 = 0;
+	// if (s3 == 1)
+	// 	p3 = 0;
 }
 
 void which_status_game_loop(sys_t *sys)
