@@ -36,13 +36,12 @@ int verif_cocktail(sys_t *sys)
 
 void cocktail_finished(sys_t *sys)
 {
-	if (sys->blen_step == 17 && (verif_cocktail(sys) == 0 || verif_cocktail(sys) == 10)) {
+	if (sys->blen_step == 17 && (verif_cocktail(sys) == 0 ||
+	verif_cocktail(sys) == 10)) {
 		sfRenderWindow_drawSprite(sys->win, sys->obj[18]->sprite, NULL);
 	}
 	else if (sys->blen_step == 17 && verif_cocktail(sys) == 1)
 		sfRenderWindow_drawSprite(sys->win, sys->obj[19]->sprite, NULL);
-	for (int i = 0; i != 8; i++)
-		printf("on as %d %s en stock\n", sys->drink[i].stock, sys->drink[i].name);
 }
 
 void blender_disp(sys_t *sys)

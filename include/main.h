@@ -106,6 +106,10 @@
 	} cocktail_t;
 
 	typedef struct drink_s {
+		sfRectangleShape *rect;
+		sfIntRect square;
+		void(*callback)();
+		sfVector2f pos;
 		int stock;
 		char *name;
 	} drink_t;
@@ -140,12 +144,14 @@
 		button_t *button[100];
 		newbar_t *nb[100];
 		bshop_t *bshop[10];
-		cocktail_t cocktail[10];
+		cocktail_t cocktail[20];
 		drink_t drink[10];
 	} sys_t;
 
 	// PROTOTYPES
 
+	void sell_cocktail(sys_t *sys, int i);
+	void init_cocktail_button(sys_t *sys);
 	void reinit_ingredient(sys_t *sys);
 	void init_drink_stock(sys_t *sys);
 	int list_recipe(sys_t *sys, char *i1, char *i2, char *i3);

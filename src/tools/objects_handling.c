@@ -132,6 +132,9 @@ void render_objects(sys_t *sys)
 		sfRenderWindow_drawRectangleShape(sys->win, sys->button[i]->rect, NULL);
 		sfRenderWindow_drawSprite(sys->win, sys->button[i]->sprite, NULL);
 	}
+	for (i = 0; i != 8; i++) {
+		sfRenderWindow_drawRectangleShape(sys->win, sys->drink[i].rect, NULL);
+	}
 	sfRenderWindow_drawText(sys->win, sys->txt[0]->text, NULL);
 	verif_button(sys);
 	verif_bubble(sys);

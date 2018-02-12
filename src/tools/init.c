@@ -9,6 +9,7 @@
 
 void init_drink_stock(sys_t *sys)
 {
+	init_cocktail_button(sys);
 	for (int i = 0; i != 10; i++) {
 		sys->drink[i].stock = 0;
 		sys->drink[i].name = malloc(sizeof(char) * 20);
@@ -25,7 +26,7 @@ void init_drink_stock(sys_t *sys)
 
 void init_cocktail(sys_t *sys)
 {
-	for (int i = 0; i != 10; i++) {
+	for (int i = 0; i != 20; i++) {
 		sys->cocktail[i].stock = 0;
 		sys->cocktail[i].name = malloc(sizeof(char) * 20);
 	}
