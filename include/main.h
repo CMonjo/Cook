@@ -104,6 +104,12 @@
 		char *name;
 		int ingredient;
 	} cocktail_t;
+
+	typedef struct drink_s {
+		int stock;
+		char *name;
+	} drink_t;
+
 	typedef struct sys_s {
 		sfRenderWindow* win;
 		sfEvent event;
@@ -135,11 +141,14 @@
 		newbar_t *nb[100];
 		bshop_t *bshop[10];
 		cocktail_t cocktail[10];
+		drink_t drink[10];
 	} sys_t;
 
 	// PROTOTYPES
 
-	int list_recipe(char *i1, char *i2, char *i3);
+	void reinit_ingredient(sys_t *sys);
+	void init_drink_stock(sys_t *sys);
+	int list_recipe(sys_t *sys, char *i1, char *i2, char *i3);
 	void cocktail_finished(sys_t *sys);
 	void init_cocktail(sys_t *sys);
 	void blender_disp(sys_t *sys);

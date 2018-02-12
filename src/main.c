@@ -78,6 +78,7 @@ void my_window(sys_t *sys)
 	init_window(sys);
 	init_windowsup(sys);
 	init_button_shop(sys);
+	init_drink_stock(sys);
 	init_cocktail(sys);
 	sfMusic_play(sys->m_game);
 	sfMusic_setLoop(sys->m_game, sfTrue);
