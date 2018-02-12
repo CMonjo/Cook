@@ -7,6 +7,18 @@
 
 #include "main.h"
 
+void init_bubble_name(sys_t *sys)
+{
+	sys->obj[3]->name = "capple";
+	sys->obj[4]->name = "cbananas";
+	sys->obj[5]->name = "cbeer";
+	sys->obj[6]->name = "ccherry";
+	sys->obj[7]->name = "ccoffee";
+	sys->obj[8]->name = "corange";
+	sys->obj[9]->name = "cpineapple";
+	sys->obj[10]->name = "cwatermelon";
+}
+
 void init_objects(sys_t *sys)
 {
 	int i = 0;
@@ -25,7 +37,7 @@ void init_objects(sys_t *sys)
 	sys->obj[8] = add_obj("assets/img/bubble/orange.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[9] = add_obj("assets/img/bubble/pineapple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[10] = add_obj("assets/img/bubble/watermelon.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
-
+	init_bubble_name(sys);
 	sys->obj[11] = add_obj("assets/img/player/P3.png", (sfVector2f){1000, 1100}, (sfIntRect){0, 0, 73, 131});
 	sys->obj[12] = add_obj("assets/img/player/P3.png", (sfVector2f){1300, 1100}, (sfIntRect){0, 0, 73, 131});
 	sys->obj[13] = add_obj("assets/img/player/P3.png", (sfVector2f){1550, 1100}, (sfIntRect){0, 0, 73, 131});

@@ -35,6 +35,7 @@
 		sfTexture *texture;
 		sfVector2f pos;
 		sfIntRect rect;
+		char *name;
 	} obj_t;
 
 	typedef struct newbar_s {
