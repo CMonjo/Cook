@@ -22,29 +22,31 @@ int generate_time_player()
 
 void set_move_player(sys_t *sys)
 {
-	static int p1 = 1;
-	static int p2 = 0;
-	static int p3 = 0;
+	if (sys->player.rp1 != 1)
+		sys->player.rp1 = (rand() % (sys->rando - 1 + 1)) + 1;
+	if (sys->player.rp2 != 1)
+		sys->player.rp2 = (rand() % (sys->rando - 1 + 1)) + 1;
+	if (sys->player.rp3 != 1)
+		sys->player.rp3 = (rand() % (sys->rando - 1 + 1)) + 1;
 
-	if (p1 != 1)
-		p1 = (rand() % (100 - 1 + 1)) + 1;
-	if (p2 != 1)
-		p2 = (rand() % (100 - 1 + 1)) + 1;
-	if (p3 != 1)
-		p3 = (rand() % (100 - 1 + 1)) + 1;
-
-	if (p1 == 1)
+	if (sys->player.rp1 == 1)
 		move_player(sys, 11, 1045);
-	if (p2 == 1)
+	if (sys->player.rp2 == 1)
 		move_player(sys, 12, 1045);
-	if (p3 == 1)
+	if (sys->player.rp3 == 1)
 		move_player(sys, 13, 1045);
-	// if (s1 == 1)
+	// if (sys->wave[11] <= 0) {
 	// 	p1 = 0;
-	// if (s2 == 1)
-	// 	p2 = 0;
-	// if (s3 == 1)
-	// 	p3 = 0;
+	// 	sys->wave[11] = sys->wave[0];
+	// }
+	// if (sys->wave[12] <= 0) {
+	// 	p1 = 0;
+	// 	sys->wave[12] = sys->wave[0];
+	// }
+	// if (sys->wave[13] <= 0) {
+	// 	p1 = 0;
+	// 	sys->wave[13] = sys->wave[0];
+	// }
 }
 
 void which_status_game_loop(sys_t *sys)
@@ -91,6 +93,12 @@ void my_window(sys_t *sys)
 	destroy_objects(sys);
 }
 
+void set_wave_values(sys_t *sys, char *av)
+{
+	sys->wave = malloc(sizeof(int) * 14);
+	for (int i = 0; i != 14; sys->wave[i] = my_getnbr(av) * 100, i++);
+}
+
 int main(int ac, char **av)
 {
 	sys_t *sys = malloc(sizeof(sys_t));
@@ -105,8 +113,9 @@ int main(int ac, char **av)
 		my_putstr("For more information use -h\n");
 		return (84);
 	}
-	sys->wave = my_getnbr(av[1]);
-	if (sys->wave <= 0)
+	sys->rando = my_getnbr(av[1]) * 100;
+	set_wave_values(sys, av[1]);
+	if (sys->wave <= 0 || sys->rando <= 0)
 		return (84);
 	my_window(sys);
 	return (0);

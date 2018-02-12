@@ -94,6 +94,9 @@
 		int p1;
 		int p2;
 		int p3;
+		int rp1;
+		int rp2;
+		int rp3;
 	} player_t;
 
 	typedef struct cocktail_s {
@@ -121,7 +124,8 @@
 		int status;
 		int select;
 		int blender;
-		int wave;
+		int *wave;
+		int rando;
 		player_t player;
 		inventory_t inventory[10];
 		txt_t *txt[100];

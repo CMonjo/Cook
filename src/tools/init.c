@@ -74,6 +74,9 @@ void init_window(sys_t *sys)
 	sys->player.p1 = 0;
 	sys->player.p2 = 0;
 	sys->player.p3 = 0;
+	sys->player.rp1 = 0;
+	sys->player.rp2 = 0;
+	sys->player.rp3 = 0;
 	sys->select = 1;
 	sys->blender = 0;
 	sys->money = malloc(sizeof(char) * 10);

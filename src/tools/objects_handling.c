@@ -25,9 +25,9 @@ void init_objects(sys_t *sys)
 	sys->obj[9] = add_obj("assets/img/bubble/pineapple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[10] = add_obj("assets/img/bubble/watermelon.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 
-	sys->obj[11] = add_obj("assets/img/player/P3.png", (sfVector2f){1000, 1000}, (sfIntRect){0, 0, 73, 131});
-	sys->obj[12] = add_obj("assets/img/player/P3.png", (sfVector2f){1300, 1000}, (sfIntRect){0, 0, 73, 131});
-	sys->obj[13] = add_obj("assets/img/player/P3.png", (sfVector2f){1550, 1000}, (sfIntRect){0, 0, 73, 131});
+	sys->obj[11] = add_obj("assets/img/player/P3.png", (sfVector2f){1000, 1100}, (sfIntRect){0, 0, 73, 131});
+	sys->obj[12] = add_obj("assets/img/player/P3.png", (sfVector2f){1300, 1100}, (sfIntRect){0, 0, 73, 131});
+	sys->obj[13] = add_obj("assets/img/player/P3.png", (sfVector2f){1550, 1100}, (sfIntRect){0, 0, 73, 131});
 
 	sys->obj[14] = add_obj("assets/img/blender/blender_bg.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[15] = add_obj("assets/img/blender/blender_step1.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});

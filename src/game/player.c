@@ -60,31 +60,18 @@ void move_back_player(sys_t *sys, int i, int max_value)
 {
 	remove_bubble(sys, i);
 	sys->obj[i]->rect.left = 0;
+	if (sys->obj[i]->pos.y >= 1110) {
+		i == 11 ? sys->player.rp1 = 0 : 0;
+		i == 12 ? sys->player.rp2 = 0 : 0;
+		i == 13 ? sys->player.rp3 = 0 : 0;
+		sys->wave[i] = 110;
+	}
 	if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
 		sys->obj[i]->rect.top = sys->obj[i]->rect.height;
 	else
 		sys->obj[i]->rect.top += sys->obj[i]->rect.height;
 	sys->obj[i]->pos.y += 7;
-	sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);}
-
-void move_player(sys_t *sys, int i, int max_value)
-{
-	if (sys->wave == 0) // OU COCKTAIL OK
-		move_back_player(sys, i, max_value);
-	else if (sys->obj[i]->pos.y >= 200 && sys->wave != 0) {
-		sys->obj[i]->rect.left = 73;
-		if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
-			sys->obj[i]->rect.top = sys->obj[i]->rect.height;
-		else
-			sys->obj[i]->rect.top += sys->obj[i]->rect.height;
-		sys->obj[i]->pos.y += -7;
-		if (sys->obj[i]->pos.y <= -150)
-			sys->obj[i]->pos.y = 1150;
-		sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
-	} else {
-		player_detection(sys, i);
-		sys->wave--;
-	}
+	sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
 }
 
 void player_detection(sys_t *sys, int i)
@@ -103,5 +90,25 @@ void player_detection(sys_t *sys, int i)
 		sys->player.three = i;
 		if (sys->player.p3 == 0)
 			sys->player.p3 = generate_random_cocktail();
+	}
+}
+
+void move_player(sys_t *sys, int i, int max_value)
+{
+	if (sys->wave[i] == 0) // OU COCKTAIL OK
+		move_back_player(sys, i, max_value);
+	else if (sys->obj[i]->pos.y >= 200 && sys->wave[i] != 0) {
+		sys->obj[i]->rect.left = 73;
+		if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
+			sys->obj[i]->rect.top = sys->obj[i]->rect.height;
+		else
+			sys->obj[i]->rect.top += sys->obj[i]->rect.height;
+		sys->obj[i]->pos.y += -7;
+		if (sys->obj[i]->pos.y <= -150)
+			sys->obj[i]->pos.y = 1150;
+		sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
+	} else {
+		player_detection(sys, i);
+		sys->wave[i]--;
 	}
 }
