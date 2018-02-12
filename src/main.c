@@ -35,18 +35,6 @@ void set_move_player(sys_t *sys)
 		move_player(sys, 12, 1045);
 	if (sys->player.rp3 == 1)
 		move_player(sys, 13, 1045);
-	// if (sys->wave[11] <= 0) {
-	// 	p1 = 0;
-	// 	sys->wave[11] = sys->wave[0];
-	// }
-	// if (sys->wave[12] <= 0) {
-	// 	p1 = 0;
-	// 	sys->wave[12] = sys->wave[0];
-	// }
-	// if (sys->wave[13] <= 0) {
-	// 	p1 = 0;
-	// 	sys->wave[13] = sys->wave[0];
-	// }
 }
 
 void which_status_game_loop(sys_t *sys)
@@ -97,7 +85,7 @@ void my_window(sys_t *sys)
 void set_wave_values(sys_t *sys, char *av)
 {
 	sys->wave = malloc(sizeof(int) * 14);
-	for (int i = 0; i != 14; sys->wave[i] = my_getnbr(av) * 100, i++);
+	for (int i = 0; i != 14; sys->wave[i] = my_getnbr(av) * 800, i++);
 }
 
 int main(int ac, char **av)
@@ -114,7 +102,7 @@ int main(int ac, char **av)
 		my_putstr("For more information use -h\n");
 		return (84);
 	}
-	sys->rando = my_getnbr(av[1]) * 100;
+	sys->rando = my_getnbr(av[1]) * 150;
 	set_wave_values(sys, av[1]);
 	if (sys->wave <= 0 || sys->rando <= 0)
 		return (84);

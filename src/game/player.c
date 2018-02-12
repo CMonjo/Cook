@@ -64,7 +64,7 @@ void move_back_player(sys_t *sys, int i, int max_value)
 		i == 11 ? sys->player.rp1 = 0 : 0;
 		i == 12 ? sys->player.rp2 = 0 : 0;
 		i == 13 ? sys->player.rp3 = 0 : 0;
-		sys->wave[i] = 110;
+		sys->wave[i] = sys->wave[0];
 	}
 	if (sys->obj[i]->rect.top >= max_value - sys->obj[i]->rect.height)
 		sys->obj[i]->rect.top = sys->obj[i]->rect.height;

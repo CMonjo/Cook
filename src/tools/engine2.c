@@ -18,7 +18,7 @@ void (*func)())
 	new->rect = sfRectangleShape_create();
 	sfRectangleShape_setPosition(new->rect, pos);
 	sfRectangleShape_setSize(new->rect, size);
-	sfRectangleShape_setFillColor(new->rect, (sfColor){256, 0, 0, 256});
+	sfRectangleShape_setFillColor(new->rect, (sfColor){255, 0, 0, 0});
 	new->callback = func;
 	return (new);
 }

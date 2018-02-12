@@ -16,6 +16,7 @@ void init_objects(sys_t *sys)
 	sys->obj[0] = add_obj("assets/img/hud/bg_menu.png", (sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[1] = add_obj("assets/img/hud/bg.png", (sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[2] = add_obj("assets/img/hud/coin.png", (sfVector2f){115, 5}, (sfIntRect){0, 0, 50, 50});
+
 	sys->obj[3] = add_obj("assets/img/bubble/apple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[4] = add_obj("assets/img/bubble/bananas.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[5] = add_obj("assets/img/bubble/beer.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
