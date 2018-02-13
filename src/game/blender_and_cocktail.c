@@ -24,9 +24,9 @@ int verif_cocktail(sys_t *sys)
 	my_strcmp(sys->cocktail[15].name, "beeroucoffee") == 0 &&
 	my_strcmp(sys->cocktail[16].name, "beeroucoffee") == 0) {
 		if (my_strcmp(sys->cocktail[17].name, "beer") == 0)
-			sys->drink[0].stock++;
+			sys->drink[4].stock++;
 		if (my_strcmp(sys->cocktail[17].name, "coffee") == 0)
-			sys->drink[1].stock++;
+			sys->drink[0].stock++;
 		reinit_ingredient(sys);
 		return (0);
 	}
