@@ -28,7 +28,6 @@ void verif_third_client(sys_t *sys, int i)
 	if (sys->wave[13] > 0 && sys->wave[13] < 800 && sys->drink[i].stock > 0
 	&& my_strcmp(sys->obj[sys->player.p3]->name, sys->drink[i].name) == 0)
 	{
-		printf("%s\n", "sell at player 3");
 		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave[13] = 0;
@@ -43,7 +42,6 @@ void sell_cocktail(sys_t *sys, int i)
 	if (sys->wave[11] > 0 && sys->wave[11] < 800 && sys->drink[i].stock > 0 &&
 	my_strcmp(sys->obj[sys->player.p1]->name, sys->drink[i].name) == 0)
 	{
-		printf("%s\n", "sell at player 1");
 		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave[11] = 0;
@@ -53,7 +51,6 @@ void sell_cocktail(sys_t *sys, int i)
 	else if (sys->wave[12] > 0 && sys->wave[12] < 800 && sys->drink[i].stock > 0 && my_strcmp(sys->obj[sys->player.p2]->name,
 	sys->drink[i].name) == 0)
 	{
-		printf("%s\n", "sell at player 2");
 		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave[12] = 0;
@@ -61,24 +58,4 @@ void sell_cocktail(sys_t *sys, int i)
 		sys->player.two = 0;
 	} else
 		verif_third_client(sys, i);
-}
-
-void init_cocktail_button(sys_t *sys)
-{
-	sys->drink[0] = *add_cocktail_button((sfVector2f){310, 10},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
-	sys->drink[1] = *add_cocktail_button((sfVector2f){420, 10},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
-	sys->drink[2] = *add_cocktail_button((sfVector2f){540, 12},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
-	sys->drink[3] = *add_cocktail_button((sfVector2f){650, 10},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
-	sys->drink[4] = *add_cocktail_button((sfVector2f){310, 80},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
-	sys->drink[5] = *add_cocktail_button((sfVector2f){420, 78},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
-	sys->drink[6] = *add_cocktail_button((sfVector2f){540, 79},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
-	sys->drink[7] = *add_cocktail_button((sfVector2f){650, 80},
-	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
 }

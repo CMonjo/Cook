@@ -9,10 +9,10 @@
 
 void init_bubble_name(sys_t *sys)
 {
-	for (int i = 0; i != 11; i++) {
-		sys->obj[i]->name = malloc(sizeof(char) * 30);
-		sys->obj[i]->name = NULL;
-	}
+	// for (int i = 0; i != 11; i++) {
+	// 	sys->obj[i]->name = malloc(sizeof(char) * 30);
+	// 	sys->obj[i]->name = NULL;
+	// }
 	sys->obj[3]->name = "capple";
 	sys->obj[4]->name = "cbananas";
 	sys->obj[5]->name = "cbeer";
@@ -27,12 +27,11 @@ void init_objects(sys_t *sys)
 {
 	int i = 0;
 
-	for (i = 0; i < 100; i++)
+	for (i = 0; i < 22; i++)
 		sys->obj[i] = NULL;
 	sys->obj[0] = add_obj("assets/img/hud/bg_menu.png", (sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[1] = add_obj("assets/img/hud/bg.png", (sfVector2f){0, 0}, (sfIntRect){0, 0, 1920, 1080});
 	sys->obj[2] = add_obj("assets/img/hud/coin.png", (sfVector2f){115, 5}, (sfIntRect){0, 0, 50, 50});
-
 	sys->obj[3] = add_obj("assets/img/bubble/apple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[4] = add_obj("assets/img/bubble/bananas.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[5] = add_obj("assets/img/bubble/beer.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
@@ -41,29 +40,25 @@ void init_objects(sys_t *sys)
 	sys->obj[8] = add_obj("assets/img/bubble/orange.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[9] = add_obj("assets/img/bubble/pineapple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[10] = add_obj("assets/img/bubble/watermelon.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
-	init_bubble_name(sys);
 	sys->obj[11] = add_obj("assets/img/player/P3.png", (sfVector2f){1000, 1100}, (sfIntRect){0, 0, 73, 131});
 	sys->obj[12] = add_obj("assets/img/player/P3.png", (sfVector2f){1300, 1100}, (sfIntRect){0, 0, 73, 131});
 	sys->obj[13] = add_obj("assets/img/player/P3.png", (sfVector2f){1550, 1100}, (sfIntRect){0, 0, 73, 131});
-
 	sys->obj[14] = add_obj("assets/img/blender/blender_bg.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[15] = add_obj("assets/img/blender/blender_step1.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[16] = add_obj("assets/img/blender/blender_step2.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[17] = add_obj("assets/img/blender/blender_step3.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[18] = add_obj("assets/img/blender/cocktailok.png", (sfVector2f){760, 200}, (sfIntRect){0, 0, 470, 220});
 	sys->obj[19] = add_obj("assets/img/blender/cocktailfailure.png", (sfVector2f){760, 200}, (sfIntRect){0, 0, 470, 220});
-
-	sys->obj[98] = add_obj("assets/img/hud/door.png",
-	(sfVector2f){970, 1058}, (sfIntRect){0, 0, 670, 22});
-	sys->obj[99] = add_obj("assets/img/hud/mouse.png",
-	(sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
+	sys->obj[20] = add_obj("assets/img/hud/door.png", (sfVector2f){970, 1058}, (sfIntRect){0, 0, 670, 22});
+	sys->obj[21] = add_obj("assets/img/hud/mouse.png", (sfVector2f){900, 440}, (sfIntRect){0, 0, 40, 40});
+	init_bubble_name(sys);
 }
 
 void init_button(sys_t *sys)
 {
 	int i = 0;
 
-	for (i = 0; i < 100; i++)
+	for (i = 0; i != 5; i++)
 		sys->button[i] = NULL;
 	sys->button[0] = add_buttom("assets/img/action_bar/pause.png",
 	(sfVector2f){31, 120}, (sfVector2f){76, 76},
@@ -84,7 +79,7 @@ void init_windowsup(sys_t *sys)
 {
 	int i = 0;
 
-	for (i = 0; i < 100; i++)
+	for (i = 0; i != 5; i++)
 		sys->wsup[i] = NULL;
 	sys->wsup[0] = add_sup("assets/img/action_bar/marketplace.png",
 	(sfVector2f){400, 200}, (sfIntRect){0, 0, 1096, 780});
@@ -100,15 +95,16 @@ void init_text_menu(sys_t *sys)
 {
 	int i = 0;
 
-	for (i = 0; i < 100; i++)
+	for (i = 0; i != 34; i++)
 		sys->txt[i] = NULL;
+	sys->txt[0] = set_text("assets/font/bold.ttf",
+	(sfVector2f){180, 0}, sys->money, 50);
 	sys->txt[1] = set_text("assets/font/bold.ttf",
 	(sfVector2f){710, 250}, "My Cook ! ", 100);
 	sys->txt[2] = set_text("assets/font/bold.ttf",
 	(sfVector2f){500, 550}, "Play", 50);
 	sys->txt[3] = set_text("assets/font/bold.ttf",
 	(sfVector2f){1220, 550}, "Quit", 50);
-
 	sys->txt[4] = set_text("assets/font/bold.ttf",
 	(sfVector2f){790, 10}, "Pause !", 100);
 	sys->txt[5] = set_text("assets/font/bold.ttf",
@@ -117,8 +113,12 @@ void init_text_menu(sys_t *sys)
 	(sfVector2f){780, 920}, "Go to home", 50);
 	sys->txt[7] = set_text("assets/font/bold.ttf",
 	(sfVector2f){1550, 920}, "RageQuit", 50);
-
-
+	sys->txt[8] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1550, 920}, "Game over...", 50);
+	sys->txt[9] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1550, 920}, "You lose...", 50);
+	sys->txt[10] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1550, 920}, "You win !", 50);
 	sys->txt[11] = set_text("assets/font/bold.ttf",
 	(sfVector2f){100, 900}, "Your score : ", 50);
 	sys->txt[12] = set_text("assets/font/bold.ttf",
@@ -127,7 +127,6 @@ void init_text_menu(sys_t *sys)
 	(sfVector2f){650, 150}, "You lose !", 120);
 	sys->txt[16] = set_text("assets/font/bold.ttf",
 	(sfVector2f){450, 280}, "Not enough ingredient in stock", 70);
-
 	sys->txt[17] = set_text("assets/font/bold.ttf",
 	(sfVector2f){890, 300}, sys->inventory[0].cstock, 50);
 	sys->txt[18] = set_text("assets/font/bold.ttf",
@@ -166,8 +165,6 @@ void render_objects(sys_t *sys)
 {
 	int i = 0;
 
-	sfRenderWindow_drawSprite(sys->win, sys->obj[0]->sprite, NULL);
-	sfSprite_setTextureRect(sys->obj[0]->sprite, sys->obj[0]->rect);
 	for (i = 1; i != 3; i++) {
 		sfRenderWindow_drawSprite(sys->win, sys->obj[i]->sprite, NULL);
 		sfSprite_setTextureRect(sys->obj[i]->sprite, sys->obj[i]->rect);
@@ -188,11 +185,9 @@ void render_objects(sys_t *sys)
 	verif_button(sys);
 	verif_bubble(sys);
 	error_message(sys);
-	// PRINT DE LA MOUSE
-	// CHANGER SA VALEUR UNE FOIS TOUS LES OBJS LOADS
-	sfRenderWindow_drawSprite(sys->win, sys->obj[98]->sprite, NULL);
-	sfSprite_setTextureRect(sys->obj[98]->sprite, sys->obj[98]->rect);
-	sfRenderWindow_drawSprite(sys->win, sys->obj[99]->sprite, NULL);
-	sfSprite_setTextureRect(sys->obj[99]->sprite, sys->obj[99]->rect);
+	sfRenderWindow_drawSprite(sys->win, sys->obj[20]->sprite, NULL);
+	sfSprite_setTextureRect(sys->obj[20]->sprite, sys->obj[20]->rect);
+	sfRenderWindow_drawSprite(sys->win, sys->obj[21]->sprite, NULL);
+	sfSprite_setTextureRect(sys->obj[21]->sprite, sys->obj[21]->rect);
 	sfRenderWindow_display(sys->win);
 }

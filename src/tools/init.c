@@ -9,8 +9,23 @@
 
 void init_drink_stock(sys_t *sys)
 {
-	init_cocktail_button(sys);
-	for (int i = 0; i != 10; i++) {
+	sys->drink[0] = *add_cocktail_button((sfVector2f){310, 10},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	sys->drink[1] = *add_cocktail_button((sfVector2f){420, 10},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	sys->drink[2] = *add_cocktail_button((sfVector2f){540, 12},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	sys->drink[3] = *add_cocktail_button((sfVector2f){650, 10},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	sys->drink[4] = *add_cocktail_button((sfVector2f){310, 80},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	sys->drink[5] = *add_cocktail_button((sfVector2f){420, 78},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	sys->drink[6] = *add_cocktail_button((sfVector2f){540, 79},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	sys->drink[7] = *add_cocktail_button((sfVector2f){650, 80},
+	(sfVector2f){50, 50}, (sfIntRect){0, 0, 80, 80}, sell_cocktail);
+	for (int i = 0; i != 9; i++) {
 		sys->drink[i].stock = 0;
 		sys->drink[i].name = malloc(sizeof(char) * 20);
 	}
@@ -26,10 +41,6 @@ void init_drink_stock(sys_t *sys)
 
 void init_cocktail(sys_t *sys)
 {
-	for (int i = 0; i != 20; i++) {
-		sys->cocktail[i].stock = 0;
-		sys->cocktail[i].name = malloc(sizeof(char) * 20);
-	}
 	sys->cocktail[0].name = "beer";
 	sys->cocktail[1].name = "coffee";
 	sys->cocktail[2].name = "cherry";
@@ -80,6 +91,14 @@ void init_player_system(sys_t *sys)
 	sys->player.rp3 = 0;
 }
 
+void init_string_stock(sys_t *sys)
+{
+	for (int i = 0; i != 8; i++) {
+		sys->inventory[i].cstock = malloc(sizeof(char) * 30);
+		sys->inventory[i].cstock = "0";
+	}
+}
+
 void init_window(sys_t *sys)
 {
 	sfVideoMode mode = {1920, 1080, 32};
@@ -100,7 +119,9 @@ void init_window(sys_t *sys)
 	sys->blender = 0;
 	sys->error_message = 0;
 	sys->money = malloc(sizeof(char) * 10);
+	sys->money = NULL;
 	sys->int_money = 50;
+	init_string_stock(sys);
 	init_player_system(sys);
 	init_inventory(sys);
 	init_objects(sys);

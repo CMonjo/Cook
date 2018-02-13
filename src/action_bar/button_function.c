@@ -21,13 +21,13 @@ int my_clock(sys_t *sys)
 
 void verif_button(sys_t *sys)
 {
-	if (sys->wsup[3]->key == 0) // 3 = cook
+	if (sys->wsup[3]->key == 0)
 		disp_cook(sys);
-	else if (sys->wsup[1]->key == 0) // 1 = pause
+	else if (sys->wsup[1]->key == 0)
 		sys->status = 1;
-	else if (sys->wsup[0]->key == 0) // 0 = market
+	else if (sys->wsup[0]->key == 0)
 		disp_menu(sys);
-	else if (sys->wsup[2]->key == 0) // 2 = recette
+	else if (sys->wsup[2]->key == 0)
 		disp_recipe(sys);
 }
 
@@ -44,8 +44,6 @@ void button_cook(sys_t *sys)
 
 void button_menu(sys_t *sys)
 {
-	// if (sys->wsup[1]->key == 0) {
-	// 	sys->wsup[1]->key = 1;
 	if (sys->wsup[1]->key == 1) {
 		sys->wsup[1]->key = 0;
 		if (sys->wsup[3]->imopen == 1) {

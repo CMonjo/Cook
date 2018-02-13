@@ -32,6 +32,5 @@ char *init_money(int nbr)
 void display_money(sys_t *sys)
 {
 	sys->money = init_money(sys->int_money);
-	sys->txt[0] = set_text("assets/font/bold.ttf",
-	(sfVector2f){180, 0}, sys->money, 50);
+	sfText_setString(sys->txt[0]->text, sys->money);
 }

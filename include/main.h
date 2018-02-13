@@ -41,7 +41,6 @@
 	typedef struct newbar_s {
 		sfRectangleShape *rect;
 		sfIntRect square;
-		char *msg;
 		void(*callback)();
 		sfSprite *sprite;
 		sfTexture *texture;
@@ -51,7 +50,6 @@
 	typedef struct button_s {
 		sfRectangleShape *rect;
 		sfIntRect square;
-		char *msg;
 		void(*callback)();
 		sfSprite *sprite;
 		sfTexture *texture;
@@ -83,7 +81,6 @@
 	typedef struct bshop_s {
 		sfRectangleShape *rect;
 		sfIntRect square;
-		char *name;
 		void(*callback)();
 		sfVector2f pos;
 	} bshop_t;
@@ -130,22 +127,21 @@
 		int int_money;
 		int blen_step;
 		char *money;
-		sfMusic *music;
 		int error_message;
 		int status;
 		int select;
 		int blender;
 		int *wave;
 		player_t player;
-		inventory_t inventory[10];
-		txt_t *txt[100];
-		obj_t *obj[100];
-		wsup_t *wsup[100];
-		button_t *button[100];
-		newbar_t *nb[100];
-		bshop_t *bshop[100];
-		cocktail_t cocktail[20];
-		drink_t drink[100];
+		inventory_t inventory[8];
+		txt_t *txt[34];
+		obj_t *obj[22];
+		wsup_t *wsup[5];
+		button_t *button[5];
+		newbar_t *nb[9];
+		bshop_t *bshop[9];
+		cocktail_t cocktail[18];
+		drink_t drink[9];
 	} sys_t;
 
 	// PROTOTYPES
@@ -179,6 +175,8 @@
 	void disp_recipe(sys_t *sys);
 	wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect
 	rect);
+	drink_t *add_cocktail_button(sfVector2f pos, sfVector2f size, sfIntRect square,
+	void (*func)());
 	void init_windowsup(sys_t *sys);
 	int main(int ac, char **av);
 	void init_window(sys_t *sys);

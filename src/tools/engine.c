@@ -10,6 +10,7 @@
 obj_t *add_obj(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 {
 	obj_t *new = malloc(sizeof(obj_t));
+
 	if (new == NULL)
 		return (NULL);
 	new->sprite = sfSprite_create();
@@ -26,6 +27,7 @@ newbar_t *add_new_buttom(const char *path_sprite, sfVector2f pos,
 sfVector2f size, sfIntRect square, void (*func)(void))
 {
 	newbar_t *new = malloc(sizeof(sys_t));
+
 	if (new == NULL)
 		return (NULL);
 	new->sprite = sfSprite_create();
@@ -46,6 +48,7 @@ sfVector2f size, sfIntRect square, void (*func)(void))
 wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 {
 	wsup_t *new = malloc(sizeof(wsup_t));
+
 	if (new == NULL)
 		return (NULL);
 	new->sprite = sfSprite_create();
@@ -63,6 +66,7 @@ wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 txt_t *set_text(char *font, sfVector2f pos, char *text, int size)
 {
 	txt_t *new = malloc(sizeof(txt_t));
+
 	if (new == NULL)
 		return (NULL);
 	new->font = sfFont_createFromFile(font);
@@ -78,6 +82,7 @@ button_t *add_buttom(const char *path_sprite, sfVector2f pos,
 sfVector2f size, sfIntRect square, void (*func)(void))
 {
 	button_t *new = malloc(sizeof(sys_t));
+
 	if (new == NULL)
 		return (NULL);
 	new->sprite = sfSprite_create();

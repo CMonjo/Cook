@@ -7,25 +7,10 @@
 
 #include "main.h"
 
-void init_nbbuttom2(sys_t *sys)
-{
-	sys->nb[4] = add_new_buttom("assets/img/food/cherry.png",
-	(sfVector2f){31, 480}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, adding_recipe);
-	sys->nb[5] = add_new_buttom("assets/img/food/watermelon.png",
-	(sfVector2f){31, 600}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, adding_recipe);
-	sys->nb[6] = add_new_buttom("assets/img/food/banana.png",
-	(sfVector2f){31, 720}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, adding_recipe);
-	sys->nb[7] = add_new_buttom("assets/img/food/apple.png",
-	(sfVector2f){31, 840}, (sfVector2f){76, 76},
-	(sfIntRect){0, 0, 80, 80}, adding_recipe);
-	sys->nb[8] = NULL;
-}
 void init_nbbuttom(sys_t *sys)
 {
-//button cook
+	for (int i = 0; i != 9; i++)
+		sys->nb[i] = NULL;
 	sys->nb[0] = add_new_buttom("assets/img/food/beer.png",
 	(sfVector2f){31, 0}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, adding_recipe);
@@ -38,7 +23,18 @@ void init_nbbuttom(sys_t *sys)
 	sys->nb[3] = add_new_buttom("assets/img/food/pineapple.png",
 	(sfVector2f){31, 360}, (sfVector2f){76, 76},
 	(sfIntRect){0, 0, 80, 80}, adding_recipe);
-	init_nbbuttom2(sys);
+	sys->nb[4] = add_new_buttom("assets/img/food/cherry.png",
+	(sfVector2f){31, 480}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, adding_recipe);
+	sys->nb[5] = add_new_buttom("assets/img/food/watermelon.png",
+	(sfVector2f){31, 600}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, adding_recipe);
+	sys->nb[6] = add_new_buttom("assets/img/food/banana.png",
+	(sfVector2f){31, 720}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, adding_recipe);
+	sys->nb[7] = add_new_buttom("assets/img/food/apple.png",
+	(sfVector2f){31, 840}, (sfVector2f){76, 76},
+	(sfIntRect){0, 0, 80, 80}, adding_recipe);
 }
 
 bshop_t *newbutton_shop(sfVector2f pos, sfVector2f size, sfIntRect square,
@@ -60,7 +56,7 @@ void init_button_shop(sys_t *sys)
 {
 	int i = 0;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i != 9; i++)
 		sys->bshop[i] = NULL;
 	sys->bshop[0] = newbutton_shop((sfVector2f){784, 296},
 	(sfVector2f){65, 65}, (sfIntRect){0, 0, 80, 80}, increment_stock);
