@@ -27,23 +27,23 @@ void sell_cocktail(sys_t *sys, int i)
 {
 	printf("i = %dcocktail demander = %s et moi je lui donne %s j'en ai %d\n", i, sys->obj[sys->player.p1]->name, sys->drink[i].name, sys->drink[i].stock);
 	if (sys->drink[i].stock > 0 && my_strcmp(sys->obj[sys->player.p1]->name,
-	sys->drink[i].name))
+	sys->drink[i].name) == 0)
 	{
-		sys->money += 10;
+		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
-		//sys->wave = 0;
+		sys->wave = 0;
 	}
 	else if (sys->drink[i].stock > 0 && my_strcmp(sys->obj[sys->player.p2]->name,
-	sys->drink[i].name))
+	sys->drink[i].name) == 0)
 	{
-		sys->money += 10;
+		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave = 0;
 	}
 	else if (sys->drink[i].stock > 0 && my_strcmp(sys->obj[sys->player.p3]->name,
-	sys->drink[i].name))
+	sys->drink[i].name) == 0)
 	{
-		sys->money += 10;
+		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave = 0;
 	}

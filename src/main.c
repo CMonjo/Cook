@@ -12,31 +12,6 @@
 //SYS->STATUS == 2 -> Menu end
 //SYS->STATUS != 1, 2 et 0 -> Game loop
 
-int generate_time_player()
-{
-	int val = 0;
-
-	val = (rand() % (10 - 3 + 1)) + 3;
-	return (val);
-}
-
-void set_move_player(sys_t *sys)
-{
-	if (sys->player.rp1 != 1)
-		sys->player.rp1 = (rand() % (sys->rando - 1 + 1)) + 1;
-	if (sys->player.rp2 != 1)
-		sys->player.rp2 = (rand() % (sys->rando - 1 + 1)) + 1;
-	if (sys->player.rp3 != 1)
-		sys->player.rp3 = (rand() % (sys->rando - 1 + 1)) + 1;
-
-	if (sys->player.rp1 == 1)
-		move_player(sys, 11, 1045);
-	if (sys->player.rp2 == 1)
-		move_player(sys, 12, 1045);
-	if (sys->player.rp3 == 1)
-		move_player(sys, 13, 1045);
-}
-
 void which_status_game_loop(sys_t *sys)
 {
 	// if (sys->status == 2)
@@ -82,10 +57,10 @@ void my_window(sys_t *sys)
 	destroy_objects(sys);
 }
 
-void set_wave_values(sys_t *sys, char *av)
+void set_wave_values(sys_t *sys)
 {
 	sys->wave = malloc(sizeof(int) * 14);
-	for (int i = 0; i != 14; sys->wave[i] = my_getnbr(av) * 800, i++);
+	for (int i = 0; i != 14; sys->wave[i] = 800, i++);
 }
 
 int main(int ac, char **av)
@@ -97,15 +72,12 @@ int main(int ac, char **av)
 		print_h(".legend");
 		return (0);
 	}
-	else if (ac != 2) {
+	else if (ac != 1) {
 		my_putstr("You must type './my_cook <wave value>'\n");
 		my_putstr("For more information use -h\n");
 		return (84);
 	}
-	sys->rando = my_getnbr(av[1]) * 150;
-	set_wave_values(sys, av[1]);
-	if (sys->wave <= 0 || sys->rando <= 0)
-		return (84);
+	set_wave_values(sys);
 	my_window(sys);
 	return (0);
 }

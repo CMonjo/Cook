@@ -74,6 +74,23 @@ void move_back_player(sys_t *sys, int i, int max_value)
 	sfSprite_setPosition(sys->obj[i]->sprite, sys->obj[i]->pos);
 }
 
+void set_move_player(sys_t *sys)
+{
+	if (sys->player.rp1 != 1)
+		sys->player.rp1 = (rand() % (150 - 1 + 1)) + 1;
+	if (sys->player.rp2 != 1)
+		sys->player.rp2 = (rand() % (150 - 1 + 1)) + 1;
+	if (sys->player.rp3 != 1)
+		sys->player.rp3 = (rand() % (150 - 1 + 1)) + 1;
+
+	if (sys->player.rp1 == 1)
+		move_player(sys, 11, 1045);
+	if (sys->player.rp2 == 1)
+		move_player(sys, 12, 1045);
+	if (sys->player.rp3 == 1)
+		move_player(sys, 13, 1045);
+}
+
 void player_detection(sys_t *sys, int i)
 {
 	if (i == 11) {

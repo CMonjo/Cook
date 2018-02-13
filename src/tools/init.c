@@ -10,9 +10,8 @@
 void init_drink_stock(sys_t *sys)
 {
 	init_cocktail_button(sys);
-	for (int i = 0; i != 10; i++) {
+	for (int i = 0; i != 10; i++)
 		sys->drink[i].stock = 0;
-	}
 	sys->drink[0].name = "ccoffee";
 	sys->drink[1].name = "cwatermelon";
 	sys->drink[2].name = "ccherry";
@@ -66,24 +65,8 @@ void init_inventory(sys_t *sys)
 	sys->inventory[7].price = 1;
 }
 
-void init_window(sys_t *sys)
+void init_player_system(sys_t *sys)
 {
-	sfVideoMode mode = {1920, 1080, 32};
-	sys->win = sfRenderWindow_create(mode, "Cook",
-	sfResize | sfClose, NULL);
-	sfRenderWindow_setFramerateLimit(sys->win, 60);
-	sys->clock = sfClock_create();
-	sys->clock_player = sfClock_create();
-
-
-	sys->m_game = sfMusic_createFromFile("assets/music/game.wav");
-	sys->m_menu = sfMusic_createFromFile("assets/music/select.wav");
-	sys->m_button = sfMusic_createFromFile("assets/music/game.wav");
-
-
-	srand(time(NULL));
-	sys->status = 0;
-	sys->blen_step = 14;
 	sys->player.one = 0;
 	sys->player.two = 0;
 	sys->player.three = 0;
@@ -93,11 +76,30 @@ void init_window(sys_t *sys)
 	sys->player.rp1 = 0;
 	sys->player.rp2 = 0;
 	sys->player.rp3 = 0;
+}
+
+void init_window(sys_t *sys)
+{
+	sfVideoMode mode = {1920, 1080, 32};
+	sys->win = sfRenderWindow_create(mode, "Cook",
+	sfResize | sfClose, NULL);
+	sfRenderWindow_setFramerateLimit(sys->win, 60);
+	srand(time(NULL));
+	sys->clock = sfClock_create();
+	sys->clock_player = sfClock_create();
+
+	sys->m_game = sfMusic_createFromFile("assets/music/game.wav");
+	sys->m_menu = sfMusic_createFromFile("assets/music/select.wav");
+	sys->m_button = sfMusic_createFromFile("assets/music/button.wav");
+
+	sys->status = 0;
+	sys->blen_step = 14;
 	sys->select = 1;
 	sys->blender = 0;
+	sys->error_message = 0;
 	sys->money = malloc(sizeof(char) * 10);
 	sys->int_money = 50;
-	sys->error_message = 0;
+	init_player_system(sys);
 	init_inventory(sys);
 	init_objects(sys);
 	init_text_menu(sys);
