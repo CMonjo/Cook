@@ -127,6 +127,39 @@ void init_text_menu(sys_t *sys)
 	(sfVector2f){650, 150}, "You lose !", 120);
 	sys->txt[16] = set_text("assets/font/bold.ttf",
 	(sfVector2f){450, 280}, "Not enough ingredient in stock", 70);
+
+	sys->txt[17] = set_text("assets/font/bold.ttf",
+	(sfVector2f){890, 300}, sys->inventory[0].cstock, 50);
+	sys->txt[18] = set_text("assets/font/bold.ttf",
+	(sfVector2f){890, 442}, sys->inventory[1].cstock, 50);
+	sys->txt[19] = set_text("assets/font/bold.ttf",
+	(sfVector2f){890, 584}, sys->inventory[2].cstock, 50);
+	sys->txt[20] = set_text("assets/font/bold.ttf",
+	(sfVector2f){890, 726}, sys->inventory[3].cstock, 50);
+	sys->txt[21] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1390, 300}, sys->inventory[4].cstock, 50);
+	sys->txt[22] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1390, 435}, sys->inventory[5].cstock, 50);
+	sys->txt[23] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1390, 599}, sys->inventory[6].cstock, 50);
+	sys->txt[24] = set_text("assets/font/bold.ttf",
+	(sfVector2f){1390, 740}, sys->inventory[7].cstock, 50);
+	sys->txt[25] = set_text("assets/font/bold.ttf",
+	(sfVector2f){360, 10}, sys->inventory[0].cstock, 50);
+	sys->txt[26] = set_text("assets/font/bold.ttf",
+	(sfVector2f){470, 10}, sys->inventory[1].cstock, 50);
+	sys->txt[27] = set_text("assets/font/bold.ttf",
+	(sfVector2f){590, 12}, sys->inventory[2].cstock, 50);
+	sys->txt[28] = set_text("assets/font/bold.ttf",
+	(sfVector2f){700, 10}, sys->inventory[3].cstock, 50);
+	sys->txt[29] = set_text("assets/font/bold.ttf",
+	(sfVector2f){360, 80}, sys->inventory[4].cstock, 50);
+	sys->txt[30] = set_text("assets/font/bold.ttf",
+	(sfVector2f){470, 78}, sys->inventory[5].cstock, 50);
+	sys->txt[31] = set_text("assets/font/bold.ttf",
+	(sfVector2f){590, 79}, sys->inventory[6].cstock, 50);
+	sys->txt[32] = set_text("assets/font/bold.ttf",
+	(sfVector2f){700, 80}, sys->inventory[7].cstock, 50);
 }
 
 void render_objects(sys_t *sys)

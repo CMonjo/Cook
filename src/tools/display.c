@@ -23,38 +23,24 @@ int print_h(char const *filepath)
 	return (0);
 }
 
-void disp_text_menu(sys_t *sys)
-{
-	sys->txt[24] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1390, 740}, sys->inventory[7].cstock, 50);
-	for (int i = 17; i != 25; i++) {
-		sfText_setColor(sys->txt[i]->text, sfBlack);
-		sfRenderWindow_drawText(sys->win, sys->txt[i]->text, NULL);
-	}
-}
-
 void disp_menu(sys_t *sys)
 {
 	sfRenderWindow_drawSprite(sys->win, sys->wsup[0]->sprite, NULL);
 	verif_shop(sys);
-	for (int i = 0; i != 8; i++) {
+	for (int i = 0; i != 8; i++)
 		sys->inventory[i].cstock = init_money(sys->inventory[i].stock);
+	sfText_setString(sys->txt[17]->text, sys->inventory[0].cstock);
+	sfText_setString(sys->txt[18]->text, sys->inventory[1].cstock);
+	sfText_setString(sys->txt[19]->text, sys->inventory[2].cstock);
+	sfText_setString(sys->txt[20]->text, sys->inventory[3].cstock);
+	sfText_setString(sys->txt[21]->text, sys->inventory[4].cstock);
+	sfText_setString(sys->txt[22]->text, sys->inventory[5].cstock);
+	sfText_setString(sys->txt[23]->text, sys->inventory[6].cstock);
+	sfText_setString(sys->txt[24]->text, sys->inventory[7].cstock);
+	for (int i = 17; i != 25; i++) {
+		sfText_setColor(sys->txt[i]->text, sfBlack);
+		sfRenderWindow_drawText(sys->win, sys->txt[i]->text, NULL);
 	}
-	sys->txt[17] = set_text("assets/font/bold.ttf",
-	(sfVector2f){890, 300}, sys->inventory[0].cstock, 50);
-	sys->txt[18] = set_text("assets/font/bold.ttf",
-	(sfVector2f){890, 442}, sys->inventory[1].cstock, 50);
-	sys->txt[19] = set_text("assets/font/bold.ttf",
-	(sfVector2f){890, 584}, sys->inventory[2].cstock, 50);
-	sys->txt[20] = set_text("assets/font/bold.ttf",
-	(sfVector2f){890, 726}, sys->inventory[3].cstock, 50);
-	sys->txt[21] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1390, 300}, sys->inventory[4].cstock, 50);
-	sys->txt[22] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1390, 435}, sys->inventory[5].cstock, 50);
-	sys->txt[23] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1390, 599}, sys->inventory[6].cstock, 50);
-	disp_text_menu(sys);
 }
 
 void disp_recipe(sys_t *sys)
