@@ -59,13 +59,17 @@ void display_actionbar(sys_t *sys)
 	if (sys->event.type == sfEvtMouseButtonPressed) {
 		for (int i = 0; i < 4; i++) {
 			if (button_is_clicked(sys, i,
-			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
+			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1) {
+				sfMusic_play(sys->m_button);
 				sys->button[i]->callback(sys);
+			}
 		}
 		for (int i = 0; i < 8; i++) {
 			if (cocktail_is_clicked(sys, i,
-			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1)
+			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1) {
+				sfMusic_play(sys->m_button);
 				sys->drink[i].callback(sys, i);
+			}
 		}
 	}
 }

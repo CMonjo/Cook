@@ -136,7 +136,6 @@
 		int select;
 		int blender;
 		int *wave;
-		int rando;
 		player_t player;
 		inventory_t inventory[10];
 		txt_t *txt[100];
@@ -220,4 +219,5 @@
 	void move_player();
 	void player_detection(sys_t *sys, int i);
 	int generate_random_cocktail();
+	void set_move_player(sys_t *sys);
 #endif

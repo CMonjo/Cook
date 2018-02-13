@@ -2,8 +2,7 @@ Cooking can be fun with CSFML.
 The goal of the game is to make good recipes as quickly as possible!
 
 USAGE
-	./my_cook <time value>
-	The time value defines the number of time for the customers who will enter the restaurants !
+	./my_cook
 USER INTERACTIONS
 	Mouse : select recipes
 	UP scrolling up into the menu
