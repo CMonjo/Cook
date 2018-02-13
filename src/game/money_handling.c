@@ -22,6 +22,10 @@ char *init_money(int nbr)
 		ns[end_str] = nbr % 10 + 48;
 		nbr = nbr / 10;
 	}
+	if (ns[0] == '\0') {
+		ns[0] = '0';
+		ns[1] = '\0';
+	}
 	return (ns);
 }
 

@@ -32,7 +32,8 @@ SRC	=	src/main.c			\
 		src/game/player.c	\
 		src/game/blender_and_cocktail.c \
 		src/game/cocktail_recipe.c	\
-		src/tools/engine2.c
+		src/tools/engine2.c		\
+		src/tools/display_cocktail_stock.c
 
 OBJ	=	$(SRC:.c=.o)
 

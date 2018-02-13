@@ -42,8 +42,6 @@ void cocktail_finished(sys_t *sys)
 	}
 	else if (sys->blen_step == 17 && verif_cocktail(sys) == 1)
 		sfRenderWindow_drawSprite(sys->win, sys->obj[19]->sprite, NULL);
-	for (int i = 0; i != 8; i++)
-		printf("stock[%d] = %d\n", i, sys->drink[i].stock);
 }
 
 void blender_disp(sys_t *sys)

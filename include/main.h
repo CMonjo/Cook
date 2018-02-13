@@ -151,6 +151,7 @@
 
 	// PROTOTYPES
 
+	void set_cocktail_stock(sys_t *sys);
 	void sell_cocktail(sys_t *sys, int i);
 	void init_cocktail_button(sys_t *sys);
 	void reinit_ingredient(sys_t *sys);
