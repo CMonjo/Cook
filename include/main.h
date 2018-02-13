@@ -143,9 +143,9 @@
 		wsup_t *wsup[100];
 		button_t *button[100];
 		newbar_t *nb[100];
-		bshop_t *bshop[10];
+		bshop_t *bshop[100];
 		cocktail_t cocktail[20];
-		drink_t drink[10];
+		drink_t drink[100];
 	} sys_t;
 
 	// PROTOTYPES
