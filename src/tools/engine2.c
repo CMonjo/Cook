@@ -25,10 +25,10 @@ void (*func)())
 
 void verif_third_client(sys_t *sys, int i)
 {
-	printf("i %d obj[%s], drink[%s]\n", sys->player.p3, sys->obj[sys->player.p3]->name, sys->drink[i].name);
-	if (sys->wave[13] > 0 && sys->drink[i].stock > 0 &&
-	my_strcmp(sys->obj[sys->player.p3]->name, sys->drink[i].name) == 0)
+	if (sys->wave[13] > 0 && sys->wave[13] < 800 && sys->drink[i].stock > 0
+	&& my_strcmp(sys->obj[sys->player.p3]->name, sys->drink[i].name) == 0)
 	{
+		printf("%s\n", "sell at player 3");
 		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave[13] = 0;
@@ -39,20 +39,21 @@ void verif_third_client(sys_t *sys, int i)
 
 void sell_cocktail(sys_t *sys, int i)
 {
-	printf("i %d obj[%s], drink[%s]\n", sys->player.p1, sys->obj[sys->player.p1]->name, sys->drink[i].name);
-	printf("i %d obj[%s], drink[%s]\n", sys->player.p2, sys->obj[sys->player.p2]->name, sys->drink[i].name);
-	if (sys->wave[11] > 0 && sys->drink[i].stock > 0 &&
+	printf("1 %d 2 %d et 3 %d\n", sys->wave[11], sys->wave[12], sys->wave[13]);
+	if (sys->wave[11] > 0 && sys->wave[11] < 800 && sys->drink[i].stock > 0 &&
 	my_strcmp(sys->obj[sys->player.p1]->name, sys->drink[i].name) == 0)
 	{
+		printf("%s\n", "sell at player 1");
 		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave[11] = 0;
 		sys->player.p1 = 0;
 		sys->player.one = 0;
 	}
-	else if (sys->wave[12] > 0 && sys->drink[i].stock > 0 &&
-	my_strcmp(sys->obj[sys->player.p2]->name, sys->drink[i].name) == 0)
+	else if (sys->wave[12] > 0 && sys->wave[12] < 800 && sys->drink[i].stock > 0 && my_strcmp(sys->obj[sys->player.p2]->name,
+	sys->drink[i].name) == 0)
 	{
+		printf("%s\n", "sell at player 2");
 		sys->int_money += 10;
 		sys->drink[i].stock -= 1;
 		sys->wave[12] = 0;
