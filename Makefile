@@ -9,7 +9,7 @@ CC	=	gcc
 
 CFLAGS	=	-Wall -Wextra -W -I include/ -lc_graph_prog
 
-CFLAGT	=	-g3 -Wall -Wextra -W -I include/ -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system -g3 -g
+CFLAGT	=	-Wall -Wextra -W -I include/ -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system -g3 -g
 
 LIB	=	-L ./lib/tools/ -ltools
 
