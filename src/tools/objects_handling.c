@@ -9,6 +9,10 @@
 
 void init_bubble_name(sys_t *sys)
 {
+	for (int i = 0; i != 11; i++) {
+		sys->obj[i]->name = malloc(sizeof(char) * 20);
+		sys->obj[i]->name = NULL;
+	}
 	sys->obj[3]->name = "capple";
 	sys->obj[4]->name = "cbananas";
 	sys->obj[5]->name = "cbeer";
