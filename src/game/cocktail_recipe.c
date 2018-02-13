@@ -48,7 +48,7 @@ int list_recipe2(sys_t *sys, char *i1, char *i2, char *i3)
 		sys->drink[3].stock++;
 		reinit_ingredient(sys);
 		return (0);
-	} else if ((my_strcmp(i1, "pineapple") == 0 && my_strcmp(i2, "apple")
+	} else if ((my_strcmp(i1, "cherry") == 0 && my_strcmp(i2, "apple")
 	== 0 && my_strcmp(i3, "apple") == 0) || (my_strcmp(i1, "apple") == 0 &&
 	my_strcmp(i2, "cherry") == 0 && my_strcmp(i3, "apple") == 0) ||
 	(my_strcmp(i1, "apple") == 0 && my_strcmp(i2, "apple") == 0 &&
