@@ -20,7 +20,6 @@ void free_options(sys_t *sys)
 		free(sys->txt[i]);
 	for (i = 0; sys->button[i] != NULL; i++)
 		free(sys->button[i]);
-	free(sys->player);
 	free(sys->money);
 	free(sys);
 }
