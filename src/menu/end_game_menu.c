@@ -7,48 +7,56 @@
 
 #include "main.h"
 
-void which_end_option(sys_t *sys)
+void select_end_menu(sys_t *sys)
 {
-	if (sfKeyboard_isKeyPressed(sfKeyRight)) {
-		sys->select --;
-		sfMusic_play(sys->music_menu);
-	}
+	int tmp = 0;
+
 	if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
-		sys->select ++;
-		sfMusic_play(sys->music_menu);
+		sys->select--;
+		tmp++;
+		sfMusic_play(sys->m_menu);
 	}
-	move_select_menu(sys, 2, 1);
+	if (sfKeyboard_isKeyPressed(sfKeyRight)) {
+		sys->select++;
+		tmp++;
+		sfMusic_play(sys->m_menu);
+	}
+	if (tmp != 0)
+		move_select_menu(sys, 2, 1);
 }
 
-void display_end_menu(sys_t *sys)
+void choose_status_end_menu(sys_t *sys)
 {
-	int i = 0;
-
-	for (i = 14; i < 16; i++) {
-		sfText_setColor(sys->menu[i]->text, sfWhite);
-		sfText_setCharacterSize(sys->menu[i]->text, 60);
+	if (sfKeyboard_isKeyPressed(sfKeyReturn) && sys->select == 1) {
+		reset_game(sys);
+		sys->status = 0;
 	}
-	sfText_setColor(sys->menu[sys->select + 13]->text, sfGreen);
-	sfText_setCharacterSize(sys->menu[sys->select + 13]->text, 80);
-	if (sfKeyboard_isKeyPressed(sfKeyReturn) && sys->select == 1)
+	else if (sfKeyboard_isKeyPressed(sfKeyReturn) && sys->select == 2)
 		sfRenderWindow_close(sys->win);
-	if (sfKeyboard_isKeyPressed(sfKeyReturn) && sys->select == 2)
-		restart_game_loop(sys);
 }
 
-void render_end(sys_t *sys)
+void display_text_end_menu(sys_t *sys)
 {
-	sfRenderWindow_clear(sys->win, sfBlack);
-	sys->menu[10] = set_text("assets/font/bold.ttf",
-	(sfVector2f){450, 900}, sys->score, 50);
-	sfRenderWindow_drawSprite(sys->win, sys->bg[0]->sprite, NULL);
-	sfRenderWindow_drawText(sys->win, sys->menu[10]->text, NULL);
-	sfRenderWindow_drawText(sys->win, sys->menu[11]->text, NULL);
-	sfRenderWindow_drawText(sys->win, sys->menu[14]->text, NULL);
-	sfRenderWindow_drawText(sys->win, sys->menu[15]->text, NULL);
-	if (sys->game_status == 0)
-		sfRenderWindow_drawText(sys->win, sys->menu[12]->text, NULL);
-	if (sys->game_status == 1)
-		sfRenderWindow_drawText(sys->win, sys->menu[13]->text, NULL);
+	int i = 1;
+
+	for (i = 11; i != 13; i++) {
+		sfText_setColor(sys->txt[i]->text, sfWhite);
+		sfText_setCharacterSize(sys->txt[i]->text, 80);
+	}
+	sfText_setColor(sys->txt[sys->select + 10]->text, sfMagenta);
+	sfText_setCharacterSize(sys->txt[sys->select + 10]->text, 82);
+	sfClock_restart(sys->clock);
+}
+
+void render_end_menu(sys_t *sys)
+{
+	sfRenderWindow_drawSprite(sys->win, sys->obj[0]->sprite, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[8]->text, NULL);
+	if (sys->int_money <= 0)
+		sfRenderWindow_drawText(sys->win, sys->txt[9]->text, NULL);
+	else
+		sfRenderWindow_drawText(sys->win, sys->txt[10]->text, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[11]->text, NULL);
+	sfRenderWindow_drawText(sys->win, sys->txt[12]->text, NULL);
 	sfRenderWindow_display(sys->win);
 }

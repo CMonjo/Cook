@@ -31,6 +31,10 @@ char *init_money(int nbr)
 
 void display_money(sys_t *sys)
 {
+	if (sys->int_money < 0 || sys->int_money >= sys->limit) {
+		sys->status = 2;
+		return;
+	}
 	sys->money = init_money(sys->int_money);
 	sfText_setString(sys->txt[0]->text, sys->money);
 }

@@ -11,15 +11,20 @@ void free_options(sys_t *sys)
 {
 	int i = 0;
 
-	// IMPOSSIBLE A FREE ?
-	// for (i = 0; i != 8; i++)
-	 	//free(sys->drink[i].name);
 	for (i = 0; sys->obj[i] != NULL; i++)
 		free(sys->obj[i]);
 	for (i = 0; sys->txt[i] != NULL; i++)
 		free(sys->txt[i]);
 	for (i = 0; sys->button[i] != NULL; i++)
 		free(sys->button[i]);
+	// for (i = 0; sys->wsup[i] != NULL; i++)
+	// 	free(sys->wsup[i]);
+	for (i = 0; sys->nb[i] != NULL; i++)
+		free(sys->nb[i]);
+	for (i = 0; sys->bshop[i] != NULL; i++)
+		free(sys->bshop[i]);
+	//free(sys->wave);
+	//free(sys->player.wave);
 	free(sys->money);
 	free(sys);
 }
@@ -32,12 +37,15 @@ void destroy_objects(sys_t *sys)
 		sfSprite_destroy(sys->obj[i]->sprite);
 		sfTexture_destroy(sys->obj[i]->texture);
 	}
+
+	//NE VEUT PAS SE DESTROY
 	// for (i = 0; sys->wsup[i] != NULL; i++) {
 	// 	if (sys->wsup[i]->sprite != NULL)
 	// 		sfSprite_destroy(sys->wsup[i]->sprite);
 	// 	if (sys->wsup[i]->texture != NULL)
 	// 		sfTexture_destroy(sys->wsup[i]->texture);
 	// }
+
 	for (i = 0; sys->button[i] != NULL; i++) {
 		sfSprite_destroy(sys->button[i]->sprite);
 		sfTexture_destroy(sys->button[i]->texture);

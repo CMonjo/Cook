@@ -112,7 +112,6 @@ void init_window(sys_t *sys)
 	sys->m_game = sfMusic_createFromFile("assets/music/game.wav");
 	sys->m_menu = sfMusic_createFromFile("assets/music/select.wav");
 	sys->m_button = sfMusic_createFromFile("assets/music/button.wav");
-
 	sys->status = 0;
 	sys->blen_step = 14;
 	sys->select = 1;

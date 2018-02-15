@@ -23,6 +23,24 @@ obj_t *add_obj(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 	return (new);
 }
 
+wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
+{
+	wsup_t *new = malloc(sizeof(wsup_t));
+
+	if (new == NULL)
+		return (NULL);
+	new->sprite = sfSprite_create();
+	new->texture = sfTexture_createFromFile(path_sprite, NULL);
+	new->rect = rect;
+	new->pos = pos;
+	new->key = 1;
+	new->imopen = 0;
+	sfSprite_setTexture(new->sprite, new->texture, sfTrue);
+	sfSprite_setTextureRect(new->sprite, new->rect);
+	sfSprite_setPosition(new->sprite, new->pos);
+	return (new);
+}
+
 newbar_t *add_new_buttom(const char *path_sprite, sfVector2f pos,
 sfVector2f size, sfIntRect square, void (*func)(void))
 {
@@ -42,24 +60,6 @@ sfVector2f size, sfIntRect square, void (*func)(void))
 	sfSprite_setTextureRect(new->sprite, new->square);
 	sfSprite_setPosition(new->sprite, new->pos);
 	new->callback = func;
-	return (new);
-}
-
-wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
-{
-	wsup_t *new = malloc(sizeof(wsup_t));
-
-	if (new == NULL)
-		return (NULL);
-	new->sprite = sfSprite_create();
-	new->texture = sfTexture_createFromFile(path_sprite, NULL);
-	new->rect = rect;
-	new->pos = pos;
-	new->key = 1;
-	new->imopen = 0;
-	sfSprite_setTexture(new->sprite, new->texture, sfTrue);
-	sfSprite_setTextureRect(new->sprite, new->rect);
-	sfSprite_setPosition(new->sprite, new->pos);
 	return (new);
 }
 

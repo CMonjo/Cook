@@ -59,6 +59,10 @@ void remove_bubble(sys_t *sys, int i)
 void move_back_player(sys_t *sys, int i, int max_value)
 {
 	remove_bubble(sys, i);
+	if (sys->angry[i] == 1) {
+		sys->int_money -= 5;
+		sys->angry[i] = 0;
+	}
 	sys->obj[i]->rect.left = 0;
 	if (sys->obj[i]->pos.y >= 1110) {
 		i == 11 ? sys->player.rp1 = 0 : 0;
@@ -82,7 +86,6 @@ void set_move_player(sys_t *sys)
 		sys->player.rp2 = (rand() % (150 - 1 + 1)) + 1;
 	if (sys->player.rp3 != 1)
 		sys->player.rp3 = (rand() % (150 - 1 + 1)) + 1;
-
 	if (sys->player.rp1 == 1)
 		move_player(sys, 11, 1045);
 	if (sys->player.rp2 == 1)
@@ -95,16 +98,20 @@ void player_detection(sys_t *sys, int i)
 {
 	if (i == 11) {
 		sys->player.one = i;
+		sys->angry[11] = 1;
 		if (sys->player.p1 == 0)
 			sys->player.p1 = generate_random_cocktail();
 	}
 	if (i == 12) {
 		sys->player.two = i;
+		sys->angry[12] = 1;
+
 		if (sys->player.p2 == 0)
 			sys->player.p2 = generate_random_cocktail();
 	}
 	if (i == 13) {
 		sys->player.three = i;
+		sys->angry[13] = 1;
 		if (sys->player.p3 == 0)
 			sys->player.p3 = generate_random_cocktail();
 	}
@@ -112,7 +119,7 @@ void player_detection(sys_t *sys, int i)
 
 void move_player(sys_t *sys, int i, int max_value)
 {
-	if (sys->wave[i] == 0) // OU COCKTAIL OK
+	if (sys->wave[i] == 0)
 		move_back_player(sys, i, max_value);
 	else if (sys->obj[i]->pos.y >= 200 && sys->wave[i] != 0) {
 		sys->obj[i]->rect.left = 73;

@@ -40,9 +40,9 @@ void init_objects(sys_t *sys)
 	sys->obj[8] = add_obj("assets/img/bubble/orange.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[9] = add_obj("assets/img/bubble/pineapple.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
 	sys->obj[10] = add_obj("assets/img/bubble/watermelon.png", (sfVector2f){1000, 50}, (sfIntRect){0, 0, 225, 143});
-	sys->obj[11] = add_obj("assets/img/player/P3.png", (sfVector2f){1000, 1100}, (sfIntRect){0, 0, 73, 131});
-	sys->obj[12] = add_obj("assets/img/player/P3.png", (sfVector2f){1300, 1100}, (sfIntRect){0, 0, 73, 131});
-	sys->obj[13] = add_obj("assets/img/player/P3.png", (sfVector2f){1550, 1100}, (sfIntRect){0, 0, 73, 131});
+	sys->obj[11] = add_obj("assets/img/player/p.png", (sfVector2f){1000, 1100}, (sfIntRect){0, 0, 73, 131});
+	sys->obj[12] = add_obj("assets/img/player/p.png", (sfVector2f){1300, 1100}, (sfIntRect){0, 0, 73, 131});
+	sys->obj[13] = add_obj("assets/img/player/p.png", (sfVector2f){1550, 1100}, (sfIntRect){0, 0, 73, 131});
 	sys->obj[14] = add_obj("assets/img/blender/blender_bg.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[15] = add_obj("assets/img/blender/blender_step1.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
 	sys->obj[16] = add_obj("assets/img/blender/blender_step2.png", (sfVector2f){400, 200}, (sfIntRect){0, 0, 1200, 735});
@@ -100,29 +100,24 @@ void init_text_menu(sys_t *sys)
 	sys->txt[0] = set_text("assets/font/bold.ttf",
 	(sfVector2f){180, 0}, sys->money, 50);
 	sys->txt[1] = set_text("assets/font/bold.ttf",
-	(sfVector2f){710, 250}, "My Cook ! ", 100);
+	(sfVector2f){200, 50}, "My Cook ! ", 100);
 	sys->txt[2] = set_text("assets/font/bold.ttf",
-	(sfVector2f){500, 550}, "Play", 50);
+	(sfVector2f){600, 850}, "Play", 50);
 	sys->txt[3] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1220, 550}, "Quit", 50);
+	(sfVector2f){1120, 850}, "Quit", 50);
 	sys->txt[4] = set_text("assets/font/bold.ttf",
-	(sfVector2f){790, 10}, "Pause !", 100);
+	(sfVector2f){180, 50}, "Pause !", 100);
 	sys->txt[5] = set_text("assets/font/bold.ttf",
-	(sfVector2f){150, 920}, "Continue", 50);
+	(sfVector2f){150, 850}, "Continue", 50);
 	sys->txt[6] = set_text("assets/font/bold.ttf",
-	(sfVector2f){780, 920}, "Go to home", 50);
+	(sfVector2f){780, 850}, "Go to home", 50);
 	sys->txt[7] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1550, 920}, "RageQuit", 50);
-	sys->txt[8] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1550, 920}, "Game over...", 50);
-	sys->txt[9] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1550, 920}, "You lose...", 50);
-	sys->txt[10] = set_text("assets/font/bold.ttf",
-	(sfVector2f){1550, 920}, "You win !", 50);
-	sys->txt[11] = set_text("assets/font/bold.ttf",
-	(sfVector2f){100, 900}, "Your score : ", 50);
-	sys->txt[12] = set_text("assets/font/bold.ttf",
-	(sfVector2f){650, 150}, "You win !", 120);
+	(sfVector2f){1350, 850}, "RageQuit", 50);
+	sys->txt[8] = set_text("assets/font/bold.ttf", (sfVector2f){160, 50}, "Game over...", 100);
+	sys->txt[9] = set_text("assets/font/bold.ttf", (sfVector2f){220, 220}, "You lose...", 50);
+	sys->txt[10] = set_text("assets/font/bold.ttf", (sfVector2f){790, 960}, "You win !", 50);
+	sys->txt[11] = set_text("assets/font/bold.ttf", (sfVector2f){600, 850}, "Home", 50);
+	sys->txt[12] = set_text("assets/font/bold.ttf", (sfVector2f){1120, 850}, "Quit", 50);
 	sys->txt[13] = set_text("assets/font/bold.ttf",
 	(sfVector2f){650, 150}, "You lose !", 120);
 	sys->txt[16] = set_text("assets/font/bold.ttf",

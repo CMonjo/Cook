@@ -1,8 +1,11 @@
 Cooking can be fun with CSFML.
-The goal of the game is to make good recipes as quickly as possible!
+The goal of the game is to buy the ingredients, to know the recipes and cook them as quickly as possible before the customer leaves!
+If you do not serve a customer before he gets fed up, he'll leave and you'll lose money...
+Be careful not to go below 0 pieces!
 
 USAGE
-	./my_cook
+	./my_cook <limit value>
+	The limit value is the maximum cash value before the game ends
 USER INTERACTIONS
 	Mouse : select recipes
 	UP scrolling up into the menu

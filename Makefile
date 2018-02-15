@@ -22,6 +22,7 @@ SRC	=	src/main.c			\
 		src/game/close_game.c		\
 		src/menu/display_menu.c		\
 		src/menu/main_menu.c		\
+		src/menu/end_game_menu.c		\
 		src/menu/pause_menu.c		\
 		src/game/event_handling.c	\
 		src/action_bar/button_function.c \
@@ -33,6 +34,7 @@ SRC	=	src/main.c			\
 		src/game/blender_and_cocktail.c \
 		src/game/cocktail_recipe.c	\
 		src/tools/engine2.c		\
+		src/game/reset_options.c	\
 		src/tools/display_cocktail_stock.c
 
 OBJ	=	$(SRC:.c=.o)
