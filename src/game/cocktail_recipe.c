@@ -14,7 +14,7 @@ void reinit_ingredient(sys_t *sys)
 	sys->cocktail[17].name = "no";
 }
 
-int list_recipe3(sys_t *sys, char *i1, char *i2, char *i3)
+int list_recipe_third(sys_t *sys, char *i1, char *i2, char *i3)
 {
 	if (my_strcmp(i1, "orange") == 0 && my_strcmp(i2, "orange") == 0 &&
 	my_strcmp(i3, "orange") == 0) {
@@ -38,7 +38,7 @@ int list_recipe3(sys_t *sys, char *i1, char *i2, char *i3)
 	return (1);
 }
 
-int list_recipe2(sys_t *sys, char *i1, char *i2, char *i3)
+int list_recipe_second(sys_t *sys, char *i1, char *i2, char *i3)
 {
 	if ((my_strcmp(i1, "pineapple") == 0 && my_strcmp(i2, "banana")
 	== 0 && my_strcmp(i3, "banana") == 0) || (my_strcmp(i1, "banana") == 0
@@ -57,7 +57,7 @@ int list_recipe2(sys_t *sys, char *i1, char *i2, char *i3)
 		reinit_ingredient(sys);
 		return (0);
 	} else
-		return (list_recipe3(sys, i1, i2, i3));
+		return (list_recipe_third(sys, i1, i2, i3));
 }
 
 int list_recipe(sys_t *sys, char *i1, char *i2, char *i3)
@@ -80,5 +80,5 @@ int list_recipe(sys_t *sys, char *i1, char *i2, char *i3)
 		reinit_ingredient(sys);
 		return (0);
 	} else
-		return (list_recipe2(sys, i1, i2, i3));
+		return (list_recipe_second(sys, i1, i2, i3));
 }

@@ -40,7 +40,8 @@ void display_text_pause_menu(sys_t *sys)
 		sfText_setColor(sys->txt[i]->text, sfWhite);
 		sfText_setCharacterSize(sys->txt[i]->text, 60);
 	}
-	sfText_setColor(sys->txt[sys->select + 4]->text, sfMagenta);
+	sfText_setColor(sys->txt[sys->select + 4]->text,
+		(sfColor){106,90,205,255});
 	sfText_setCharacterSize(sys->txt[sys->select + 4]->text, 62);
 	sfClock_restart(sys->clock);
 }

@@ -29,15 +29,14 @@ void free_options(sys_t *sys)
 	free(sys);
 }
 
-void destroy_objects(sys_t *sys)
+void destroy_button_object(sys_t *sys)
 {
 	int i = 0;
 
-	for (i = 0; sys->obj[i] != NULL; i++) {
-		sfSprite_destroy(sys->obj[i]->sprite);
-		sfTexture_destroy(sys->obj[i]->texture);
+	for (i = 0; sys->txt[i] != NULL; i++) {
+		sfFont_destroy(sys->txt[i]->font);
+		sfText_destroy(sys->txt[i]->text);
 	}
-
 	//NE VEUT PAS SE DESTROY
 	// for (i = 0; sys->wsup[i] != NULL; i++) {
 	// 	if (sys->wsup[i]->sprite != NULL)
@@ -45,21 +44,6 @@ void destroy_objects(sys_t *sys)
 	// 	if (sys->wsup[i]->texture != NULL)
 	// 		sfTexture_destroy(sys->wsup[i]->texture);
 	// }
-
-	for (i = 0; sys->button[i] != NULL; i++) {
-		sfSprite_destroy(sys->button[i]->sprite);
-		sfTexture_destroy(sys->button[i]->texture);
-		sfRectangleShape_destroy(sys->button[i]->rect);
-	}
-	for (i = 0; sys->nb[i] != NULL; i++) {
-		sfSprite_destroy(sys->nb[i]->sprite);
-		sfTexture_destroy(sys->nb[i]->texture);
-		sfRectangleShape_destroy(sys->nb[i]->rect);
-	}
-	for (i = 0; sys->txt[i] != NULL; i++) {
-		sfFont_destroy(sys->txt[i]->font);
-		sfText_destroy(sys->txt[i]->text);
-	}
 	for (i = 0; sys->bshop[i] != NULL; i++)
 		sfRectangleShape_destroy(sys->bshop[i]->rect);
 	for (i = 0; i != 8; i++)
@@ -71,4 +55,25 @@ void destroy_objects(sys_t *sys)
 	sfMusic_destroy(sys->m_button);
 	sfRenderWindow_destroy(sys->win);
 	free_options(sys);
+}
+
+void destroy_objects(sys_t *sys)
+{
+	int i = 0;
+
+	for (i = 0; sys->obj[i] != NULL; i++) {
+		sfSprite_destroy(sys->obj[i]->sprite);
+		sfTexture_destroy(sys->obj[i]->texture);
+	}
+	for (i = 0; sys->button[i] != NULL; i++) {
+		sfSprite_destroy(sys->button[i]->sprite);
+		sfTexture_destroy(sys->button[i]->texture);
+		sfRectangleShape_destroy(sys->button[i]->rect);
+	}
+	for (i = 0; sys->nb[i] != NULL; i++) {
+		sfSprite_destroy(sys->nb[i]->sprite);
+		sfTexture_destroy(sys->nb[i]->texture);
+		sfRectangleShape_destroy(sys->nb[i]->rect);
+	}
+	destroy_button_object(sys);
 }

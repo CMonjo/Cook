@@ -31,13 +31,14 @@ void increment_stock(sys_t *sys, int i)
 
 void verif_shop(sys_t *sys)
 {
-	for (int i = 0; i != 8; i++) {
-		sfRenderWindow_drawRectangleShape(sys->win, sys->bshop[i]->rect, NULL);
-	}
+	for (int i = 0; i != 8; i++)
+		sfRenderWindow_drawRectangleShape(sys->win,
+			sys->bshop[i]->rect, NULL);
 	if (sys->event.type == sfEvtMouseButtonPressed && my_clock(sys) == 1) {
 		for (int i = 0; i != 8; i++) {
 			if (button_shop_is_clicked(sys, i,
-			(sfVector2f){sys->event.mouseButton.x, sys->event.mouseButton.y}) == 1) {
+			(sfVector2f){sys->event.mouseButton.x,
+				sys->event.mouseButton.y}) == 1) {
 				sfMusic_play(sys->m_button);
 				sys->bshop[i]->callback(sys, i);
 			}

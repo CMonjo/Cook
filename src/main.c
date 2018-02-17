@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** CSFML MyRunner
+** CSFML MyCook
 ** File description:
 ** Main file
 */
@@ -31,8 +31,9 @@ void which_status(sys_t *sys)
 		which_status_game_loop(sys);
 }
 
-void my_window(sys_t *sys)
+void my_window(sys_t *sys, char **av)
 {
+	set_wave_values(sys, av);
 	init_window(sys);
 	init_windowsup(sys);
 	init_button_shop(sys);
@@ -46,23 +47,11 @@ void my_window(sys_t *sys)
 		sys->time = sfClock_getElapsedTime(sys->clock);
 		sys->seconds = sys->time.microseconds / 1000000.0;
 		sys->time_player = sfClock_getElapsedTime(sys->clock_player);
-		sys->seconds_player = sys->time_player.microseconds / 1000000.0;
+		sys->seconds_player =
+		sys->time_player.microseconds / 1000000.0;
 		which_status(sys);
 	}
 	destroy_objects(sys);
-}
-
-void set_wave_values(sys_t *sys, char **av)
-{
-	sys->wave = malloc(sizeof(int) * 14);
-	sys->angry = malloc(sizeof(int) * 14);
-	for (int i = 0; i != 14; i++) {
-		sys->wave[i] = 800;
-		sys->angry[i] = 1;
-	}
-	sys->limit = my_getnbr(av[1]);
-	if (sys->limit <= 80)
-		sys->limit = 150;
 }
 
 int main(int ac, char **av)
@@ -79,7 +68,6 @@ int main(int ac, char **av)
 		my_putstr("For more information use -h\n");
 		return (84);
 	}
-	set_wave_values(sys, av);
-	my_window(sys);
+	my_window(sys, av);
 	return (0);
 }
