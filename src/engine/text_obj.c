@@ -42,12 +42,15 @@ wsup_t *add_sup(const char *path_sprite, sfVector2f pos, sfIntRect rect)
 }
 
 newbar_t *add_new_buttom(const char *path_sprite, sfVector2f pos,
-sfVector2f size, sfIntRect square, void (*func)(void))
+	sfIntRect square, void (*func)(void))
 {
 	newbar_t *new = malloc(sizeof(sys_t));
+	sfVector2f size;
 
 	if (new == NULL)
 		return (NULL);
+	size.x = square.width;
+	size.y = square.height;
 	new->sprite = sfSprite_create();
 	new->texture = sfTexture_createFromFile(path_sprite, NULL);
 	new->square = square;
@@ -79,12 +82,15 @@ txt_t *set_text(char *font, sfVector2f pos, char *text, int size)
 }
 
 button_t *add_buttom(const char *path_sprite, sfVector2f pos,
-sfVector2f size, sfIntRect square, void (*func)(void))
+	sfIntRect square, void (*func)(void))
 {
+	sfVector2f size;
 	button_t *new = malloc(sizeof(sys_t));
 
 	if (new == NULL)
 		return (NULL);
+	size.x = square.width;
+	size.y = square.height;
 	new->sprite = sfSprite_create();
 	new->texture = sfTexture_createFromFile(path_sprite, NULL);
 	new->square = square;
