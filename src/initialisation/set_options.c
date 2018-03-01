@@ -38,7 +38,7 @@ void init_window(sys_t *sys)
 	sys->win = sfRenderWindow_create(mode, "Cook",
 	sfResize | sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(sys->win, 60);
-	srand(time(NULL));
+	srand(NULL);
 	sys->clock = sfClock_create();
 	sys->clock_player = sfClock_create();
 	sys->m_game = sfMusic_createFromFile("assets/music/game.wav");

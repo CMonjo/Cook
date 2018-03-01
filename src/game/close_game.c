@@ -17,14 +17,10 @@ void free_options(sys_t *sys)
 		free(sys->txt[i]);
 	for (i = 0; sys->button[i] != NULL; i++)
 		free(sys->button[i]);
-	// for (i = 0; sys->wsup[i] != NULL; i++)
-	// 	free(sys->wsup[i]);
 	for (i = 0; sys->nb[i] != NULL; i++)
 		free(sys->nb[i]);
 	for (i = 0; sys->bshop[i] != NULL; i++)
 		free(sys->bshop[i]);
-	//free(sys->wave);
-	//free(sys->player.wave);
 	free(sys->money);
 	free(sys);
 }
@@ -37,13 +33,6 @@ void destroy_button_object(sys_t *sys)
 		sfFont_destroy(sys->txt[i]->font);
 		sfText_destroy(sys->txt[i]->text);
 	}
-	//NE VEUT PAS SE DESTROY
-	// for (i = 0; sys->wsup[i] != NULL; i++) {
-	// 	if (sys->wsup[i]->sprite != NULL)
-	// 		sfSprite_destroy(sys->wsup[i]->sprite);
-	// 	if (sys->wsup[i]->texture != NULL)
-	// 		sfTexture_destroy(sys->wsup[i]->texture);
-	// }
 	for (i = 0; sys->bshop[i] != NULL; i++)
 		sfRectangleShape_destroy(sys->bshop[i]->rect);
 	for (i = 0; i != 8; i++)

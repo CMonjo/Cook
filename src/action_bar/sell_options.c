@@ -16,7 +16,6 @@ void reset_option_second_client(sys_t *sys)
 	sys->player.two = 0;
 }
 
-
 void verif_third_client(sys_t *sys, int i)
 {
 	if (sys->wave[13] > 0 && sys->wave[13] < 800 &&
