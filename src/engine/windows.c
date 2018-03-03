@@ -8,7 +8,7 @@
 #include "main.h"
 
 drink_t *add_cocktail_button(sfVector2f pos, sfVector2f size, sfIntRect square,
-void (*func)())
+void (*func)(void))
 {
 	drink_t *new = malloc(sizeof(sys_t));
 	if (new == NULL)
@@ -24,7 +24,7 @@ void (*func)())
 }
 
 bshop_t *newbutton_shop(sfVector2f pos, sfVector2f size, sfIntRect square,
-void (*func)())
+void (*func)(void))
 {
 	bshop_t *new = malloc(sizeof(sys_t));
 	if (new == NULL)
