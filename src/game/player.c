@@ -7,7 +7,7 @@
 
 #include "main.h"
 
-int generate_random_cocktail()
+int generate_random_cocktail(void)
 {
 	int val = 0;
 
